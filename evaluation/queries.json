@@ -1,0 +1,17 @@
+[
+ {"query":"find Python source files while skipping virtual environments", "expected":["main.py:discover_files"]},
+ {"query":"extract functions and their source locations from a Python file", "expected":["main.py:process_file"]},
+ {"query":"refresh the index after files change or disappear", "expected":["main.py:update_index"]},
+ {"query":"display a short code preview with its similarity score", "expected":["main.py:print_fxn"]},
+ {"query":"parse terminal arguments and dispatch the requested command", "expected":["main.py:main"]},
+ {"query":"create missing database tables", "expected":["database.py:initialize_database"]},
+ {"query":"open a database session", "expected":["database.py:get_db"]},
+ {"query":"save a file and its extracted functions into the database", "expected":["database.py:process_file_index"]},
+ {"query":"replace stored functions and remove obsolete definitions", "expected":["database.py:update_file"]},
+ {"query":"retrieve similar code from a selected project", "expected":["database.py:search_db"]},
+ {"query":"turn a natural language search request into a vector", "expected":["semantic_search.py:get_query_embedding"]},
+ {"query":"compute cosine similarity between two saved vectors", "expected":["semantic_search.py:vector_similarity"]},
+ {"query":"book a flight and charge my credit card", "expected":[]},
+ {"query":"render a three dimensional mesh with GPU shaders", "expected":[]},
+ {"query":"calculate insulin dosage from blood glucose readings", "expected":[]}
+]

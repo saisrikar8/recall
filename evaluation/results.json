@@ -1,0 +1,442 @@
+{
+  "model": "nomic-ai/CodeRankEmbed",
+  "cases": [
+    {
+      "query": "find Python source files while skipping virtual environments",
+      "expected": [
+        "main.py:discover_files"
+      ],
+      "results": [
+        {
+          "symbol": "main.py:discover_files",
+          "score": 0.347543636753431
+        },
+        {
+          "symbol": "main.py:main",
+          "score": 0.14246223148138132
+        },
+        {
+          "symbol": "database.py:search_db",
+          "score": 0.1290739225281357
+        },
+        {
+          "symbol": "semantic_search.py:get_code_embedding",
+          "score": 0.12463643004371723
+        },
+        {
+          "symbol": "main.py:process_file_or_dir",
+          "score": 0.1087011599625733
+        }
+      ]
+    },
+    {
+      "query": "extract functions and their source locations from a Python file",
+      "expected": [
+        "main.py:process_file"
+      ],
+      "results": [
+        {
+          "symbol": "main.py:process_file",
+          "score": 0.4872823876242934
+        },
+        {
+          "symbol": "main.py:print_fxn",
+          "score": 0.32249720616175725
+        },
+        {
+          "symbol": "main.py:discover_files",
+          "score": 0.2926953915680854
+        },
+        {
+          "symbol": "database.py:process_file_index",
+          "score": 0.28194917545616305
+        },
+        {
+          "symbol": "database.py:update_file",
+          "score": 0.25830788217877443
+        }
+      ]
+    },
+    {
+      "query": "refresh the index after files change or disappear",
+      "expected": [
+        "main.py:update_index"
+      ],
+      "results": [
+        {
+          "symbol": "main.py:update_index",
+          "score": 0.4775546191025009
+        },
+        {
+          "symbol": "database.py:init_index",
+          "score": 0.43564560759451837
+        },
+        {
+          "symbol": "database.py:update_file",
+          "score": 0.40146552872045577
+        },
+        {
+          "symbol": "database.py:process_file_index",
+          "score": 0.3753752475319305
+        },
+        {
+          "symbol": "main.py:search_index",
+          "score": 0.3141754316147794
+        }
+      ]
+    },
+    {
+      "query": "display a short code preview with its similarity score",
+      "expected": [
+        "main.py:print_fxn"
+      ],
+      "results": [
+        {
+          "symbol": "semantic_search.py:get_similarity",
+          "score": 0.34983777314086156
+        },
+        {
+          "symbol": "main.py:print_fxn",
+          "score": 0.3065486608784888
+        },
+        {
+          "symbol": "semantic_search.py:vector_similarity",
+          "score": 0.291369981025502
+        },
+        {
+          "symbol": "database.py:register_functions",
+          "score": 0.20035635115643718
+        },
+        {
+          "symbol": "semantic_search.py:get_code_embedding",
+          "score": 0.18413416927024426
+        }
+      ]
+    },
+    {
+      "query": "parse terminal arguments and dispatch the requested command",
+      "expected": [
+        "main.py:main"
+      ],
+      "results": [
+        {
+          "symbol": "main.py:main",
+          "score": 0.3361307191570988
+        },
+        {
+          "symbol": "main.py:search_index",
+          "score": 0.15368976309881677
+        },
+        {
+          "symbol": "main.py:process_file_or_dir",
+          "score": 0.09964349207705271
+        },
+        {
+          "symbol": "main.py:print_fxn",
+          "score": 0.09419032880180762
+        },
+        {
+          "symbol": "database.py:process_file_index",
+          "score": 0.06672764258304568
+        }
+      ]
+    },
+    {
+      "query": "create missing database tables",
+      "expected": [
+        "database.py:initialize_database"
+      ],
+      "results": [
+        {
+          "symbol": "database.py:initialize_database",
+          "score": 0.4112067663051625
+        },
+        {
+          "symbol": "database.py:register_functions",
+          "score": 0.15611111152214524
+        },
+        {
+          "symbol": "database.py:init_index",
+          "score": 0.14835408644793635
+        },
+        {
+          "symbol": "semantic_search.py:embed_indexed_functions",
+          "score": 0.11048958282767828
+        },
+        {
+          "symbol": "main.py:fail_on_error",
+          "score": 0.10918560538090405
+        }
+      ]
+    },
+    {
+      "query": "open a database session",
+      "expected": [
+        "database.py:get_db"
+      ],
+      "results": [
+        {
+          "symbol": "database.py:get_db",
+          "score": 0.5180769902828378
+        },
+        {
+          "symbol": "database.py:initialize_database",
+          "score": 0.22699127665081448
+        },
+        {
+          "symbol": "database.py:search_db",
+          "score": 0.21638621183421677
+        },
+        {
+          "symbol": "main.py:search_index",
+          "score": 0.1782645037687243
+        },
+        {
+          "symbol": "database.py:init_index",
+          "score": 0.1170776339049139
+        }
+      ]
+    },
+    {
+      "query": "save a file and its extracted functions into the database",
+      "expected": [
+        "database.py:process_file_index"
+      ],
+      "results": [
+        {
+          "symbol": "database.py:update_file",
+          "score": 0.49844715170902565
+        },
+        {
+          "symbol": "database.py:process_file_index",
+          "score": 0.40343578685849735
+        },
+        {
+          "symbol": "main.py:process_file",
+          "score": 0.40194347635955063
+        },
+        {
+          "symbol": "main.py:update_index",
+          "score": 0.37722437940616055
+        },
+        {
+          "symbol": "database.py:add_file",
+          "score": 0.31980017259710697
+        }
+      ]
+    },
+    {
+      "query": "replace stored functions and remove obsolete definitions",
+      "expected": [
+        "database.py:update_file"
+      ],
+      "results": [
+        {
+          "symbol": "database.py:update_file",
+          "score": 0.32635865672051584
+        },
+        {
+          "symbol": "semantic_search.py:embed_indexed_functions",
+          "score": 0.2786357091076477
+        },
+        {
+          "symbol": "database.py:register_functions",
+          "score": 0.2582105855352074
+        },
+        {
+          "symbol": "main.py:process_file",
+          "score": 0.24045073146006382
+        },
+        {
+          "symbol": "main.py:update_index",
+          "score": 0.23532417244273368
+        }
+      ]
+    },
+    {
+      "query": "retrieve similar code from a selected project",
+      "expected": [
+        "database.py:search_db"
+      ],
+      "results": [
+        {
+          "symbol": "semantic_search.py:get_similarity",
+          "score": 0.38543669010917514
+        },
+        {
+          "symbol": "semantic_search.py:get_code_embedding",
+          "score": 0.3328070316628145
+        },
+        {
+          "symbol": "semantic_search.py:vector_similarity",
+          "score": 0.2950449840026876
+        },
+        {
+          "symbol": "main.py:main",
+          "score": 0.23589621770198774
+        },
+        {
+          "symbol": "main.py:match_fxns",
+          "score": 0.13880349776333856
+        }
+      ]
+    },
+    {
+      "query": "turn a natural language search request into a vector",
+      "expected": [
+        "semantic_search.py:get_query_embedding"
+      ],
+      "results": [
+        {
+          "symbol": "semantic_search.py:get_query_embedding",
+          "score": 0.2305732252499048
+        },
+        {
+          "symbol": "semantic_search.py:vector_similarity",
+          "score": 0.22578674578965735
+        },
+        {
+          "symbol": "database.py:search_db",
+          "score": 0.19365655730669196
+        },
+        {
+          "symbol": "main.py:match_fxns",
+          "score": 0.1908922447696593
+        },
+        {
+          "symbol": "main.py:main",
+          "score": 0.14777262472194203
+        }
+      ]
+    },
+    {
+      "query": "compute cosine similarity between two saved vectors",
+      "expected": [
+        "semantic_search.py:vector_similarity"
+      ],
+      "results": [
+        {
+          "symbol": "semantic_search.py:vector_similarity",
+          "score": 0.3906953410994942
+        },
+        {
+          "symbol": "database.py:register_functions",
+          "score": 0.2713122855260221
+        },
+        {
+          "symbol": "semantic_search.py:get_similarity",
+          "score": 0.23716086404773346
+        },
+        {
+          "symbol": "main.py:main",
+          "score": 0.094531532210995
+        },
+        {
+          "symbol": "main.py:update_index",
+          "score": 0.08029312294884207
+        }
+      ]
+    },
+    {
+      "query": "book a flight and charge my credit card",
+      "expected": [],
+      "results": [
+        {
+          "symbol": "main.py:process_file",
+          "score": 0.08457569291508533
+        },
+        {
+          "symbol": "database.py:process_file_index",
+          "score": 0.06854244466983798
+        },
+        {
+          "symbol": "database.py:register_functions",
+          "score": 0.05889278954841825
+        },
+        {
+          "symbol": "main.py:print_fxn",
+          "score": 0.04913257665500121
+        },
+        {
+          "symbol": "main.py:main",
+          "score": 0.03965543372253716
+        }
+      ]
+    },
+    {
+      "query": "render a three dimensional mesh with GPU shaders",
+      "expected": [],
+      "results": [
+        {
+          "symbol": "database.py:search_db",
+          "score": 0.11322870098189661
+        },
+        {
+          "symbol": "semantic_search.py:embed_indexed_functions",
+          "score": 0.10866756376698494
+        },
+        {
+          "symbol": "semantic_search.py:get_query_embedding",
+          "score": 0.0925514435945483
+        },
+        {
+          "symbol": "semantic_search.py:get_similarity",
+          "score": 0.07938395480833688
+        },
+        {
+          "symbol": "main.py:print_fxn",
+          "score": 0.059138798178330225
+        }
+      ]
+    },
+    {
+      "query": "calculate insulin dosage from blood glucose readings",
+      "expected": [],
+      "results": [
+        {
+          "symbol": "main.py:update_index",
+          "score": 0.023952963716242896
+        },
+        {
+          "symbol": "main.py:process_file_or_dir",
+          "score": 0.014964808055931969
+        },
+        {
+          "symbol": "database.py:process_file_index",
+          "score": 0.007518935729299074
+        },
+        {
+          "symbol": "database.py:get_db",
+          "score": 0.0070813133084651645
+        },
+        {
+          "symbol": "semantic_search.py:embed_indexed_functions",
+          "score": 0.004179951126370198
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "0.3": {
+      "hit_at_5": 0.8333333333333334,
+      "correct_queries": 10,
+      "positive_queries": 12,
+      "no_match_queries_with_results": 0,
+      "no_match_queries": 3
+    },
+    "0.4": {
+      "hit_at_5": 0.4166666666666667,
+      "correct_queries": 5,
+      "positive_queries": 12,
+      "no_match_queries_with_results": 0,
+      "no_match_queries": 3
+    },
+    "0.5": {
+      "hit_at_5": 0.08333333333333333,
+      "correct_queries": 1,
+      "positive_queries": 12,
+      "no_match_queries_with_results": 0,
+      "no_match_queries": 3
+    }
+  }
+}
