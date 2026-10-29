@@ -1,5 +1,3 @@
-from sentence_transformers import SentenceTransformer
-from torch import tensor, Tensor
 import json
 import math
 
@@ -8,60 +6,44 @@ model = None
 loaded_model_name = None
 EMBED_QUERY = 'Represent this query for searching relevant code: '
 
-def get_similarity(query_embed: list[float], code_embed: list[float], model_name: str = DEFAULT_MODEL) -> Tensor:
+
+def _encode_local(text, model_name=DEFAULT_MODEL):
     global model, loaded_model_name
-    if model_name == loaded_model_name:
-        return model.similarity(tensor(query_embed), tensor(code_embed))
-    try:
+    if model is None or loaded_model_name != model_name:
+        from sentence_transformers import SentenceTransformer
         model = SentenceTransformer(model_name, trust_remote_code=True)
         loaded_model_name = model_name
-        return model.similarity(tensor(query_embed), tensor(code_embed))
-    except OSError as e:
-        print(f"Model {model_name} could not be loaded: " + str(e))
+    return model.encode(text).tolist()
+
+
+def _encode(text, model_name):
+    from src.embedding_service import request_embedding
+    remote = request_embedding(text, model_name)
+    return remote if remote is not None else _encode_local(text, model_name)
+
 
 def get_query_embedding(query: str, model_name: str = DEFAULT_MODEL) -> list[float] | None:
-    global model, loaded_model_name
-    if model_name == loaded_model_name:
-        return model.encode(EMBED_QUERY + " " + query).tolist()
-    try:
-        model = SentenceTransformer(model_name, trust_remote_code=True)
-        loaded_model_name = model_name
-        return model.encode(EMBED_QUERY + " " + query).tolist()
-    except OSError as e:
-        print(f"Model {model_name} could not be loaded: " + str(e))
-        return None
+    return _encode(EMBED_QUERY + " " + query, model_name)
+
 
 def get_code_embedding(code: str | None, model_name: str = DEFAULT_MODEL) -> list[float] | None:
     if code is None:
         print("Code could not be loaded for semantic indexing.")
         return None
-    global model, loaded_model_name
-    if model_name == loaded_model_name:
-        return model.encode(code).tolist()
-    try:
-        model = SentenceTransformer(model_name, trust_remote_code=True)
-        loaded_model_name = model_name
-        return model.encode(code).tolist()
-    except OSError as e:
-        print(f"Model {model_name} could not be loaded: "+str(e))
-        return None
+    return _encode(code, model_name)
 
-# Migrating unindexed functions
+
+def get_similarity(query_embed, code_embed, model_name=DEFAULT_MODEL):
+    from torch import tensor
+    return tensor(vector_similarity(json.dumps(query_embed), json.dumps(code_embed)))
+
+
 def embed_indexed_functions(indexed_functions: list[dict], model_name: str = DEFAULT_MODEL) -> list[dict]:
-    global model, loaded_model_name
-    if model_name == loaded_model_name:
-        print("Default model found!")
-    else:
-        print("Loading model...")
-        try:
-            model = SentenceTransformer(model_name, trust_remote_code=True)
-            loaded_model_name = model_name
-        except OSError as e:
-            print(f"Model {model_name} could not be loaded: "+str(e))
-    for indexed_function in indexed_functions:
-        indexed_function['embedding'] = model.encode(indexed_function['source']).tolist()
-        indexed_function['embedding-model'] = loaded_model_name
+    for function in indexed_functions:
+        function['embedding'] = get_code_embedding(function['source'], model_name)
+        function['embedding-model'] = model_name
     return indexed_functions
+
 
 def vector_similarity(query_json, code_json) -> float | None:
     """Compare stored vectors; never load or call an embedding model here."""

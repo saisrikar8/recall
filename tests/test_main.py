@@ -163,6 +163,7 @@ class CLITests(unittest.TestCase):
     def run_cli(self, *args):
         env = os.environ.copy()
         env.pop('PYTHONPATH', None)
+        env['RECALL_DB_PATH'] = str(self.root / 'index/index.db')
         return subprocess.run([sys.executable, '-m', 'src.main', *args],
                               cwd=self.root, env=env, capture_output=True,
                               text=True, timeout=10)

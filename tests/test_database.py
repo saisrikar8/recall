@@ -27,6 +27,7 @@ class DatabaseTests(unittest.TestCase):
         self.addCleanup(temporary.cleanup)
         self.root = Path(temporary.name).resolve()
         self.enterContext(contextlib.chdir(self.root))
+        (self.root / 'index').mkdir()
         self.engine = create_engine(f'sqlite:///{self.root / "index/index.db"}')
         event.listen(self.engine, 'connect', db.register_functions)
         self.enterContext(patch.object(db.semantic_search, 'get_query_embedding', return_value=[1., 0.]))

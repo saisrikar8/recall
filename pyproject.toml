@@ -4,13 +4,15 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "recall-search"
-version = "0.1.0"
+version = "0.1.1"
 description = "Semantic search for Python code"
+readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
     "SQLAlchemy",
-    "sentence-transformers",
-    "torch",
+    "sentence-transformers==6.1.0",
+    "transformers==5.9.0",
+    "torch==2.14.1",
     "tqdm",
     "einops",
     "platformdirs"

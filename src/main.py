@@ -200,7 +200,7 @@ def main():
     parser.add_argument('-l', '--limit', type=int, default=5, help='Limit of results')
     parser.add_argument('--min-threshold', type=float, default=0.4, help='Minimum cosine similarity threshold for search')
     parser.add_argument('--collection', help='Indexed collection root to search')
-    parser.add_argument('cmd', choices=['index', 'search'])
+    parser.add_argument('cmd', choices=['index', 'search', 'serve'])
     args = parser.parse_args()
     if args.limit < 1:
         parser.error("--limit must be at least 1")
@@ -212,7 +212,10 @@ def main():
     query = args.query
     cmd = args.cmd
 
-    if cmd == 'index':
+    if cmd == 'serve':
+        from src.embedding_service import serve
+        serve()
+    elif cmd == 'index':
         try:
             update_index(file_or_dir)
         except (OSError, ValueError) as error:

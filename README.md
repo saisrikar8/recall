@@ -51,6 +51,26 @@ recall search -q "retry failed requests" --collection /absolute/path/to/project
 
 A collection is the resolved directory root passed to indexing. When indexing one file, its parent directory is the collection root. Without `--collection`, search considers all indexed collections.
 
+## Faster repeated commands
+
+On macOS and Linux, start the optional embedding worker in a separate terminal:
+
+```bash
+recall serve
+```
+
+Wait for `Recall embedding worker ready`, then run index and search commands in
+another terminal. They automatically use the worker, which loads the model once
+and retains it in memory. The first worker startup still pays model import and
+loading costs. Stop it with Ctrl-C to release its memory. Restart the worker after
+upgrading Recall so it uses the new code and dependencies.
+
+The worker uses a user-only Unix socket, not a network port. Requests are processed
+serially. Without a worker, commands fall back to loading the model in their own
+process. `RECALL_EMBEDDING_SOCKET` can select an alternate socket path; set it to
+the same absolute path in both terminals. Windows currently uses local inference
+without the worker. Help and argument parsing do not import model dependencies.
+
 ## Commands and options
 
 ```bash
@@ -63,7 +83,7 @@ recall search -q "extract Python functions" --collection ./src
 
 | Argument | Meaning | Default |
 | --- | --- | --- |
-| `index` / `search` | Required operation | — |
+| `index` / `search` / `serve` | Required operation | — |
 | `-f`, `--file` | Python file or directory to index | Current directory |
 | `-q`, `--query` | Nonempty natural-language search query | Required for search |
 | `-l`, `--limit` | Maximum number of results, at least 1 | `5` |
@@ -116,7 +136,8 @@ The parent directory is created automatically. The database stores project roots
 | `src/main.py` | Argument parsing, file discovery, AST extraction, incremental indexing, and result formatting |
 | `src/database.py` | Database path selection, engine/session setup, persistence helpers, and ranked search |
 | `src/models.py` | SQLAlchemy definitions for collections, files, and functions |
-| `src/semantic_search.py` | Lazy model loading, code/query embedding helpers, and pure vector similarity |
+| `src/semantic_search.py` | Lazy model imports, worker routing, embedding helpers, and vector similarity |
+| `src/embedding_service.py` | Optional persistent local model worker over a Unix socket |
 | `example/example.py` | Small functions for trying indexing and search |
 | `tests/` | Database, extraction, CLI, and embedding workflow tests |
 | `evaluation/` | Query judgments, model-based evaluation runner, saved results, and methodology |
@@ -175,11 +196,11 @@ python -m build
 This creates a wheel and source archive in `dist/`. Install the specific wheel produced by your build, for example:
 
 ```bash
-python -m pip install --upgrade dist/recall_search-0.1.0-py3-none-any.whl
+python -m pip install --upgrade dist/recall_search-0.1.1-py3-none-any.whl
 ```
 
-Package installation does not move or upgrade the database. Dependencies currently have no version constraints, so a fresh installation can resolve different versions from an existing development environment.
+Package installation does not move or upgrade the database. The model stack is pinned to the tested versions of sentence-transformers, Transformers, and PyTorch. CodeRankEmbed uses a legacy attention-mask API that newer Transformers releases removed; update these pins only after testing actual code and query embeddings. Other dependencies are currently unconstrained.
 
 ## Current scope
 
-Recall indexes Python functions rather than arbitrary text, whole classes, or other programming languages. It does not execute the indexed source during AST extraction, watch files automatically, or honor `.gitignore` as a discovery rule. Reindex explicitly after changes. Search quality depends on the model, source context, and threshold, and model loading can dominate short CLI runs.
+Recall indexes Python functions rather than arbitrary text, whole classes, or other programming languages. It does not execute the indexed source during AST extraction, watch files automatically, or honor `.gitignore` as a discovery rule. Reindex explicitly after changes. Search quality depends on the model, source context, and threshold. Without the optional worker, model loading can dominate short CLI runs.
