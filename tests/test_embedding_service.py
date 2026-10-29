@@ -41,9 +41,12 @@ class EmbeddingServiceTests(unittest.TestCase):
                     for _ in range(2):
                         result = subprocess.run([sys.executable, '-c',
                             'from src.semantic_search import get_code_embedding; '
-                            'print(get_code_embedding("example"))'],
+                            'from src.profiling import capture; '
+                            '\nwith capture(True): print(get_code_embedding("example"))'],
                             capture_output=True, text=True, timeout=10, check=True)
                         self.assertIn('[1.0, 0.0]', result.stdout)
+                        self.assertIn('worker-request', result.stderr)
+                        self.assertIn('\"process\": \"worker\"', result.stderr)
                     worker.join(timeout=5)
                     self.assertFalse(worker.is_alive())
                     self.assertEqual(errors, [])

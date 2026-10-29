@@ -1,6 +1,8 @@
 import json
 import math
 
+from src.profiling import measure
+
 DEFAULT_MODEL = "nomic-ai/CodeRankEmbed"
 model = None
 loaded_model_name = None
@@ -10,10 +12,12 @@ EMBED_QUERY = 'Represent this query for searching relevant code: '
 def _encode_local(text, model_name=DEFAULT_MODEL):
     global model, loaded_model_name
     if model is None or loaded_model_name != model_name:
-        from sentence_transformers import SentenceTransformer
-        model = SentenceTransformer(model_name, trust_remote_code=True)
-        loaded_model_name = model_name
-    return model.encode(text).tolist()
+        with measure('model-load', model=model_name):
+            from sentence_transformers import SentenceTransformer
+            model = SentenceTransformer(model_name, trust_remote_code=True)
+            loaded_model_name = model_name
+    with measure('embedding', input_chars=len(text)):
+        return model.encode(text).tolist()
 
 
 def _encode(text, model_name):

@@ -118,6 +118,37 @@ process. `RECALL_EMBEDDING_SOCKET` can select an alternate socket path; set it t
 the same absolute path in both terminals. Windows currently uses local inference
 without the worker. Help and argument parsing do not import model dependencies.
 
+## Profiling time and memory
+
+Use a small, explicitly selected folder first:
+
+```bash
+recall index -f ./homework --exclude ./homework/.grader --profile 2> recall-profile.log
+```
+
+Profiling performs real indexing and updates the selected index. Use
+`RECALL_DB_PATH=/absolute/path/to/temporary-profile.db` to keep a diagnostic run
+separate from your normal index. A fresh database measures embedding work;
+reindexing unchanged files normally skips it. `--profile` cannot be combined
+with `--dry-run`.
+
+Each `[profile]` line on stderr is a JSON record with the stage, PID, elapsed
+seconds, starting/ending RSS, and sampled peak RSS in MiB. Stages include model
+import/loading, individual embeddings, functions (name, line, character count),
+file processing, and the overall indexing operation. Source text is not logged,
+but paths and function names can be sensitive.
+
+With a current `recall serve` worker, profiled clients automatically request
+worker-side measurements; returned records are marked `process: worker` and
+carry the worker PID. Start the worker with `recall serve --profile` to also
+measure its one-time startup. Restart older workers before profiling.
+
+RSS is sampled every 50 ms and can miss brief spikes. It measures process
+resident memory, not all GPU/Metal allocations or total system memory. Peaks
+from overlapping stages and processes should not be summed; elapsed times
+include profiling overhead. These diagnostics help locate the expensive input
+or stage; they do not impose memory limits or establish the cause of a spike.
+
 ## Commands and options
 
 ```bash

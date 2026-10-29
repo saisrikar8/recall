@@ -7,6 +7,8 @@ import socketserver
 
 from platformdirs import user_cache_path
 
+from src import profiling
+
 MAX_MESSAGE = 16 * 1024 * 1024
 
 
@@ -27,7 +29,7 @@ def request_embedding(text, model_name):
         except (ConnectionRefusedError, FileNotFoundError):
             # An interrupted worker can leave a socket behind; local inference works.
             return None
-        message = json.dumps({'text': text, 'model': model_name}).encode() + b'\n'
+        message = json.dumps({'text': text, 'model': model_name, 'profile': profiling.enabled()}).encode() + b'\n'
         if len(message) > MAX_MESSAGE:
             raise ValueError('Embedding request exceeds the worker message limit.')
         client.sendall(message)
@@ -38,16 +40,20 @@ def request_embedding(text, model_name):
         result = json.loads(response)
         if 'error' in result:
             raise RuntimeError(f"Recall embedding worker: {result['error']}")
+        if profiling.enabled() and 'profile' not in result:
+            raise RuntimeError('Restart recall serve with the updated version to profile worker memory.')
+        profiling.add_remote(result.get('profile', []))
         return result['embedding']
 
 
-def serve(encoder=None):
+def serve(encoder=None, profile=False):
     if not hasattr(socket, 'AF_UNIX'):
         raise RuntimeError('The embedding worker requires Unix sockets (macOS/Linux).')
     from src.semantic_search import DEFAULT_MODEL, _encode_local
     encode = encoder or _encode_local
     # Warm up before accepting requests, surfacing model errors at startup.
-    encode('Recall model warmup', DEFAULT_MODEL)
+    with profiling.capture(profile, label='worker-startup'):
+        encode('Recall model warmup', DEFAULT_MODEL)
     path = socket_path()
     path.parent.mkdir(parents=True, exist_ok=True)
     if path.exists():
@@ -74,7 +80,9 @@ def serve(encoder=None):
                     raise ValueError('Worker only supports the default embedding model.')
                 if not isinstance(request.get('text'), str):
                     raise ValueError('Embedding input must be text.')
-                result = {'embedding': encode(request['text'], DEFAULT_MODEL)}
+                with profiling.capture(request.get('profile') is True, label='worker-request', emit=False) as records:
+                    embedding = encode(request['text'], DEFAULT_MODEL)
+                result = {'embedding': embedding, 'profile': records}
             except Exception as error:
                 result = {'error': str(error)}
             try:

@@ -15,7 +15,8 @@ dependencies = [
     "torch==2.14.1",
     "tqdm",
     "einops",
-    "platformdirs"
+    "platformdirs",
+    "psutil>=5.9"
 ]
 
 [project.optional-dependencies]
