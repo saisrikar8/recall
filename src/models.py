@@ -3,6 +3,8 @@ from datetime import datetime
 from sqlalchemy import DateTime, ForeignKey, Integer, String, Text, UniqueConstraint, func, JSON
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 
+from dataclasses import dataclass
+
 
 class Base(DeclarativeBase):
     pass
@@ -55,3 +57,10 @@ class Function(Base):
     source: Mapped[str] = mapped_column(Text, nullable=False)
     embedding: Mapped[list[float] | None] = mapped_column(JSON)
     embedding_model: Mapped[str | None] = mapped_column(String)
+
+
+@dataclass(frozen=True)
+class DirectoryDecision:
+    skip: bool
+    reason: str | None = None
+    rule: str | None = None

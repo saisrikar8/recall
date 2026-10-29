@@ -231,7 +231,9 @@ them; removal is not a permanent exclusion rule.
 
 ## How indexing works
 
-1. Discover `.py` files recursively, skipping `.git`, `.venv`, `venv`, `__pycache__`, and `.idea`. Discovery finishes before deletion cleanup begins.
+1. Discover `.py` files recursively. Automatic directory classification skips version-control internals, known tool caches, marked Python/Conda environments, installed Python package layouts (including custom folders such as `.grader`), recognized Node dependencies, and selected framework/build output with corroborating project markers. macOS application bundles are skipped when their bundle structure is present. Discovery finishes before deletion cleanup begins.
+
+   Skipped directories report a human-readable reason and rule ID on stderr, including during `--dry-run`. Directory symlinks are not traversed. Explicit exclusions and existing Git ignore rules also apply. Ordinary folders named `build`, `target`, `vendor`, `Library`, or `tests` are not excluded solely by name. Detection is conservative and heuristic, not a guarantee that every dependency folder will be recognized. Explicitly selected files remain eligible subject to explicit exclusions and Git ignore rules.
 2. Read each file and calculate a SHA-256 content hash. Files whose saved hash is unchanged are skipped without generating new embeddings.
 3. Detect the source encoding and parse Python's abstract syntax tree. Extract regular and async functions, including methods and nested functions, with their source, docstrings, and line ranges.
 4. Embed each extracted function's source using CodeRankEmbed. Save its vector and model name alongside its metadata.
@@ -338,4 +340,4 @@ Package installation does not move or upgrade the database. The model stack is p
 
 ## Current scope
 
-Recall indexes Python functions rather than arbitrary text, whole classes, or other programming languages. It does not execute the indexed source during AST extraction, watch files automatically, or honor `.gitignore` as a discovery rule. Reindex explicitly after changes. Search quality depends on the model, source context, and threshold. Without the optional worker, model loading can dominate short CLI runs.
+Recall indexes Python functions rather than arbitrary text, whole classes, or other programming languages. It does not execute the indexed source during AST extraction, or watch files automatically. Reindex explicitly after changes. Search quality depends on the model, source context, and threshold. Without the optional worker, model loading can dominate short CLI runs.
