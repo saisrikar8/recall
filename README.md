@@ -31,15 +31,14 @@ The distribution is named `recall-search`; the installed command is `recall`. Ed
 
 ## Quick start
 
-**Current path compatibility:** search still checks for `index/index.db` relative to the working directory, although database connections now default to a user data folder. Until that check is updated, run the following commands from the repository root and explicitly select the old database location:
+After installation, index the included example and search it:
 
 ```bash
-export RECALL_DB_PATH="$PWD/index/index.db"
 recall index -f ./example
 recall search -q "add up the prices in a shopping cart"
 ```
 
-For PowerShell, set `$env:RECALL_DB_PATH = Join-Path $PWD 'index/index.db'` before running the commands.
+Recall uses the same configured database for indexing and search, regardless of your working directory.
 
 Indexing creates missing tables for a new database. Search requires an index to have been created first. The example contains `greet`, `calculate_total`, and `find_long_words`; ranking depends on the embedding model and threshold.
 
@@ -104,9 +103,9 @@ Embeddings are stored as JSON arrays. Similarity is computed across candidate ro
 
 The parent directory is created automatically. The database stores project roots, file metadata, extracted source code, and embeddings. Treat it as a copy of the indexed source when deciding what to share or commit.
 
-**Known integration gaps:** `src/main.py` still checks the old relative `index/index.db` before searching, and `alembic.ini` still points there. An environment override changes application connections, but does not change Alembic's target. Consequently, running the installed command from arbitrary directories is not fully supported yet. The quick start above keeps these paths aligned.
+**Migration configuration:** `alembic.ini` still points to `index/index.db`. An environment override changes application connections, but does not change Alembic's target. Before migrating, explicitly configure Alembic to use the same database as the CLI.
 
-`migrations/data/platform.py` is a one-time utility to copy the old database into the default user data location with SQLite's backup API. It refuses to overwrite an existing destination and leaves the source intact. Moving the database alone does not fix the search path check.
+`migrations/data/platform.py` is a one-time utility to copy the old database into the default user data location with SQLite's backup API. It refuses to overwrite an existing destination and leaves the source intact. After copying, leave `RECALL_DB_PATH` unset to use the default user data location.
 
 ## Repository layout
 

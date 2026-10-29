@@ -10,12 +10,11 @@ from pathlib import Path
 from sqlalchemy import delete, select
 from sqlalchemy.exc import DatabaseError
 
-from src.database import get_db, initialize_database, process_file_index, search_db
+from src.database import DATABASE_PATH, get_db, initialize_database, process_file_index, search_db
 from src.models import Collection, File, Function
 from src.semantic_search import get_code_embedding, DEFAULT_MODEL
 
 SKIP_DIRS = [".git", ".venv", "venv", "__pycache__", '.idea']
-INDEX_FILE = 'index/index.db'
 
 def process_file(file: str, content: bytes | None = None) -> dict:
     if not file.endswith(".py"):
@@ -112,7 +111,7 @@ def print_fxn(fxn: dict):
 
 def search_index(limit: int, query : str, threshold: float, collection: str | None = None) -> None:
     try:
-        if not os.path.isfile(INDEX_FILE):
+        if not DATABASE_PATH.is_file():
             raise FileNotFoundError(f"Index not found. Rerun the index command.")
         fxns = search_db(query, limit, threshold, collection)
         for fxn in fxns:

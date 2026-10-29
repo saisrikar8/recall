@@ -49,6 +49,25 @@ class SemanticWorkflowTests(unittest.TestCase):
         with Session(self.engine) as session:
             self.assertIsNone(session.scalar(select(Function)))
 
+    def test_cli_search_uses_configured_database_from_another_directory(self):
+        path = self.index('def demo():\n    return 1\n')
+        database_path = self.root / 'configured.db'
+        database_path.touch()
+        elsewhere = self.root / 'elsewhere'
+        elsewhere.mkdir()
+        with patch.object(main, 'DATABASE_PATH', database_path), contextlib.chdir(elsewhere):
+            with contextlib.redirect_stdout(io.StringIO()) as output:
+                main.search_index(5, 'example', .4)
+        self.assertIn('demo', output.getvalue())
+        self.query.assert_called_once_with('example')
+
+    def test_cli_search_reports_missing_configured_database(self):
+        with patch.object(main, 'DATABASE_PATH', self.root / 'missing.db'):
+            with contextlib.redirect_stdout(io.StringIO()) as output:
+                main.search_index(5, 'example', .4)
+        self.assertIn('Index not found', output.getvalue())
+        self.query.assert_not_called()
+
     def test_query_encoded_once_and_threshold_inclusive(self):
         self.index('def a():\n    return 1\ndef b():\n    return 2\n')
         results = db.search_db('example', threshold=1.)
