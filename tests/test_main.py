@@ -1,13 +1,26 @@
 import contextlib
 import io
-from pathlib import Path
+import os
+import shutil
+import sqlite3
 import subprocess
 import sys
 import tempfile
 import unittest
+from pathlib import Path
 from unittest.mock import patch
 
-from src.main import match_fxns, process_file, process_file_or_dir
+from src import main
+from src.main import match_fxns
+
+
+def process_file(path):
+    return [{k: v for k, v in f.items() if k not in {'embedding', 'embedding-model'}}
+            for entry in main.process_file(path).values() for f in entry['functions']]
+
+
+def process_file_or_dir(path):
+    return [f for entry in main.process_file_or_dir(path).values() for f in entry["functions"]]
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -60,7 +73,8 @@ class FileTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)
-        self.root = Path(self.temp.name)
+        self.root = Path(self.temp.name).resolve()
+        self.enterContext(patch.object(main, 'get_code_embedding', return_value=[1., 0.]))
 
     def write(self, relative, source):
         path = self.root / relative
@@ -130,32 +144,154 @@ class FileTests(unittest.TestCase):
         self.assertEqual([r['name'] for r in results], ['valid'])
         self.assertTrue(output.getvalue().strip())
 
-    def test_cli_search_displays_location_and_source(self):
-        path = self.write('sample.py', 'def fetch():\n    return 42\n')
-        result = self.run_cli(path, 'fetch')
-        self.assertEqual(result.returncode, 0, result.stderr)
-        self.assertIn(path, result.stdout)
-        self.assertIn('lines 1 - 2', result.stdout)
-        self.assertIn('return 42', result.stdout)
 
-    def test_cli_reports_no_matches(self):
-        path = self.write('sample.py', 'def fetch():\n    pass\n')
-        result = self.run_cli(path, 'unrelated')
-        self.assertEqual(result.returncode, 0, result.stderr)
-        self.assertIn('Function not found', result.stdout)
+class CLITests(unittest.TestCase):
+    def setUp(self):
+        temp = tempfile.TemporaryDirectory()
+        self.addCleanup(temp.cleanup)
+        self.root = Path(temp.name).resolve()
+        # Copy only source: run the real module from a clean project root.
+        shutil.copytree(PROJECT_ROOT / 'src', self.root / 'src',
+                        ignore=shutil.ignore_patterns('__pycache__'))
 
-    def test_cli_rejects_invalid_limits(self):
-        for limit in ['0', '-1', 'abc']:
-            with self.subTest(limit=limit):
-                result = self.run_cli(str(self.root), 'fetch', '--limit', limit)
-                self.assertNotEqual(result.returncode, 0)
-                self.assertIn('error:', result.stderr)
+    def write(self, relative, text):
+        path = self.root / relative
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(text)
+        return path
 
     def run_cli(self, *args):
-        return subprocess.run(
-            [sys.executable, str(PROJECT_ROOT / 'src/main.py'), *args],
-            capture_output=True, text=True, cwd=PROJECT_ROOT, timeout=10,
-        )
+        env = os.environ.copy()
+        env.pop('PYTHONPATH', None)
+        return subprocess.run([sys.executable, '-m', 'src.main', *args],
+                              cwd=self.root, env=env, capture_output=True,
+                              text=True, timeout=10)
+
+    def success(self, *args):
+        result = self.run_cli(*args)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertNotIn('Traceback', result.stderr)
+        return result.stdout
+
+    def search(self, query, *args):
+        return self.success('search', '-q', query, *args)
+
+    def snapshot(self):
+        with contextlib.closing(sqlite3.connect(self.root / 'index/index.db')) as db:
+            return {table: db.execute(f'SELECT * FROM {table} ORDER BY id').fetchall()
+                    for table in ('collections', 'files', 'functions')}
+
+    def test_index_then_search_saved_source(self):
+        path = self.write('repo/a.py', 'def fetch():\n    return 42\n')
+        self.success('index', '-f', 'repo')
+        self.assertTrue((self.root / 'index/index.db').is_file())
+        path.unlink()
+        output = self.search('fetch')
+        self.assertIn('sample.py' if path.name == 'sample.py' else path.name, output)
+        self.assertIn('a.py:1-2', output)
+        self.assertIn('return 42', output)
+
+    def test_edit_reindex_and_delete(self):
+        path = self.write('repo/a.py', 'def original():\n    return 1\n')
+        self.success('index', '-f', 'repo')
+        self.assertIn('1 unchanged', self.success('index', '-f', 'repo'))
+        path.write_text('def replacement():\n    return 99\n')
+        self.assertIn('1 changed', self.success('index', '-f', 'repo'))
+        self.assertIn('return 99', self.search('replacement'))
+        self.assertNotIn('  original\n', self.search('original'))
+        path.unlink()
+        self.assertIn('1 deleted', self.success('index', '-f', 'repo'))
+        self.assertIn('Function not found', self.search('replacement'))
+        self.assertEqual(self.snapshot()['functions'], [])
+
+    def test_broken_file_preserves_results_and_retries(self):
+        path = self.write('repo/a.py', 'def original():\n    pass\n')
+        self.success('index', '-f', 'repo')
+        before = self.snapshot()
+        path.write_text('def broken(:\n')
+        for _ in range(2):
+            self.assertIn('1 failed', self.success('index', '-f', 'repo'))
+            self.assertIn('original', self.search('original'))
+            after = self.snapshot()
+            self.assertEqual(after['functions'], before['functions'])
+            self.assertEqual(after['files'][0][3], before['files'][0][3])
+        path.write_text('def repaired():\n    pass\n')
+        self.assertIn('1 changed', self.success('index', '-f', 'repo'))
+        self.assertIn('repaired', self.search('repaired'))
+        self.assertNotIn('  original\n', self.search('original'))
+
+    def test_single_file_update_preserves_siblings(self):
+        path = self.write('repo/a.py', 'def first():\n    pass\n')
+        self.write('repo/b.py', 'def sibling():\n    pass\n')
+        self.success('index', '-f', 'repo')
+        path.write_text('def edited():\n    pass\n')
+        self.success('index', '-f', 'repo/a.py')
+        self.assertIn('edited', self.search('edited'))
+        self.assertIn('sibling', self.search('sibling'))
+        self.assertIn('1 unchanged', self.success('index', '-f', 'repo/a.py'))
+
+    def test_missing_path_preserves_database(self):
+        self.write('repo/a.py', 'def first():\n    pass\n')
+        self.success('index', '-f', 'repo')
+        before = self.snapshot()
+        result = self.run_cli('index', '-f', 'missing')
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn('not found', result.stderr.lower())
+        self.assertEqual(self.snapshot(), before)
+
+    def test_collections_are_independent(self):
+        self.write('one/a.py', 'def first():\n    pass\n')
+        self.write('two/a.py', 'def second():\n    pass\n')
+        self.success('index', '-f', 'one')
+        self.success('index', '-f', 'two')
+        self.assertIn('first', self.search('first'))
+        self.assertIn('second', self.search('second'))
+        self.assertEqual(len(self.snapshot()['collections']), 2)
+
+    def test_ranking_limit_and_literal_search(self):
+        self.write('repo/a.py', 'def fetch_more():\n    pass\ndef fetch():\n    pass\n')
+        self.success('index', '-f', 'repo')
+        output = self.search('FETCH', '--limit', '1')
+        self.assertIn('  fetch\n', output)
+        self.assertNotIn('fetch_more', output)
+        self.assertIn('fetch_more', self.search('fetch_more', '--min-threshold', '-1'))
+        self.assertIn('Function not found', self.search('unrelated', '--min-threshold', '1'))
+
+    def test_skips_virtual_environment_and_handles_broken_new_file(self):
+        self.write('repo/.venv/a.py', 'def hidden():\n    pass\n')
+        self.write('repo/broken.py', 'def broken(:\n')
+        self.write('repo/nested/good.py', 'async def visible():\n    pass\n')
+        output = self.success('index', '-f', 'repo')
+        self.assertIn('1 failed', output)
+        self.assertIn('visible', self.search('visible'))
+        self.assertNotIn('  hidden\n', self.search('hidden'))
+
+    def test_rejects_invalid_arguments(self):
+        for limit in ['0', '-1', 'abc']:
+            with self.subTest(limit=limit):
+                result = self.run_cli('search', '-q', 'fetch', '--limit', limit)
+                self.assertEqual(result.returncode, 2)
+                expected = 'invalid int value' if limit == 'abc' else '--limit must be at least 1'
+                self.assertIn(expected, result.stderr)
+        for args in [(), ('-q', ''), ('-q', '   ')]:
+            with self.subTest(args=args):
+                result = self.run_cli('search', *args)
+                self.assertEqual(result.returncode, 2)
+                self.assertIn('search requires a non-empty --query', result.stderr)
+
+    def test_search_before_indexing_gives_actionable_message(self):
+        result = self.run_cli('search', '-q', 'fetch')
+        self.assertNotIn('Traceback', result.stderr)
+        output = (result.stdout + result.stderr).lower()
+        self.assertIn('index', output)
+        self.assertIn('run', output, 'Tell the user to run indexing first')
+
+    def test_corrupted_database_is_reported_without_traceback(self):
+        path = self.write('index/index.db', 'not a sqlite database')
+        result = self.run_cli('search', '-q', 'fetch')
+        self.assertNotIn('Traceback', result.stderr)
+        self.assertIn('database', (result.stdout + result.stderr).lower())
+        self.assertEqual(path.read_text(), 'not a sqlite database')
 
 
 if __name__ == '__main__':
