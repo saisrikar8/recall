@@ -14,6 +14,29 @@ The model loader uses `trust_remote_code=True`, allowing model-provided Python c
 
 ## Installation
 
+### Install the v0.1.1 release
+
+Download `recall_search-0.1.1-py3-none-any.whl` from the
+[GitHub release](https://github.com/saisrikar8/recall/releases/tag/v0.1.1).
+For a command available outside a project virtual environment, install with pipx:
+
+```bash
+pipx install /absolute/path/to/recall_search-0.1.1-py3-none-any.whl
+recall --help
+```
+
+On macOS, you can install pipx with `brew install pipx`, then run
+`pipx ensurepath` and restart your terminal. The model stack has been verified
+with Python 3.13. If pipx selects another interpreter that cannot install the
+pinned dependencies, select Python 3.13 with `pipx install --python python3.13`
+followed by the wheel path.
+
+The wheel installs Recall and its dependencies; the model weights are downloaded
+separately on first use. Installing a GitHub release does not require a PyPI
+release of Recall.
+
+### Develop from source
+
 Clone the repository and install into a virtual environment:
 
 ```bash
@@ -29,9 +52,33 @@ On Windows PowerShell, activate with `.venv\Scripts\Activate.ps1` instead. The `
 
 The distribution is named `recall-search`; the installed command is `recall`. Editable installation means changes to Python source take effect without reinstalling. Reinstall after changing dependencies or package metadata.
 
+## Upgrading to v0.1.1
+
+Stop any running `recall serve` worker with Ctrl-C. Download the v0.1.1 wheel,
+then replace your pipx installation:
+
+```bash
+pipx install --force /absolute/path/to/recall_search-0.1.1-py3-none-any.whl
+```
+
+If your existing pipx environment uses an incompatible Python version, include
+`--python python3.13`. For an editable source installation, update your checkout
+and rerun `python -m pip install -e ".[dev]"` in its virtual environment.
+Restart `recall serve` after the upgrade. The package update preserves the saved
+index and does not perform a database schema migration. Version 0.1.1 pins the
+model stack to avoid the removed attention-mask API used by newer Transformers.
+See [the changelog](CHANGELOG.md) for release changes.
+
 ## Quick start
 
-After installation, index the included example and search it:
+For any installation, index a Python project and search it:
+
+```bash
+recall index -f /absolute/path/to/project
+recall search -q "parse command line arguments" --collection /absolute/path/to/project
+```
+
+If you cloned the repository, run these commands from its root to try the included example:
 
 ```bash
 recall index -f ./example
@@ -83,7 +130,7 @@ recall search -q "extract Python functions" --collection ./src
 
 | Argument | Meaning | Default |
 | --- | --- | --- |
-| `index` / `search` / `serve` | Required operation | — |
+| `index` / `search` / `serve` / `list` / `remove` | Required operation | — |
 | `-f`, `--file` | Python file or directory to index | Current directory |
 | `-q`, `--query` | Nonempty natural-language search query | Required for search |
 | `-l`, `--limit` | Maximum number of results, at least 1 | `5` |
@@ -94,6 +141,62 @@ recall search -q "extract Python functions" --collection ./src
 Higher scores indicate greater vector similarity; they are not confidence percentages. Raising the threshold removes weaker matches. Lowering it can reveal useful matches as well as noise. Search can return fewer than the requested limit or print `Function not found`.
 
 Results show a score, relative file path, start/end lines, function name, collection root, and up to six source lines. Reindex after editing files to keep locations and results current.
+
+## Browsing and removing indexed code
+
+These commands query SQLite without loading the embedding model:
+
+```bash
+recall list
+recall list --tree
+recall list --collection /absolute/path/to/project
+recall list --collection /absolute/path/to/project --file module.py
+```
+
+`list` shows collection roots. Selecting a collection shows its files; selecting
+a file shows its functions with IDs and line ranges. `--tree` expands all three
+levels, optionally restricted to a collection or file. File selectors are paths
+relative to the collection root (absolute paths inside it also work).
+You can omit `--collection` and pass a direct file path instead:
+
+```bash
+recall list --file ./homework/hw03.py
+recall remove --file /absolute/path/to/homework/hw03.py
+recall remove --file ./homework/hw03.py --function pingpong
+```
+
+Without `--collection`, relative paths resolve from your current directory.
+Recall matches saved index records even if the source file has been deleted.
+If the same file is indexed under multiple collections, specify `--collection`
+to select one; ambiguous lookups do not delete anything.
+
+Look up a function directly by its listed ID, without a file or collection:
+
+```bash
+recall list --function-id 42
+recall search --function-id 42
+```
+
+Both show the function's absolute path, line range, and full indexed source.
+ID lookup does not load the model or calculate a similarity score. IDs identify
+current database records and may change after reindexing. Use `--function-id`
+on its own, without a query, file, collection, function name, or tree flag.
+
+Remove saved index records at any level:
+
+```bash
+recall remove --collection /absolute/path/to/project
+recall remove --collection /absolute/path/to/project --file module.py
+recall remove --collection /absolute/path/to/project --file module.py --function parse
+recall remove --function-id 42
+```
+
+Removal takes effect immediately and does not change source files. Use a function
+ID from `list` when multiple functions have the same name. `--function-id` is a
+standalone selector and cannot be combined with other selectors. Removing a
+function invalidates its file's saved hash so reindexing restores the file's
+functions. Removing files or collections also allows a later reindex to restore
+them; removal is not a permanent exclusion rule.
 
 ## How indexing works
 
@@ -134,6 +237,7 @@ The parent directory is created automatically. The database stores project roots
 | `pyproject.toml` | Package metadata, dependencies, build configuration, and the `recall = "src.main:main"` entry point |
 | `src/__init__.py` | Marks the source directory as a regular Python package |
 | `src/main.py` | Argument parsing, file discovery, AST extraction, incremental indexing, and result formatting |
+| `src/index_management.py` | Collection/file/function browsing and index-only removal |
 | `src/database.py` | Database path selection, engine/session setup, persistence helpers, and ranked search |
 | `src/models.py` | SQLAlchemy definitions for collections, files, and functions |
 | `src/semantic_search.py` | Lazy model imports, worker routing, embedding helpers, and vector similarity |

@@ -195,24 +195,61 @@ def main():
         prog='Recall',
         description='Searches code files and provides enhanced search on your code'
     )
-    parser.add_argument('-f', '--file', help='File or directory to search if indexing', default='.')
+    parser.add_argument('-f', '--file', help='File/directory to index, or indexed file relative to --collection')
     parser.add_argument('-q', '--query', help='Query to search for')
     parser.add_argument('-l', '--limit', type=int, default=5, help='Limit of results')
     parser.add_argument('--min-threshold', type=float, default=0.4, help='Minimum cosine similarity threshold for search')
     parser.add_argument('--collection', help='Indexed collection root to search')
-    parser.add_argument('cmd', choices=['index', 'search', 'serve'])
+    parser.add_argument('cmd', choices=['index', 'search', 'serve', 'list', 'remove'])
+    parser.add_argument('--tree', action='store_true', help='List collections, files, and functions')
+    parser.add_argument('--function', help='Function name to remove from the selected file')
+    parser.add_argument('--function-id', type=int, help='Unique indexed function ID to list, search, or remove')
     args = parser.parse_args()
+    if args.tree and args.cmd != 'list':
+        parser.error('--tree is only valid for list')
+    if args.function is not None and args.cmd != 'remove':
+        parser.error('--function is only valid for remove')
+    if args.function_id is not None:
+        if args.cmd not in ('list', 'search', 'remove'):
+            parser.error('--function-id is only valid for list, search, or remove')
+        if args.function_id < 1:
+            parser.error('--function-id must be positive')
+        if any(value is not None for value in (args.collection, args.file, args.function, args.query)) or args.tree:
+            parser.error('--function-id cannot be combined with --collection, --file, --function, --query, or --tree')
     if args.limit < 1:
         parser.error("--limit must be at least 1")
-    if args.cmd == "search" and not (args.query or "").strip():
+    if args.cmd == "search" and args.function_id is None and not (args.query or "").strip():
         parser.error("search requires a non-empty --query")
     if not -1.0 <= args.min_threshold <= 1.0:
         parser.error("--min-threshold must be between -1 and 1")
-    file_or_dir = args.file
+    file_or_dir = args.file if args.file is not None else '.'
     query = args.query
     cmd = args.cmd
 
-    if cmd == 'serve':
+    if cmd in ('list', 'search') and args.function_id is not None:
+        from src.index_management import get_function, print_function
+        try:
+            if not DATABASE_PATH.is_file():
+                raise ValueError('Index not found. Run the index command first.')
+            print_function(get_function(args.function_id))
+        except (ValueError, DatabaseError) as error:
+            parser.error(str(error))
+    elif cmd in ('list', 'remove'):
+        from src.index_management import list_index, print_index, remove_index
+        try:
+            if not DATABASE_PATH.is_file():
+                if cmd == 'list' and args.collection is None and args.file is None:
+                    print('No collections indexed.')
+                    return
+                raise ValueError('Index not found. Run the index command first.')
+            if cmd == 'list':
+                records = list_index(args.collection, args.file)
+                print_index(records, args.collection, args.file, args.tree)
+            else:
+                print(remove_index(args.collection, args.file, args.function, args.function_id))
+        except (ValueError, DatabaseError) as error:
+            parser.error(str(error))
+    elif cmd == 'serve':
         from src.embedding_service import serve
         serve()
     elif cmd == 'index':
