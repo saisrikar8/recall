@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "recall-search"
+version = "0.1.0"
+description = "Semantic search for Python code"
+requires-python = ">=3.10"
+dependencies = [
+    "SQLAlchemy",
+    "sentence-transformers",
+    "torch",
+    "tqdm",
+    "einops",
+    "platformdirs"
+]
+
+[project.optional-dependencies]
+dev = ["alembic", "build"]
+
+[project.scripts]
+recall = "src.main:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src", "src.*"]

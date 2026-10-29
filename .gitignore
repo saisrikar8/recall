@@ -1,5 +1,12 @@
-.venv
-__pycache__
+.venv/
+__pycache__/
+*.egg-info/
+build/
+dist/
+.idea/
 .DS_Store
-.idea
-index
+index/
+*.db
+*.db-wal
+*.db-shm
+.env
