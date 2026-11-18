@@ -49,7 +49,7 @@ def request_embedding(text, model_name):
 def serve(encoder=None, profile=False):
     if not hasattr(socket, 'AF_UNIX'):
         raise RuntimeError('The embedding worker requires Unix sockets (macOS/Linux).')
-    from src.semantic_search import DEFAULT_MODEL, _encode_local
+    from src.semantic_search import DEFAULT_MODEL, _encode_local, _encode_batch_local
     encode = encoder or _encode_local
     # Warm up before accepting requests, surfacing model errors at startup.
     with profiling.capture(profile, label='worker-startup'):
@@ -78,10 +78,12 @@ def serve(encoder=None, profile=False):
                 request = json.loads(raw)
                 if request.get('model') != DEFAULT_MODEL:
                     raise ValueError('Worker only supports the default embedding model.')
-                if not isinstance(request.get('text'), str):
+                value=request.get('text')
+                if not (isinstance(value,str) or (isinstance(value,list) and 0<len(value)<=32 and all(isinstance(item,str) for item in value))):
                     raise ValueError('Embedding input must be text.')
                 with profiling.capture(request.get('profile') is True, label='worker-request', emit=False) as records:
-                    embedding = encode(request['text'], DEFAULT_MODEL)
+                    embedding = ((_encode_batch_local(value,DEFAULT_MODEL) if encoder is None else [encode(item,DEFAULT_MODEL) for item in value])
+                                 if isinstance(value,list) else encode(value,DEFAULT_MODEL))
                 result = {'embedding': embedding, 'profile': records}
             except Exception as error:
                 result = {'error': str(error)}

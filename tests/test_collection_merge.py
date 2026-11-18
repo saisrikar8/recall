@@ -8,8 +8,8 @@ from unittest.mock import patch
 
 from sqlalchemy import create_engine, event, select
 
-from src import database as db, main
-from src.models import Base, Collection, File, Function
+from src import database as db, indexing, main
+from src.models import Base, Collection, File, Function, Entity, Extraction
 
 
 class CollectionMergeTests(unittest.TestCase):
@@ -21,7 +21,7 @@ class CollectionMergeTests(unittest.TestCase):
         event.listen(self.engine, 'connect', db.register_functions)
         self.addCleanup(self.engine.dispose)
         self.enterContext(patch.object(db, 'engine', self.engine))
-        self.embed = self.enterContext(patch.object(main, 'get_code_embedding', return_value=[1., 0.]))
+        self.embed = self.enterContext(patch.object(indexing, 'get_code_embedding', return_value=[1., 0.]))
         self.enterContext(contextlib.redirect_stdout(io.StringIO()))
         Base.metadata.create_all(self.engine)
 
@@ -34,7 +34,7 @@ class CollectionMergeTests(unittest.TestCase):
     def snapshot(self):
         with db.get_db() as session:
             return [(f.id, f.collection.root_path, f.relative_path,
-                     [(x.id, x.embedding) for x in f.functions])
+                     [(e.id, e.chunks[0].embeddings[0].vector) for ex in f.extractions if ex.is_active for e in ex.entities if e.kind in {'function', 'method'}])
                     for f in session.scalars(select(File).order_by(File.relative_path))]
 
     def roots(self):
@@ -105,7 +105,7 @@ class CollectionMergeTests(unittest.TestCase):
             session.add(duplicate)
             session.add(Function(file=duplicate, name='demo', start_line=1, end_line=2,
                                  docstring='', source='def demo():\n    return 1',
-                                 embedding=[1., 0.], embedding_model=main.DEFAULT_MODEL))
+                                 embedding=[1., 0.], embedding_model=indexing.DEFAULT_MODEL))
         main.update_index(self.root)
         self.assertEqual(self.roots(), [str(self.root)])
         self.assertEqual(len(self.snapshot()), 1)
@@ -125,13 +125,13 @@ class CollectionMergeTests(unittest.TestCase):
                 session.add(file)
                 session.add(Function(file=file, name='old', start_line=1, end_line=2,
                                      docstring='', source='def old(): pass',
-                                     embedding=[0., 1.], embedding_model=main.DEFAULT_MODEL))
+                                     embedding=[0., 1.], embedding_model=indexing.DEFAULT_MODEL))
         main.update_index(self.root)
         records = self.snapshot()
         self.assertEqual(len(records), 1)
         self.assertEqual(len(records[0][3]), 1)
         with db.get_db() as session:
-            self.assertEqual(session.scalar(select(Function.name)), 'demo')
+            self.assertEqual(session.scalar(select(Entity.name).where(Entity.kind == 'function')), 'demo')
 
     def test_conflicting_hashes_rebuild_from_disk(self):
         self._conflicting_merge(2)
@@ -149,7 +149,7 @@ class CollectionMergeTests(unittest.TestCase):
             self.embed.side_effect = encode
             main.update_index(self.root / 'project')
         text = output.getvalue()
-        self.assertIn('Discovered 2 Python files', text)
+        self.assertIn('Discovered 2 supported files', text)
         self.assertIn('[1/2] Processing a.py', text)
         self.assertIn('[2/2] Processing b.py', text)
         self.embed.reset_mock()

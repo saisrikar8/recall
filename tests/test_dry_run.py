@@ -6,7 +6,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-from src import main
+from src import main, indexing
 
 
 class DryRunTests(unittest.TestCase):
@@ -17,9 +17,9 @@ class DryRunTests(unittest.TestCase):
             grader = root / '.grader'
             grader.mkdir()
             (grader / 'dependency.py').write_text('def dep(): pass\n')
-            with patch.object(main, 'initialize_database') as initialize, \
-                 patch.object(main, 'get_db') as database, \
-                 patch.object(main, 'get_code_embedding') as embed, \
+            with patch.object(indexing, 'initialize_database') as initialize, \
+                 patch.object(indexing, 'get_db') as database, \
+                 patch.object(indexing, 'get_code_embedding') as embed, \
                  contextlib.redirect_stdout(io.StringIO()) as output:
                 self.assertEqual(main.update_index(root, [str(grader)], True), {})
             initialize.assert_not_called()
@@ -37,7 +37,7 @@ class DryRunTests(unittest.TestCase):
 
     def test_empty_directory(self):
         with tempfile.TemporaryDirectory() as temporary, \
-             patch.object(main, 'initialize_database') as initialize, \
+             patch.object(indexing, 'initialize_database') as initialize, \
              contextlib.redirect_stdout(io.StringIO()) as output:
             main.update_index(temporary, dry_run=True)
         self.assertIn('Would scan 0 files:', output.getvalue())

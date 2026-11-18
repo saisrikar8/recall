@@ -4,7 +4,7 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from src.main import classify_directory, discover_files
+from src.discovery import classify_directory, discover_files
 
 
 class DirectoryClassifierTests(unittest.TestCase):
@@ -45,6 +45,17 @@ class DirectoryClassifierTests(unittest.TestCase):
             self.assertEqual(discover_files(self.root / '.grader'), [])
         self.assertIn('Installed Python dependencies', output.getvalue())
 
+    def test_gleam_build_is_pruned_without_hiding_normal_build_folders(self):
+        self.touch('homework/gleam.toml')
+        self.touch('homework/build/dev/javascript/gleam_stdlib/gleam/option.mjs')
+        wanted = self.touch('homework/src/main.py')
+        decision = classify_directory(self.root / 'homework/build')
+        self.assertEqual(decision.rule, 'build.gleam')
+        with contextlib.redirect_stderr(io.StringIO()):
+            self.assertEqual(discover_files(self.root / 'homework', supported_suffixes=frozenset({'.py','.mjs'})), [str(wanted)])
+        ordinary = self.touch('other/build/source.py')
+        self.assertFalse(classify_directory(ordinary.parent).skip)
+
     def test_metadata_names_alone_do_not_exclude(self):
         self.touch('fixtures/a.dist-info/METADATA')
         self.touch('fixtures/b.dist-info/METADATA')
@@ -79,6 +90,6 @@ class DirectoryClassifierTests(unittest.TestCase):
 
     def test_permission_errors_propagate(self):
         from unittest.mock import patch
-        with patch('src.main.os.scandir', side_effect=PermissionError('denied')):
+        with patch('src.discovery.os.scandir', side_effect=PermissionError('denied')):
             with self.assertRaises(PermissionError):
                 classify_directory(self.root)

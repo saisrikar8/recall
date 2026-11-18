@@ -18,8 +18,9 @@ class EmbeddingServiceTests(unittest.TestCase):
             def encode(text, name):
                 calls.append(text)
                 return [1., 0.]
-            # Run the actual worker, stopping its serve loop after two requests.
+            # Run the actual worker, stopping its serve loop after three requests.
             def two_requests(server):
+                server.handle_request()
                 server.handle_request()
                 server.handle_request()
             with patch.dict(os.environ, {'RECALL_EMBEDDING_SOCKET': str(path)}):
@@ -47,11 +48,12 @@ class EmbeddingServiceTests(unittest.TestCase):
                         self.assertIn('[1.0, 0.0]', result.stdout)
                         self.assertIn('worker-request', result.stderr)
                         self.assertIn('\"process\": \"worker\"', result.stderr)
+                    self.assertEqual(service.request_embedding(['batch a','batch b'],semantic.DEFAULT_MODEL),[[1.,0.],[1.,0.]])
                     worker.join(timeout=5)
                     self.assertFalse(worker.is_alive())
                     self.assertEqual(errors, [])
                     self.assertFalse(path.exists())
-                    self.assertEqual(calls, ['Recall model warmup', 'example', 'example'])
+                    self.assertEqual(calls, ['Recall model warmup', 'example', 'example','batch a','batch b'])
 
     def test_no_worker_falls_back_to_local_encoder(self):
         with tempfile.TemporaryDirectory() as temporary:

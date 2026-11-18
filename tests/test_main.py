@@ -10,7 +10,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from src import main
+from src import main, indexing
 from src.main import match_fxns
 
 
@@ -74,7 +74,7 @@ class FileTests(unittest.TestCase):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name).resolve()
-        self.enterContext(patch.object(main, 'get_code_embedding', return_value=[1., 0.]))
+        self.enterContext(patch.object(indexing, 'get_code_embedding', return_value=[1., 0.]))
 
     def write(self, relative, source):
         path = self.root / relative
@@ -134,6 +134,8 @@ class FileTests(unittest.TestCase):
         for folder in ['.git', '.venv', 'venv', '__pycache__', '.idea']:
             for prefix in ['', 'nested/']:
                 self.write(f'{prefix}{folder}/hidden.py', 'def hidden():\n    pass\n')
+                if folder in {'.venv', 'venv'}:
+                    self.write(f'{prefix}{folder}/pyvenv.cfg', 'home = python')
         self.assertEqual([r['name'] for r in process_file_or_dir(str(self.root))], ['keep'])
 
     def test_broken_file_does_not_stop_folder_scan(self):
@@ -153,6 +155,8 @@ class CLITests(unittest.TestCase):
         # Copy only source: run the real module from a clean project root.
         shutil.copytree(PROJECT_ROOT / 'src', self.root / 'src',
                         ignore=shutil.ignore_patterns('__pycache__'))
+        shutil.copytree(PROJECT_ROOT / 'migrations', self.root / 'migrations',
+                        ignore=shutil.ignore_patterns('__pycache__', 'backups', 'data'))
 
     def write(self, relative, text):
         path = self.root / relative
@@ -260,6 +264,7 @@ class CLITests(unittest.TestCase):
 
     def test_skips_virtual_environment_and_handles_broken_new_file(self):
         self.write('repo/.venv/a.py', 'def hidden():\n    pass\n')
+        self.write('repo/.venv/pyvenv.cfg', 'home = python')
         self.write('repo/broken.py', 'def broken(:\n')
         self.write('repo/nested/good.py', 'async def visible():\n    pass\n')
         output = self.success('index', '-f', 'repo')

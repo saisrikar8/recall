@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Recall</title>
+<style>
+body{font:16px system-ui,sans-serif;margin:24px auto;max-width:1100px;padding:0 16px;color:#222;background:#fafafa}h1{margin-bottom:0}p{line-height:1.5}.muted,small{color:#666}section{border:1px solid #ccc;background:white;padding:18px;margin:18px 0}label{display:block;margin:10px 0 4px}input,select,button,textarea{font:inherit;padding:7px;box-sizing:border-box}input[type=text],textarea{width:100%}button{cursor:pointer}button:disabled{cursor:wait;opacity:.6}.row{display:flex;gap:12px;align-items:end;flex-wrap:wrap}.row>div{flex:1;min-width:150px}.row button{flex:none}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f4f4f4;padding:12px;max-height:400px;overflow:auto;font-size:13px}.result{border-top:1px solid #ddd;padding:12px 0}.path{overflow-wrap:anywhere;font:13px monospace}summary{cursor:pointer;padding:8px 0}details details{margin-left:16px}#status{padding:10px;background:#eee}#status.error{background:#fee;color:#900}.actions{display:flex;gap:8px;margin:8px 0}.entity{border-top:1px solid #eee;padding:6px}dialog{width:min(850px,90vw);max-height:85vh;overflow:auto;border:1px solid #888}dialog::backdrop{background:#0005}a{color:#1250aa}button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #5084e0}
+</style>
+</head>
+<body>
+<h1>Recall</h1><p class="muted">Search your local code and documents.</p>
+<div id="status" role="status" aria-live="polite">Ready.</div>
+<section aria-labelledby="search-heading">
+<h2 id="search-heading">Search</h2>
+<form id="search-form">
+<label for="query">What are you looking for?</label><input id="query" type="text" required placeholder="Where do we handle failed requests?">
+<div class="row"><div><label for="collection">Collection</label><select id="collection"><option value="">All collections</option></select></div>
+<div><label for="limit">Results</label><input id="limit" type="number" value="10" min="1" max="100"></div>
+<div><label for="threshold">Minimum text similarity</label><input id="threshold" type="number" value="0.4" min="-1" max="1" step="0.05"></div>
+<button type="submit" data-work>Search</button></div>
+</form>
+<p id="search-note" class="muted">PDFs and images get automatic OCR and visual indexing. The first operation may take longer while models load.</p><div id="results"></div>
+</section>
+<section aria-labelledby="index-heading">
+<h2 id="index-heading">Add or update files</h2>
+<form id="index-form"><label for="path">File or folder path</label><input id="path" type="text" required placeholder="/Users/you/Documents/notes">
+<label for="exclude">Exclude paths (optional, one per line)</label><textarea id="exclude" rows="2"></textarea>
+<div class="actions"><button type="submit" data-work>Add / update index</button><button id="preview" type="button" data-work>Preview files</button></div></form>
+<details id="progress"><summary>Operation progress</summary><pre id="log">No operation yet.</pre></details>
+</section>
+<section aria-labelledby="browse-heading"><div class="row"><h2 id="browse-heading">Browse index</h2><button id="refresh" type="button">Refresh</button></div><p class="muted">Removing an item affects the index only. Your original files stay on disk.</p><div id="collections">Loading…</div></section>
+<dialog id="detail"><button id="close-detail" type="button">Close</button><h2 id="detail-title"></h2><div id="detail-path" class="path"></div><pre id="detail-source"></pre></dialog>
+<script nonce="__RECALL_TOKEN__">
+(()=>{
+'use strict';
+const token='__RECALL_TOKEN__';
+const $=id=>document.getElementById(id);
+function node(tag,text,cls){const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(cls)e.className=cls;return e;}
+function status(message,error=false){$('status').textContent=message;$('status').className=error?'error':'';}
+async function api(path,data){const response=await fetch(path,{method:data===undefined?'GET':'POST',headers:{'X-Recall-Token':token,'Content-Type':'application/json'},body:data===undefined?undefined:JSON.stringify(data)});const value=await response.json();if(!response.ok)throw Error(value.error||'Request failed');return value;}
+function action(label,callback){const button=node('button',label);button.type='button';button.addEventListener('click',()=>Promise.resolve().then(callback).catch(e=>status(e.message,true)));return button;}
+function busy(value){document.querySelectorAll('[data-work]').forEach(e=>e.disabled=value);}
+async function operation(endpoint,data){busy(true);status('Working…');$('progress').open=true;$('log').textContent='Starting…';try{const {id}=await api(endpoint,data);let job;do{await new Promise(resolve=>setTimeout(resolve,500));job=await api('/api/jobs/'+id);$('log').textContent=job.messages.join('\n')||(job.status==='running'?'Working… Model loading can take a moment.':job.error||'Completed.');}while(job.status==='running');if(job.status==='failed')throw Error(job.error);status('Done.');return job.result;}catch(e){status(e.message,true);throw e;}finally{busy(false);}}
+function formatLocation(item){const page=item.page;if(page)return 'page '+page;const start=item['start-line']??item.start_line;const end=item['end-line']??item.end_line;return start?'lines '+start+(end&&end!==start?'–'+end:''):'';}
+function showDetail(item){$('detail-title').textContent=item.name||'Source';$('detail-path').textContent=item.path+' · '+formatLocation(item);$('detail-source').textContent=item.source||'No saved source text.';$('detail').showModal();}
+async function removeItem(data,label){if(!confirm('Remove '+label+' from the index? Original files will stay on disk.'))return;await operation('/api/remove',data);$('results').replaceChildren();await refresh();}
+async function refresh(){try{const records=await api('/api/collections');const selected=$('collection').value;$('collection').replaceChildren(new Option('All collections',''));const container=$('collections');container.replaceChildren();if(!records.length)container.append(node('p','No collections yet. Add a folder above.'));for(const collection of records){$('collection').add(new Option(collection.root,collection.root));const group=node('details');group.append(node('summary',collection.root+' ('+collection.files.length+' files)'));group.append(action('Remove collection',()=>removeItem({collection:collection.root},collection.root)));for(const file of collection.files){const fullPath=collection.root.replace(/\/$/,'')+'/'+file.path;const entry=node('details');entry.append(node('summary',file.path));const actions=node('div',undefined,'actions');actions.append(action('Open file',()=>api('/api/open',{path:fullPath})),action('Remove file',()=>removeItem({collection:collection.root,file:file.path},file.path)));entry.append(actions);for(const entity of (file.entities||file.functions)){const row=node('div',undefined,'entity');row.append(node('span',(entity.kind||'function')+' · '+entity.name+' · '+formatLocation(entity)+' '));row.append(action('View',async()=>showDetail(await api('/api/entity/'+encodeURIComponent(entity.id)))));row.append(action('Remove',()=>removeItem({id:String(entity.id)},entity.name)));entry.append(row);}group.append(entry);}container.append(group);}if(records.some(c=>c.root===selected))$('collection').value=selected;}catch(e){status(e.message,true);}}
+$('search-form').addEventListener('submit',async event=>{event.preventDefault();try{const results=await operation('/api/search',{query:$('query').value,collection:$('collection').value,limit:Number($('limit').value),threshold:Number($('threshold').value)});$('results').replaceChildren();$('search-note').textContent=results.length+' result(s)';for(const result of results){const row=node('article',undefined,'result');row.append(node('strong',result.name+' · '+result.kind+' · '+(result.match_type||'semantic')+' · '+result.score.toFixed(3)),node('p',result.path+' · '+formatLocation(result),'path'),node('pre',result.source));const actions=node('div',undefined,'actions');actions.append(action('Open file',()=>api('/api/open',{path:result.path})),action('View source',()=>showDetail(result)));row.append(actions);$('results').append(row);}if(!results.length)$('results').append(node('p','No results. Try different wording or a lower minimum similarity.'));}catch(e){/* operation displays the error */}});
+async function index(dryRun){if(!$('index-form').reportValidity())return;try{const result=await operation('/api/index',{path:$('path').value,exclude:$('exclude').value.split('\n').map(x=>x.trim()).filter(Boolean),dry_run:dryRun});if(!dryRun){await refresh();status(result.failed?'Index finished with '+result.failed+' failed file(s). See progress.':'Index updated.');}}catch(e){/* operation displays the error */}}
+$('index-form').addEventListener('submit',event=>{event.preventDefault();index(false);});$('preview').addEventListener('click',()=>index(true));$('refresh').addEventListener('click',refresh);$('close-detail').addEventListener('click',()=>$('detail').close());refresh();
+})();
+</script>
+</body></html>

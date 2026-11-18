@@ -1,215 +1,13 @@
+"""Command-line parsing and presentation for Recall."""
 import argparse
-import ast
-import hashlib
-import io
-import os
-import tokenize
-from datetime import datetime, timezone
-from pathlib import Path
+import re
 
-from sqlalchemy import delete, select
 from sqlalchemy.exc import DatabaseError
 
-from src.database import DATABASE_PATH, get_db, initialize_database, process_file_index, search_db
-from src.models import Collection, File, Function, DirectoryDecision
-from src.semantic_search import get_code_embedding, DEFAULT_MODEL
-from src.profiling import capture, measure
-import subprocess
-import sys
-def classify_directory(path: Path) -> DirectoryDecision:
-    """Inspect names and immediate markers, never recursively scan contents."""
-    names = {
-        '.git': ('Git internals', 'vcs.git'),
-        '.hg': ('Mercurial internals', 'vcs.hg'),
-        '.svn': ('Subversion internals', 'vcs.svn'),
-        '.bzr': ('Bazaar internals', 'vcs.bzr'),
-        '__pycache__': ('Python bytecode cache', 'cache.python'),
-        '.pytest_cache': ('Pytest cache', 'cache.pytest'),
-        '.mypy_cache': ('Mypy cache', 'cache.mypy'),
-        '.ruff_cache': ('Ruff cache', 'cache.ruff'),
-        '.hypothesis': ('Hypothesis test data cache', 'cache.hypothesis'),
-        '.tox': ('Tox environments', 'python.tox'),
-        '.nox': ('Nox environments', 'python.nox'),
-        '.idea': ('IDE metadata', 'ide.idea'),
-    }
-    if path.name in names:
-        reason, rule = names[path.name]
-        return DirectoryDecision(True, reason, rule)
-    if (path / 'pyvenv.cfg').is_file():
-        return DirectoryDecision(True, 'Python virtual environment', 'python.venv')
-    if (path / 'conda-meta/history').is_file():
-        return DirectoryDecision(True, 'Conda environment', 'python.conda')
-    if path.name in {'.venv', 'venv'} and (
-            (path / 'bin/python').exists() or (path / 'Scripts/python.exe').is_file()):
-        return DirectoryDecision(True, 'Python environment layout', 'python.environment-layout')
+from src.database import DATABASE_PATH, search_db
+from src.indexing import process_file, process_file_or_dir, update_index
+from src.profiling import capture
 
-    # Package metadata detects arbitrarily named installs such as .grader.
-    # Require two valid distributions AND package code, not suffixes alone.
-    distributions = 0
-    package_code = False
-    node_package = False
-    with os.scandir(path) as entries:
-        for entry in entries:
-            child = path / entry.name
-            if entry.is_dir(follow_symlinks=False):
-                if entry.name.endswith('.dist-info'):
-                    if (child / 'METADATA').is_file() and (child / 'RECORD').is_file():
-                        distributions += 1
-                elif (child / '__init__.py').is_file():
-                    package_code = True
-                if path.name == 'node_modules' and (child / 'package.json').is_file():
-                    node_package = True
-            elif entry.is_file(follow_symlinks=False) and entry.name.endswith('.py'):
-                package_code = True
-            if distributions >= 2 and package_code:
-                return DirectoryDecision(True, 'Installed Python dependencies', 'python.installed-packages')
-            if node_package:
-                return DirectoryDecision(True, 'Installed Node dependencies', 'node.dependencies')
-    if path.name == 'node_modules' and (path / '.package-lock.json').is_file():
-        return DirectoryDecision(True, 'Installed Node dependencies', 'node.dependencies')
-
-    parent = path.parent
-    frameworks = {
-        '.next': ('Next.js output', 'node.next', ('next.config.js', 'next.config.mjs', 'next.config.ts')),
-        '.nuxt': ('Nuxt output', 'node.nuxt', ('nuxt.config.js', 'nuxt.config.ts')),
-        '.svelte-kit': ('SvelteKit output', 'node.sveltekit', ('svelte.config.js', 'svelte.config.ts')),
-    }
-    if path.name in frameworks:
-        reason, rule, markers = frameworks[path.name]
-        if (parent / 'package.json').is_file() and any((parent / marker).is_file() for marker in markers):
-            return DirectoryDecision(True, reason, rule)
-    if path.name == 'target' and (parent / 'Cargo.toml').is_file() and (path / '.rustc_info.json').is_file():
-        return DirectoryDecision(True, 'Rust build output', 'build.rust')
-    if path.name == 'obj' and (path / 'project.assets.json').is_file() and (
-            any(parent.glob('*.csproj')) or any(parent.glob('*.fsproj'))):
-        return DirectoryDecision(True, '.NET intermediate output', 'build.dotnet')
-    if path.name == '.gradle' and any((parent / marker).is_file() for marker in (
-            'build.gradle', 'build.gradle.kts', 'settings.gradle', 'settings.gradle.kts')):
-        return DirectoryDecision(True, 'Gradle project cache', 'cache.gradle')
-    if path.name == 'cache' and parent.name == '.angular' and (parent.parent / 'angular.json').is_file():
-        return DirectoryDecision(True, 'Angular cache', 'cache.angular')
-    if path.suffix == '.app' and (path / 'Contents/Info.plist').is_file() and (path / 'Contents/MacOS').is_dir():
-        return DirectoryDecision(True, 'macOS application bundle', 'bundle.macos-app')
-    return DirectoryDecision(skip=False)
-
-
-def use_git_ignore(file_path: str):
-    try:
-        result = subprocess.run(
-            ["git", "-C", str(file_path), "rev-parse", "--show-toplevel"],
-            capture_output=True,
-            text=True,
-        )
-        return result.returncode == 0
-    except FileNotFoundError:
-        return False
-
-def is_git_ignored(file_path: str | Path) -> bool:
-    path = Path(file_path).resolve()
-    working_directory = path if path.is_dir() else path.parent
-    result = subprocess.run(
-        ['git', '-C', str(working_directory), 'check-ignore', '-q', '--', str(path)],
-        capture_output=True,
-        text=True,
-    )
-    if result.returncode == 0:
-        return True
-    if result.returncode == 1:
-        return False
-    raise ValueError(f'Git ignore check failed for {path}: {result.stderr.strip()}')
-
-
-def process_file(file: str, content: bytes | None = None) -> dict:
-    if not file.endswith(".py"):
-        return {}
-    try:
-        if content is None:
-            with open(file, "rb") as pfile:
-                content = pfile.read()
-        encoding, _ = tokenize.detect_encoding(io.BytesIO(content).readline)
-        code = content.decode(encoding)
-        code_tree = ast.parse(code, filename=file)
-
-        def embed_function(node):
-            source = ast.get_source_segment(code, node)
-            with measure('function', path=file, function=node.name,
-                         start_line=node.lineno, input_chars=len(source or '')):
-                return get_code_embedding(source)
-
-        return {
-            file: {
-                'hash': hashlib.sha256(content).hexdigest(),
-                'functions': [{
-                    'name': node.name,
-                    'path': file,
-                    'start-line': node.lineno,
-                    'end-line': node.end_lineno,
-                    'docstring': ast.get_docstring(node) or '',
-                    'source': ast.get_source_segment(code, node) or '',
-                    'embedding': embed_function(node),
-                    'embedding-model': DEFAULT_MODEL
-                } for node in ast.walk(code_tree) if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef))]
-            }
-        }
-    except (OSError, UnicodeError, SyntaxError) as error:
-        print(f'Encountered error: {error}')
-        return {}
-
-
-def discover_files(file_or_dir: str, exclude: list[str] | None = None) -> list[str]:
-    """Complete filtered discovery before permitting index mutations."""
-    path = Path(file_or_dir).resolve()
-    if not path.exists():
-        raise FileNotFoundError(f"File/directory not found: {path}")
-    single_file = path.is_file()
-    if single_file and path.suffix != '.py':
-        raise ValueError('Please provide a Python file or directory')
-    if not single_file and not path.is_dir():
-        raise ValueError(f'Not a file or directory: {path}')
-
-    excluded = {Path(p).expanduser().resolve() for p in exclude or []}
-    git_available = use_git_ignore(path.parent if single_file else path)
-
-    def is_excluded(candidate):
-        resolved = candidate.resolve()
-        return any(resolved.is_relative_to(item) for item in excluded)
-
-    def keep_directory(candidate):
-        decision = classify_directory(candidate)
-        if decision.skip:
-            print(f'Skipping {candidate}: {decision.reason} [{decision.rule}]', file=sys.stderr)
-        return not decision.skip
-
-    if is_excluded(path) or (not single_file and not keep_directory(path)):
-        return []
-    if git_available and is_git_ignored(path):
-        return []
-    if single_file:
-        return [str(path)]
-
-    def fail_on_error(error):
-        raise error
-
-    paths = []
-    for root, dirs, files in os.walk(path, onerror=fail_on_error):
-        parent = Path(root)
-        dirs[:] = [name for name in dirs
-                   if not (parent / name).is_symlink()
-                   and not is_excluded(parent / name)
-                   and keep_directory(parent / name)
-                   and not (git_available and is_git_ignored(parent / name))]
-        paths.extend(str(parent / name) for name in files
-                     if name.endswith('.py')
-                     and not is_excluded(parent / name)
-                     and not (git_available and is_git_ignored(parent / name)))
-    return sorted(paths)
-
-
-def process_file_or_dir(file_or_dir: str) -> dict:
-    records = {}
-    for path in discover_files(file_or_dir):
-        records.update(process_file(path))
-    return records
 
 # Deprecated method of matching functions without semantic search
 def match_fxns(fxns: list[dict], query:str, limit:int) -> list[dict]:
@@ -236,7 +34,10 @@ def match_fxns(fxns: list[dict], query:str, limit:int) -> list[dict]:
 
 def print_fxn(fxn: dict):
     path = fxn.get('relative_path', fxn['path'])
-    print(f"{fxn['score']:.3f}  {path}:{fxn['start-line']}-{fxn['end-line']}  {fxn['name']}")
+    location = f"page {fxn['page']}" if fxn.get('page') else f"{fxn['start-line']}-{fxn['end-line']}"
+    print(f"{fxn['score']:.3f}  {path}:{location}  {fxn['name']}")
+    if fxn.get('match_type'):
+        print(f"  Match: {fxn['match_type']}")
     if fxn.get('collection'):
         print(f"  Collection: {fxn['collection']}")
     lines = fxn['source'].splitlines()
@@ -261,142 +62,21 @@ def search_index(limit: int, query : str, threshold: float, collection: str | No
         print(error)
 
 
-def update_index(file_or_dir: str, exclude: list[str] | None = None, dry_run: bool = False) -> dict[str, int]:
-    target = Path(file_or_dir).resolve()
-    # Complete discovery before deleting any saved records.
-    paths = discover_files(str(target), exclude or [])
-    single_file = target.is_file()
-    root = target.parent if single_file else target
-    if dry_run:
-        print(f"Would scan {len(paths)} files:")
-        for i, path in enumerate(paths):
-            print(f'{i+1}. {Path(path).relative_to(root)}')
-        return {}
-    total = len(paths)
-    print(f"Discovered {total} Python {'file' if total == 1 else 'files'}", flush=True)
-    initialize_database()
-    counts = dict(new=0, changed=0, unchanged=0, deleted=0, failed=0)
-
-    with get_db() as session, session.begin():
-        collections = session.scalars(select(Collection)).all()
-        collection = next(
-            (c
-             for c in collections or []
-             if root.is_relative_to(Path(c.root_path))
-             ),
-            None
-        )
-        if collection is None:
-            children = [
-                c for c in collections
-                if Path(c.root_path).is_relative_to(root)
-            ]
-
-            collection = Collection(root_path=str(root))
-            session.add(collection)
-            session.flush()
-
-            seen = {}
-            for child in children:
-                old_root = Path(child.root_path)
-                for file in list(child.files):
-                    absolute_path = old_root / file.relative_path
-                    new_relative = str(absolute_path.relative_to(root))
-                    if new_relative in seen:
-                        hash_match = not seen[new_relative] or seen[new_relative].content_hash == file.content_hash
-                        for function in list(file.functions):
-                            session.delete(function)
-                        session.delete(file)
-                        if not hash_match:
-                            for function in list(seen[new_relative].functions):
-                                session.delete(function)
-                            session.delete(seen[new_relative])
-                            seen[new_relative] = None
-
-                        continue
-                    seen[new_relative] = file
-                    file.relative_path = new_relative
-                    file.collection = collection
-
-                session.flush()
-                session.delete(child)
-
-            session.flush()
-
-        old_files = {file.relative_path: file for file in session.scalars(
-            select(File).where(File.collection_id == collection.id))}
-        seen = set()
-        for position, path in enumerate(paths, start=1):
-            relative = str(Path(path).relative_to(collection.root_path))
-            progress = f'[{position}/{total}]'
-            print(f'{progress} Checking {relative}', flush=True)
-            seen.add(relative)
-            old = old_files.get(relative)
-            try:
-                content = Path(path).read_bytes()
-                fingerprint = hashlib.sha256(content).hexdigest()
-            except OSError as error:
-                print(f'Skipping {path}: {error}')
-                if old is not None:
-                    old.last_error = str(error)
-                counts['failed'] += 1
-                continue
-            if old is not None and old.content_hash == fingerprint:
-                old.last_error = None
-                counts['unchanged'] += 1
-                print(f'{progress} Skipped unchanged {relative}', flush=True)
-                continue
-            print(f'{progress} Processing {relative}', flush=True)
-            with measure('file-processing', path=relative, file_bytes=len(content)):
-                result = process_file(path, content)
-            if not result:
-                print(f'{progress} Failed {relative}; previous indexed contents retained if available', flush=True)
-                if old is not None:
-                    old.last_error = 'Extraction failed; previous indexed contents retained.'
-                counts['failed'] += 1
-                continue
-
-            # The existing helper inserts a file and its functions. Remove the
-            # previous rows explicitly, since the models have no delete cascade.
-            if old is not None:
-                session.execute(delete(Function).where(Function.file_id == old.id))
-                session.execute(delete(File).where(File.id == old.id))
-                session.flush()
-            process_file_index(session, collection, result[path], relative)
-            session.flush()
-            saved = session.scalar(select(File).where(
-                File.collection_id == collection.id, File.relative_path == relative))
-            saved.indexed_at = datetime.now(timezone.utc).replace(tzinfo=None)
-            saved.last_error = None
-            counts['changed' if old is not None else 'new'] += 1
-
-        # A single-file request must not delete its sibling file records.
-        if not single_file:
-            for relative in old_files.keys() - seen:
-                absolute_path = Path(collection.root_path) / relative
-                if not absolute_path.is_relative_to(target):
-                    continue
-                old = old_files[relative]
-                session.execute(delete(Function).where(Function.file_id == old.id))
-                session.execute(delete(File).where(File.id == old.id))
-                counts['deleted'] += 1
-    print('Indexed: ' + ', '.join(f'{value} {name}' for name, value in counts.items()))
-    return counts
-
 def main():
     parser = argparse.ArgumentParser(
         prog='Recall',
         description='Searches code files and provides enhanced search on your code'
     )
-    parser.add_argument('-f', '--file', help='File/directory to index, or indexed file relative to --collection')
+    parser.add_argument('-f', '--file', help='Supported source file/directory to index, or indexed file relative to --collection')
     parser.add_argument('-q', '--query', help='Query to search for')
     parser.add_argument('-l', '--limit', type=int, default=5, help='Limit of results')
     parser.add_argument('--min-threshold', type=float, default=0.4, help='Minimum cosine similarity threshold for search')
     parser.add_argument('--collection', help='Indexed collection root to search')
-    parser.add_argument('cmd', choices=['index', 'search', 'serve', 'list', 'remove'])
+    parser.add_argument('cmd', choices=['index', 'search', 'serve', 'list', 'remove', 'ui'])
     parser.add_argument('--tree', action='store_true', help='List collections, files, and functions')
     parser.add_argument('--function', help='Function name to remove from the selected file')
-    parser.add_argument('--function-id', type=int, help='Unique indexed function ID to list, search, or remove')
+    parser.add_argument('--function-id', help='Unique indexed function ID to list, search, or remove')
+    parser.add_argument('--entity-id', type=int, help='Look up or remove a published entity ID')
     parser.add_argument('--profile', action='store_true', help='Report timing and sampled process RSS to stderr (index or serve)')
     parser.add_argument('--dry-run', action='store_true', help='Dry run')
     parser.add_argument(
@@ -405,17 +85,27 @@ def main():
         default=[],
         help="Exclude a file or directory. Repeat for multiple paths",
     )
+    parser.add_argument('--port', type=int, default=8765, help='Local UI port (default: 8765)')
+    parser.add_argument('--no-browser', action='store_true', help='Start UI without opening a browser')
     args = parser.parse_args()
+    if not 0 <= args.port <= 65535:
+        parser.error('--port must be between 0 and 65535')
+    if args.cmd != 'ui' and (args.no_browser or args.port != 8765):
+        parser.error('--port and --no-browser require ui')
     if args.profile and (args.cmd not in ('index', 'serve') or args.dry_run):
         parser.error('--profile requires index or serve and cannot be combined with --dry-run')
     if args.tree and args.cmd != 'list':
         parser.error('--tree is only valid for list')
     if args.function is not None and args.cmd != 'remove':
         parser.error('--function is only valid for remove')
+    if args.entity_id is not None:
+        if args.function_id is not None or args.entity_id < 1:
+            parser.error('Use either a positive --entity-id or --function-id')
+        args.function_id = f'e:{args.entity_id}'
     if args.function_id is not None:
         if args.cmd not in ('list', 'search', 'remove'):
             parser.error('--function-id is only valid for list, search, or remove')
-        if args.function_id < 1:
+        if not re.fullmatch(r'(e:)?[1-9][0-9]*', str(args.function_id)):
             parser.error('--function-id must be positive')
         if any(value is not None for value in (args.collection, args.file, args.function, args.query)) or args.tree:
             parser.error('--function-id cannot be combined with --collection, --file, --function, --query, or --tree')
@@ -451,6 +141,12 @@ def main():
             else:
                 print(remove_index(args.collection, args.file, args.function, args.function_id))
         except (ValueError, DatabaseError) as error:
+            parser.error(str(error))
+    elif cmd == 'ui':
+        from src.ui import serve
+        try:
+            serve(port=args.port, open_browser=not args.no_browser)
+        except (OSError, ValueError) as error:
             parser.error(str(error))
     elif cmd == 'serve':
         from src.embedding_service import serve

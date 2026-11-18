@@ -8,8 +8,8 @@ from unittest.mock import patch
 from sqlalchemy import create_engine, event, select
 from sqlalchemy.orm import Session
 
-from src import database as db, main, semantic_search as semantic
-from src.models import Base, Collection, File, Function
+from src import database as db, indexing, main, semantic_search as semantic
+from src.models import Base, Collection, File, Function, Entity, Embedding, Extraction, Chunk
 
 
 class SemanticWorkflowTests(unittest.TestCase):
@@ -24,7 +24,7 @@ class SemanticWorkflowTests(unittest.TestCase):
         self.enterContext(patch.object(db, 'engine', self.engine))
         Base.metadata.create_all(self.engine)
         self.enterContext(contextlib.redirect_stdout(io.StringIO()))
-        self.embed = self.enterContext(patch.object(main, 'get_code_embedding',
+        self.embed = self.enterContext(patch.object(indexing, 'get_code_embedding',
             side_effect=lambda source: [0., 1.] if 'return 2' in source else [1., 0.]))
         self.query = self.enterContext(patch.object(semantic, 'get_query_embedding', return_value=[1., 0.]))
 
@@ -37,13 +37,13 @@ class SemanticWorkflowTests(unittest.TestCase):
 
     def test_change_replaces_embedding_unchanged_skips_and_delete_removes(self):
         path = self.index('def demo():\n    return 1\n')
-        self.assertEqual(self.embed.call_count, 1)
-        main.update_index(path.parent)
-        self.assertEqual(self.embed.call_count, 1)
-        self.index('def demo():\n    return 2\n')
         self.assertEqual(self.embed.call_count, 2)
+        main.update_index(path.parent)
+        self.assertEqual(self.embed.call_count, 2)
+        self.index('def demo():\n    return 2\n')
+        self.assertEqual(self.embed.call_count, 4)
         with Session(self.engine) as session:
-            self.assertEqual(session.scalar(select(Function)).embedding, [0., 1.])
+            self.assertEqual(session.scalar(select(Embedding.vector).join(Embedding.chunk).join(Chunk.entity).where(Entity.kind == 'function')), [0., 1.])
         path.unlink()
         main.update_index(path.parent)
         with Session(self.engine) as session:
@@ -72,7 +72,7 @@ class SemanticWorkflowTests(unittest.TestCase):
         self.index('def a():\n    return 1\ndef b():\n    return 2\n')
         results = db.search_db('example', threshold=1.)
         self.query.assert_called_once_with('example')
-        self.assertEqual([r['name'] for r in results], ['a'])
+        self.assertEqual([r['name'] for r in results if r['kind'] == 'function'], ['a'])
         self.assertEqual(db.search_db('example', threshold=0., limit=1)[0]['name'], 'a')
 
     def test_collection_filter_and_unknown_collection(self):
@@ -81,13 +81,13 @@ class SemanticWorkflowTests(unittest.TestCase):
         (other / 'b.py').write_text('def b():\n    return 1\n')
         main.update_index(other)
         results = db.search_db('example', collection=str(other))
-        self.assertEqual([r['name'] for r in results], ['b'])
+        self.assertEqual([r['name'] for r in results if r['kind'] == 'function'], ['b'])
         self.assertEqual(results[0]['relative_path'], 'b.py')
         with self.assertRaisesRegex(ValueError, 'not indexed'):
             db.search_db('example', collection='missing')
 
     def test_missing_wrong_model_and_malformed_vectors_are_excluded(self):
-        self.index('def a():\n    return 1\n')
+        db.init_index({'root': str(self.root), 'files': {'a.py': {'hash': 'x', 'functions': [{'name': 'a', 'start-line': 1, 'end-line': 2, 'docstring': '', 'source': 'def a(): pass', 'embedding': [1., 0.], 'embedding-model': semantic.DEFAULT_MODEL}]}}})
         with Session(self.engine) as session:
             f = session.scalar(select(Function))
             f.embedding_model = 'another-model'; session.commit()

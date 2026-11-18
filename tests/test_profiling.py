@@ -35,6 +35,7 @@ class ProfilingTests(unittest.TestCase):
         constructor = Mock(return_value=fake)
         module = types.SimpleNamespace(SentenceTransformer=constructor)
         with patch.dict(sys.modules, {'sentence_transformers': module}), \
+             patch('src.transformer_compat.prepare_coderank'), \
              patch.object(semantic, 'model', None), \
              patch.object(semantic, 'loaded_model_name', None), \
              profiling.capture(True, emit=False) as records:

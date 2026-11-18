@@ -15,6 +15,9 @@ def _encode_local(text, model_name=DEFAULT_MODEL):
         with measure('model-load', model=model_name):
             from sentence_transformers import SentenceTransformer
             model = SentenceTransformer(model_name, trust_remote_code=True)
+            if model_name == DEFAULT_MODEL:
+                from src.transformer_compat import prepare_coderank
+                prepare_coderank(model)
             loaded_model_name = model_name
     with measure('embedding', input_chars=len(text)):
         return model.encode(text).tolist()
@@ -66,3 +69,24 @@ def vector_similarity(query_json, code_json) -> float | None:
         return max(-1.0, min(1.0, sum(x*y for x, y in zip(query, code)) / norm))
     except (ValueError, TypeError):
         return None
+
+
+def get_code_embeddings(texts, model_name=DEFAULT_MODEL):
+    """Bounded caller batches reuse the same local/worker model instance."""
+    if not texts:return []
+    from src.embedding_service import request_embedding
+    try:
+        remote=request_embedding(texts,model_name)
+    except RuntimeError as error:
+        # Older optional workers accept single strings only; retain compatibility.
+        if not any(message in str(error) for message in ('Invalid embedding request','Embedding input must be text')):raise
+        return [get_code_embedding(text,model_name) for text in texts]
+    if remote is not None:return remote
+    return _encode_batch_local(texts,model_name)
+
+
+def _encode_batch_local(texts, model_name=DEFAULT_MODEL):
+    if model is None or loaded_model_name!=model_name:
+        _encode_local('Recall batch warmup',model_name)
+    with measure('embedding-batch',items=len(texts)):
+        return model.encode(texts,batch_size=min(8,len(texts)),show_progress_bar=False).tolist()

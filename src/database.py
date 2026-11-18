@@ -10,29 +10,15 @@ from src import semantic_search
 from src.models import Base, Collection, File, Function
 from src.semantic_search import vector_similarity
 from tqdm import tqdm
-import os
-from platformdirs import user_data_path
-
-override = os.environ.get("RECALL_DB_PATH")
-
-if override:
-    DATABASE_PATH = Path(override).expanduser().resolve()
-else:
-    DATABASE_PATH = user_data_path(
-        "recall", appauthor=False
-    ) / "index.db"
+from src.settings import DATABASE_PATH, DATABASE_URL
 
 DATABASE_PATH.parent.mkdir(parents=True, exist_ok=True)
-
-DATABASE_URL = URL.create(
-    "sqlite",
-    database=str(DATABASE_PATH),
-)
 
 engine = create_engine(DATABASE_URL)
 
 @event.listens_for(engine, "connect")
 def register_functions(connection, _):
+    connection.execute("PRAGMA foreign_keys=ON")
     connection.create_function(
         "vector_similarity",
         2,
@@ -40,7 +26,8 @@ def register_functions(connection, _):
     )
 
 def initialize_database():
-    Base.metadata.create_all(engine)
+    from src.schema import ensure_schema
+    ensure_schema(engine)
 
 
 def get_db() -> Session:
@@ -131,29 +118,6 @@ def update_file(file_index: dict, root_path: str, relative_path: str) -> None:
             process_file_index(session, collection, file_index, relative_path)
             session.commit()
 
-def search_db(query: str, limit: int = 5, threshold=0.4, collection: str | None = None):
-    if not query.strip() or limit < 1 or not math.isfinite(threshold) or not -1 <= threshold <= 1:
-        raise ValueError('Provide a query, positive limit, and threshold between -1 and 1.')
-    root = str(Path(collection).resolve()) if collection is not None else None
-    with get_db() as session:
-        if root is not None and session.scalar(select(Collection.id).where(Collection.root_path == root)) is None:
-            raise ValueError(f'Collection not indexed: {root}')
-        query_vector = semantic_search.get_query_embedding(query)
-        if query_vector is None:
-            raise ValueError('Could not embed query.')
-        score = func.vector_similarity(json.dumps(query_vector), Function.embedding).label('score')
-        statement = (select(Function, score).join(Function.file).join(File.collection)
-            .where(Function.embedding_model == semantic_search.DEFAULT_MODEL, score >= threshold))
-        if root is not None:
-            statement = statement.where(Collection.root_path == root)
-        statement = statement.order_by(score.desc(), Collection.root_path,
-                                       File.relative_path, Function.start_line).limit(limit)
-        return [{
-            'name': x.name,
-            'path': str(Path(x.file.collection.root_path) / x.file.relative_path),
-            'relative_path': x.file.relative_path,
-            'collection': x.file.collection.root_path,
-            'start-line': x.start_line, 'end-line': x.end_line,
-            'docstring': x.docstring, 'source': x.source, 'score': rank,
-            'embedding': x.embedding, 'embedding-model': x.embedding_model,
-        } for x, rank in session.execute(statement)]
+def search_db(query: str, limit: int = 5, threshold=.4, collection: str | None = None):
+    from src.retrieval import search
+    return search(query, limit, threshold, collection)

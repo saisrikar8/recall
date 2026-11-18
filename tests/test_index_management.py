@@ -6,7 +6,7 @@ from unittest.mock import patch
 
 from sqlalchemy import create_engine, select, func
 
-from src import database as db, main
+from src import database as db, indexing, main
 from src.index_management import get_function, list_index, remove_index
 from src.models import Base, Collection, File, Function
 
@@ -19,7 +19,7 @@ class IndexManagementTests(unittest.TestCase):
         self.engine = create_engine('sqlite://')
         self.addCleanup(self.engine.dispose)
         self.enterContext(patch.object(db, 'engine', self.engine))
-        self.enterContext(patch.object(main, 'get_code_embedding', return_value=[1., 0.]))
+        self.enterContext(patch.object(indexing, 'get_code_embedding', return_value=[1., 0.]))
         Base.metadata.create_all(self.engine)
         self.source = self.root / 'a.py'
         self.source.write_text('def demo():\n    return 1\n')
@@ -91,7 +91,11 @@ class IndexManagementTests(unittest.TestCase):
         self.source = nested / 'b.py'
         self.source.write_text('def demo(): return 1\n')
         main.update_index(self.root)
-        main.update_index(nested)
+        # Seed a legacy overlap directly; indexing now merges nested roots.
+        with db.get_db() as session, session.begin():
+            collection = Collection(root_path=str(nested))
+            session.add(collection)
+            session.add(File(collection=collection, relative_path='b.py', content_hash='legacy'))
         for operation in (list_index, remove_index):
             with self.assertRaisesRegex(ValueError, 'multiple collections'):
                 operation(file=str(self.source))

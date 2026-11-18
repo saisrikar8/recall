@@ -5,26 +5,41 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "recall-search"
 version = "0.1.1"
-description = "Semantic search for Python code"
+description = "Local semantic search for source code"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
     "SQLAlchemy",
+    "pypdf>=5",
+    "pillow>=11",
+    "pymupdf>=1.25,<1.27",
+    "filelock>=3",
+    "alembic",
     "sentence-transformers==6.1.0",
-    "transformers==5.9.0",
+    "transformers==5.15.0",
+    "peft==0.19.1",
     "torch==2.14.1",
     "tqdm",
     "einops",
     "platformdirs",
-    "psutil>=5.9"
+    "psutil>=5.9",
+    # This version bundles grammars for offline parsing.
+    "tree-sitter-language-pack==0.13.0",
+    "tree-sitter==0.26.1"
 ]
 
 [project.optional-dependencies]
-dev = ["alembic", "build"]
+dev = ["alembic", "build", "pypdf>=5"]
+documents = ["pypdf>=5"]
+visual-evaluation = ["pillow>=11", "pymupdf>=1.25,<1.27"]
 
 [project.scripts]
 recall = "src.main:main"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["src", "src.*"]
+include = ["src", "src.*", "migrations", "migrations.*"]
+
+[tool.setuptools.package-data]
+src = ["ui.html"]
+migrations = ["script.py.mako", "README"]

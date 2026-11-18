@@ -51,8 +51,8 @@ class DatabaseTests(unittest.TestCase):
         self.seed(function())
         before = self.snapshot()
         db.initialize_database()
-        self.assertEqual(set(inspect(self.engine).get_table_names()),
-                         {'collections', 'files', 'functions'})
+        self.assertEqual({name for name in inspect(self.engine).get_table_names() if not name.startswith('chunk_fts') and name != 'alembic_version'},
+                         {'collections', 'files', 'functions', 'extractions', 'entities', 'chunks', 'embeddings', 'visual_embeddings'})
         self.assertEqual(self.snapshot(), before)
 
     def test_init_index_persists_relationships(self):
