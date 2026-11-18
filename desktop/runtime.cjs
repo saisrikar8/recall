@@ -1,7 +1,7 @@
 const path = require('node:path');
 
 function engineLaunch({ packaged, platform = process.platform, root, resources, userData, env = process.env }) {
-  const paths = platform === 'win32' ? path.win32 : path;
+  const paths = platform === 'win32' ? path.win32 : path.posix;
   const runtime = paths.join(resources, 'runtime');
   const command = packaged
     ? paths.join(runtime, platform === 'win32' ? 'python/python.exe' : 'python/bin/python3')
