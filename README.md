@@ -687,7 +687,9 @@ shortcut, indexing progress, and shared original-file previews for PDFs,
 Markdown, code, text, and images. From `desktop`, run `npm ci` then `npm start`.
 It uses the project's Python environment and your existing index. See
 [desktop setup and toolkit](desktop/README.md) for controls, preview behavior,
-and current packaging requirements.
+and Mac build instructions. `npm run dist:mac` builds a DMG with Python, model
+dependencies, and OCR bundled. On Apple Silicon the output is arm64; this default
+build is ad-hoc signed and not notarized. Model weights download on first use.
 
 See [CS61A relevance checks](evaluation/CS61A_RESULTS.md) for the comparison,
 filename, numbered-question, generated-file filtering, and result-grouping fixes.

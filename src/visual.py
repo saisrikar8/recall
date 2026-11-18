@@ -82,7 +82,7 @@ def iter_pages(path, content, max_pages=1000):
 
 def ocr_image(image):
     from src.extraction import ExtractionError
-    executable = shutil.which('tesseract')
+    executable = os.environ.get('RECALL_TESSERACT') or shutil.which('tesseract')
     if executable is None:
         raise ExtractionError('Automatic OCR needs Tesseract. On macOS run: brew install tesseract, then retry indexing.')
     data = io.BytesIO()

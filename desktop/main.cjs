@@ -3,6 +3,7 @@ const { spawn } = require('node:child_process');
 const path = require('node:path');
 const fs = require('node:fs');
 const { menuTemplate } = require('./menu.cjs');
+const { engineLaunch } = require('./runtime.cjs');
 const { setDevelopmentLogin } = require('./login.cjs');
 const readline = require('node:readline');
 const { pathToFileURL } = require('node:url');
@@ -88,14 +89,14 @@ function backend(method, data = {}) {
   });
 }
 function startEngine() {
-  const python = process.env.RECALL_PYTHON || path.join(root, '.venv', process.platform === 'win32' ? 'Scripts/python.exe' : 'bin/python');
-  worker = spawn(python, ['-u', '-m', 'src.desktop_bridge'], { cwd: root, env: { ...process.env, PYTHONUNBUFFERED: '1', RECALL_EMBEDDING_SOCKET: process.env.RECALL_EMBEDDING_SOCKET || path.join(app.getPath('userData'), 'desktop-local-models.sock') }, stdio: ['pipe', 'pipe', 'pipe'] });
+  const launch = engineLaunch({ packaged: app.isPackaged, root, resources: process.resourcesPath, userData: app.getPath('userData') });
+  worker = spawn(launch.command, launch.args, launch.options);
   const fail = message => {
     startupError = message;
     for (const { reject, timer } of pending.values()) { clearTimeout(timer); reject(new Error(message)); }
     pending.clear();
   };
-  worker.on('error', error => fail(`Could not start Recall: ${error.message}. Set RECALL_PYTHON to your Recall Python environment.`));
+  worker.on('error', error => fail(`Could not start Recall: ${error.message}. ${app.isPackaged ? 'Reinstall Recall or report this error.' : 'Set RECALL_PYTHON to your Recall Python environment.'}`));
   worker.on('exit', code => { if (!quitting) fail(`Recall engine stopped (${code}). Restart the app.`); });
   worker.stderr.on('data', chunk => process.stderr.write(chunk));
   readline.createInterface({ input: worker.stdout }).on('line', line => {

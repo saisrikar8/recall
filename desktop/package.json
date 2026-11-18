@@ -6,13 +6,72 @@
   "main": "main.cjs",
   "scripts": {
     "start": "electron .",
-    "check": "node --check main.cjs && node --check preload.cjs && node --check renderer/app.js && node --check login.cjs && node --check renderer/theme.js && node --check menu.cjs && node --check renderer/onboarding.js",
+    "check": "node --check main.cjs && node --check preload.cjs && node --check renderer/app.js && node --check login.cjs && node --check renderer/theme.js && node --check menu.cjs && node --check renderer/onboarding.js && node --check runtime.cjs && node --check electron-builder.windows.cjs",
     "test": "node --test tests/*.test.cjs",
-    "background": "electron . --background"
+    "background": "electron . --background",
+    "prepare:mac": "python3 scripts/build-mac.py",
+    "dist:mac": "npm run prepare:mac && electron-builder --mac dmg",
+    "pack:mac": "npm run prepare:mac && electron-builder --mac --dir",
+    "prepare:windows": "python scripts/build-windows.py",
+    "dist:windows": "npm run prepare:windows && electron-builder --config electron-builder.windows.cjs --win nsis --x64 --publish never",
+    "pack:windows": "npm run prepare:windows && electron-builder --config electron-builder.windows.cjs --win --x64 --dir --publish never",
+    "test:runtime": "node --test tests/runtime.test.cjs"
   },
   "devDependencies": {
     "@playwright/test": "^1.56.0",
-    "electron": "45.3.3"
+    "electron": "45.3.3",
+    "electron-builder": "^26.18.0"
   },
-  "productName": "Recall"
+  "productName": "Recall",
+  "build": {
+    "appId": "app.recall.desktop",
+    "productName": "Recall",
+    "directories": {
+      "output": "../dist/mac"
+    },
+    "files": [
+      "main.cjs",
+      "preload.cjs",
+      "menu.cjs",
+      "login.cjs",
+      "renderer/**/*",
+      "icon.png",
+      "tray.png",
+      "package.json",
+      "runtime.cjs"
+    ],
+    "extraResources": [
+      {
+        "from": "../build/mac/runtime",
+        "to": "runtime"
+      }
+    ],
+    "mac": {
+      "category": "public.app-category.productivity",
+      "icon": "../build/mac/Recall.icns",
+      "target": [
+        "dmg"
+      ],
+      "identity": "-",
+      "hardenedRuntime": false,
+      "minimumSystemVersion": "14.0"
+    },
+    "dmg": {
+      "title": "Recall",
+      "contents": [
+        {
+          "x": 130,
+          "y": 180,
+          "type": "file"
+        },
+        {
+          "x": 410,
+          "y": 180,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "artifactName": "Recall-${version}-${arch}.${ext}"
+  }
 }

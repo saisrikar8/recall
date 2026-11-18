@@ -228,3 +228,76 @@ while indexing continues in the library.
 
 Setup completion is remembered on this device. Existing libraries continue
 straight to the dashboard. Reopen setup with **Recall → Welcome to Recall…**.
+
+## Build a downloadable Mac app
+
+Build on a Mac with the same CPU architecture as your users. The current default
+on Apple Silicon produces an **arm64** app (M1 and newer), not an Intel app.
+Build tools are needed on your machine only:
+
+```sh
+brew install uv tesseract
+cd desktop
+npm ci
+npm run dist:mac
+```
+
+Upload `dist/mac/Recall-0.1.1-arm64.dmg` from the **repository root** to your GitHub
+release. Recipients open the DMG, drag Recall into Applications, and open Recall.
+To also produce a ZIP, run `npx electron-builder --mac zip` after preparing the runtime.
+
+The build bundles a relocatable Python runtime, pinned Python dependencies,
+Tesseract and English OCR data. It does not include your local index, documents,
+virtual environment or model cache. Models download on first use, so the first
+launch needs an internet connection and time to prepare search. Subsequent runs
+reuse the local model cache. Neither Python, Node nor Homebrew is required on the
+recipient's Mac. Rebuild after changing Python source or dependencies.
+
+The default build is **ad-hoc signed**, suitable for testing, and is not notarized.
+Downloaded copies can trigger macOS security warnings. For a public release,
+configure a Developer ID Application certificate, hardened-runtime entitlements,
+and Apple notarization before distributing. Do not describe this default build
+as notarized or as an Intel/universal Mac build.
+
+To smoke-test the actual packaged app against a disposable index:
+
+```sh
+node scripts/smoke-mac.cjs ../dist/mac/mac-arm64/Recall.app
+```
+
+This test hides Homebrew from PATH, supplies an invalid development Python path,
+and verifies bundled OCR, onboarding, indexing, preview and semantic search.
+It uses cached model weights; it does not verify first-time model downloads.
+
+## Build Windows with GitHub Actions
+
+1. Open the repository's **Actions** tab.
+2. Select **Build Windows**, click **Run workflow**, choose `main`, and run it.
+3. Wait for **Windows x64 installer** to finish successfully.
+4. Open the run and download **Recall-Windows-x64** under **Artifacts**.
+5. Extract the artifact ZIP. Attach `Recall-Setup-<version>-x64.exe` and
+   `SHA256SUMS.txt` to your GitHub release.
+
+The workflow uses a Windows 2022 x64 runner. It bundles Python 3.13, CPU-only
+PyTorch, Tesseract with English OCR data, and the Microsoft C++ runtime DLLs.
+It installs the generated installer into a temporary folder and verifies actual
+OCR, PDF rendering, onboarding, indexing, preview and semantic search. Models
+download during the smoke test but are not included in the installer.
+
+This is an unsigned **Windows x64** build. Windows SmartScreen may warn about
+an unknown publisher. It is not a native Windows ARM64 installer. The workflow
+only provides a downloadable artifact for seven days; it does not create or
+publish a GitHub release. Logs remain available from the run's job page.
+
+To build on Windows yourself, install Node 24, uv, Tesseract, and Visual Studio
+2022 C++ build tools with the x64 redistributable files, then run:
+
+```powershell
+cd desktop
+npm ci
+npm run dist:windows
+```
+
+`RECALL_TESSERACT_DIR` can override the default
+`C:\Program Files\Tesseract-OCR` build-time directory. The installed app uses its
+own bundled OCR and Python rather than these development paths.
