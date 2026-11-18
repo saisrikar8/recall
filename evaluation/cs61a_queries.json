@@ -1,0 +1,12 @@
+[
+  {"query":"append vs extend","files":["2.4 - Mutable Data.md"],"origin":"user"},
+  {"query":"what was question 9 in the ants project","files":["proj/ants/ants.py"],"name":"TankAnt","origin":"user"},
+  {"query":"higher order functions","files":["1.6 - Higher Order Functions.md"],"origin":"development"},
+  {"query":"store digits in a linked list","files":["lab/lab04/lab04.py"],"origin":"development"},
+  {"query":"count_coins","files":["hw/hw03/hw03.py"],"origin":"development"},
+  {"query":"hw03.py","files":["hw/hw03/hw03.py"],"origin":"development"},
+  {"query":"notes about mutable data","files":["2.4 - Mutable Data.md"],"origin":"development"},
+  {"query":"what is an environment diagram","files":["Lecture 2 - August 28, 2026.md"],"origin":"development"},
+  {"query":"How do I count the ways to make change?","files":["hw/hw03/hw03.py"],"origin":"development"},
+  {"query":"How does accumulate combine a sequence?","files":["hw/hw02/hw02.py"],"origin":"development"}
+]

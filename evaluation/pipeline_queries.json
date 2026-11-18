@@ -1,0 +1,24 @@
+{
+  "math": [
+    {"query": "What makes a set of vectors a subspace?", "files": ["4.1 & 4.2"]},
+    {"query": "How do I find the null space and column space of a matrix?", "files": ["4.2 & 4.3"]},
+    {"query": "How do linearly independent vectors form a basis?", "files": ["4.3 Null", "4.3 & 4.5"]},
+    {"query": "What does the rank nullity theorem say about dimension?", "files": ["4.5 & 4.4", "4.3 & 4.5"]},
+    {"query": "How do coordinates change between two bases B and C?", "files": ["4.6 Change", "5.6 Change"]},
+    {"query": "How do I solve the characteristic equation to find eigenvalues?", "files": ["5.1 & 5.2", "5.2 & 5.3"]},
+    {"query": "How can complex eigenvalues appear for a real matrix?", "files": ["5.5 & 6.1", "5.4 & 5.5"]},
+    {"query": "What is the orthogonal complement of a subspace?", "files": ["6.1 & 6.2"]},
+    {"query": "How do I project a vector onto a subspace?", "files": ["6.2 & 6.3"]},
+    {"query": "How does Gram Schmidt construct an orthonormal basis?", "files": ["6.4"]},
+    {"query": "How do least squares solve an inconsistent linear system?", "files": ["6.5"]},
+    {"query": "What is the singular value decomposition of a matrix?", "files": ["7.4 & 4.2"]},
+    {"query": "A triangle diagram subtracting the projection of x2 onto x1", "files": ["6.4"], "pages": [1], "visual": true},
+    {"query": "A diagram showing coordinate transformations between two bases", "files": ["4.6 Change", "5.6 Change"], "pages": [1], "visual": true}
+  ],
+  "slides": [
+    {"query": "cambrian explosion", "files": ["lecture10"], "pages": [1, 25, 26, 28, 29]},
+    {"query": "Why can Europa have liquid water far from the Sun?", "files": ["lecture18"], "pages": [44, 45, 47]},
+    {"query": "What did Cassini find in the plumes of Enceladus?", "files": ["lecture18"], "pages": [57, 59, 60, 61]},
+    {"query": "An illustration of a spacecraft flying above an icy horizon with geysers", "files": ["lecture18"], "pages": [61], "visual": true}
+  ]
+}

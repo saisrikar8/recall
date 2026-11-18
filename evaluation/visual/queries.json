@@ -1,0 +1,89 @@
+{
+  "judgment_note": "Exploratory judgments from slide text and selected rendered pages; incomplete, not held out. Visual queries describe visible content. No handwriting examples in this set.",
+  "queries": [
+    {
+      "id": "q1",
+      "category": "text",
+      "text": "Which moon is the largest in the solar system?",
+      "relevant": [
+        "11_fall2026_lecture18_draft.pdf#page=20"
+      ]
+    },
+    {
+      "id": "q2",
+      "category": "text",
+      "text": "Why can liquid water exist inside Europa so far from the Sun?",
+      "relevant": [
+        "11_fall2026_lecture18_draft.pdf#page=47"
+      ]
+    },
+    {
+      "id": "q3",
+      "category": "text",
+      "text": "What evidence suggests a salty ocean beneath Europa?",
+      "relevant": [
+        "11_fall2026_lecture18_draft.pdf#page=45"
+      ]
+    },
+    {
+      "id": "q4",
+      "category": "text",
+      "text": "What did Cassini find in the plumes of Enceladus?",
+      "relevant": [
+        "11_fall2026_lecture18_draft.pdf#page=59"
+      ]
+    },
+    {
+      "id": "q5",
+      "category": "text",
+      "text": "How do the mass and radius of Callisto and Ganymede compare?",
+      "relevant": [
+        "11_fall2026_lecture18_draft.pdf#page=21"
+      ]
+    },
+    {
+      "id": "q6",
+      "category": "visual",
+      "text": "An illustration of a spacecraft flying over a curved icy horizon with tall white geysers against a dark sky",
+      "relevant": [
+        "11_fall2026_lecture18_draft.pdf#page=61"
+      ]
+    },
+    {
+      "id": "q7",
+      "category": "visual",
+      "text": "A montage comparing the appearances of four Galilean moons",
+      "relevant": [
+        "11_fall2026_lecture18_draft.pdf#page=14",
+        "11_fall2026_lecture18_draft.pdf#page=15"
+      ]
+    },
+    {
+      "id": "q8",
+      "category": "visual",
+      "text": "A diagram showing cutaway interiors of the Galilean moons",
+      "relevant": [
+        "11_fall2026_lecture18_draft.pdf#page=17"
+      ]
+    },
+    {
+      "id": "q9",
+      "category": "visual",
+      "text": "A picture of Jupiter with its giant red storm",
+      "relevant": [
+        "11_fall2026_lecture18_draft.pdf#page=10"
+      ]
+    },
+    {
+      "id": "q10",
+      "category": "visual",
+      "text": "An image showing many cracks across the icy surface of Europa",
+      "relevant": [
+        "11_fall2026_lecture18_draft.pdf#page=32",
+        "11_fall2026_lecture18_draft.pdf#page=33",
+        "11_fall2026_lecture18_draft.pdf#page=39",
+        "11_fall2026_lecture18_draft.pdf#page=41"
+      ]
+    }
+  ]
+}

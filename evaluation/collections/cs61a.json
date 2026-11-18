@@ -1,0 +1,1951 @@
+{
+  "collection": "/Users/sst/Desktop/work/cs61a",
+  "questions": [
+    {
+      "id": "cs61a-001",
+      "query": "append vs extend",
+      "category": "concept",
+      "family": "cs61a/Reading Notes/2.4 - Mutable Data.md",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/2.4 - Mutable Data.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2210,
+        "text": "One powerful technique for creating modular programs is to incorporate data that may change state over time. It is a central ingredient to the paradigm of object-oriented programming.\n\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-002",
+      "query": "How is mutation different from rebinding a name?",
+      "category": "concept",
+      "family": "cs61a/Reading Notes/2.4 - Mutable Data.md",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/2.4 - Mutable Data.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2210,
+        "text": "One powerful technique for creating modular programs is to incorporate data that may change state over time. It is a central ingredient to the paradigm of object-oriented programming.\n\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-003",
+      "query": "What are higher order functions?",
+      "category": "concept",
+      "family": "cs61a/Reading Notes/1.6 - Higher Order Functions.md",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/1.6 - Higher Order Functions.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2171,
+        "text": "- Powerful programming languages need to be able to provide methods of abstraction in which you can assign a name to a pattern of instructions\n- In abstraction, we will need to be able to construct functions that accept other functions as arguments or return functions as value. Functions that manipulate functions are called **higher-order functions**\n\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-004",
+      "query": "How do closures remember their enclosing environment?",
+      "category": "concept",
+      "family": "cs61a/Reading Notes/1.6 - Higher Order Functions.md",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/1.6 - Higher Order Functions.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2171,
+        "text": "- Powerful programming languages need to be able to provide methods of abstraction in which you can assign a name to a pattern of instructions\n- In abstraction, we will need to be able to construct functions that accept other functions as arguments or return functions as value. Functions that manipulate functions are called **higher-order functions**\n\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-005",
+      "query": "How does currying turn a two argument function into nested functions?",
+      "category": "concept",
+      "family": "cs61a/Reading Notes/1.6 - Higher Order Functions.md",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/1.6 - Higher Order Functions.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2171,
+        "text": "- Powerful programming languages need to be able to provide methods of abstraction in which you can assign a name to a pattern of instructions\n- In abstraction, we will need to be able to construct functions that accept other functions as arguments or return functions as value. Functions that manipulate functions are called **higher-order functions**\n\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-006",
+      "query": "How does a recursive function reach its base case?",
+      "category": "concept",
+      "family": "cs61a/Reading Notes/1.7 - Recursive Functions.md",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/1.7 - Recursive Functions.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2179,
+        "text": "A **recursive function** is one whose body calls the function itself, either directly or indirectly. This leads to the function applying itself repeatedly.\n\nHere's an example. Imagine you have a function that sums the digits of a natural number. The `%` and `//` operators can be used to separate a number into the last digit and all but the last digit. The sum of the digits of 18117 is `1+8+1+1+7=18`. Just like how we separate the number into its digits manually, we can separate this sum algorith"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-007",
+      "query": "How does tree recursion branch into smaller problems?",
+      "category": "concept",
+      "family": "cs61a/Reading Notes/1.7 - Recursive Functions.md",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/1.7 - Recursive Functions.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2179,
+        "text": "A **recursive function** is one whose body calls the function itself, either directly or indirectly. This leads to the function applying itself repeatedly.\n\nHere's an example. Imagine you have a function that sums the digits of a natural number. The `%` and `//` operators can be used to separate a number into the last digit and all but the last digit. The sum of the digits of 18117 is `1+8+1+1+7=18`. Just like how we separate the number into its digits manually, we can separate this sum algorith"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-008",
+      "query": "What is the difference between an expression and a statement?",
+      "category": "concept",
+      "family": "cs61a/Reading Notes/1.2 - Elements of Programming.md",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/1.2 - Elements of Programming.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2147,
+        "text": "## Overview\n\n- Programming Languages provide means to turn simple expressions into complex ones\n- Powerful programming languages have three such mechanisms:\n\t  - **primitive expressions and statements**: the simplest building blocks that the language provides\n\t  - **means of combination**: how compound elements are created from simpler ones\n\t  - **means of abstraction**: how compound elements can be named and manipulated as units\n- Programming primarily deals with\n\t- **Data**: information we wan"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-009",
+      "query": "How are function arguments evaluated?",
+      "category": "concept",
+      "family": "cs61a/Reading Notes/1.2 - Elements of Programming.md",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/1.2 - Elements of Programming.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2147,
+        "text": "## Overview\n\n- Programming Languages provide means to turn simple expressions into complex ones\n- Powerful programming languages have three such mechanisms:\n\t  - **primitive expressions and statements**: the simplest building blocks that the language provides\n\t  - **means of combination**: how compound elements are created from simpler ones\n\t  - **means of abstraction**: how compound elements can be named and manipulated as units\n- Programming primarily deals with\n\t- **Data**: information we wan"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-010",
+      "query": "How does a call expression work?",
+      "category": "concept",
+      "family": "cs61a/Reading Notes/1.2 - Elements of Programming.md",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/1.2 - Elements of Programming.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2147,
+        "text": "## Overview\n\n- Programming Languages provide means to turn simple expressions into complex ones\n- Powerful programming languages have three such mechanisms:\n\t  - **primitive expressions and statements**: the simplest building blocks that the language provides\n\t  - **means of combination**: how compound elements are created from simpler ones\n\t  - **means of abstraction**: how compound elements can be named and manipulated as units\n- Programming primarily deals with\n\t- **Data**: information we wan"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-011",
+      "query": "What are local frames in an environment diagram?",
+      "category": "concept",
+      "family": "cs61a/Reading Notes/1.3 - Defining New Functions.md",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/1.3 - Defining New Functions.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2153,
+        "text": "## How to Define a Function\n- Use `def` and name the function followed by parenthesis.\n- Specify formal parameters inside the parenthesis as a comma-delimited list\n\n```python\n>>> def square(x):\n        return mul(x, x)\n```\n\nThe line inside the function MUST be indented.\n\nHaving defined the `square` function, we can use it in a call expression:\n\n```python\n>>> square(21)\n441\n>>> square(add(2, 5))\n49\n>>> square(square(3))\n81\n```\n\n\nAssignment statements and `def` statements assign bindings to names."
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-012",
+      "query": "How do I design a function with one clear purpose?",
+      "category": "concept",
+      "family": "cs61a/Reading Notes/1.4 Designing Functions.md",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/1.4 Designing Functions.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2156,
+        "text": "[[Lecture 3 - August 30, 2026]]\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-013",
+      "query": "How does a while statement repeat a computation?",
+      "category": "concept",
+      "family": "cs61a/Reading Notes/1.5 - Control.md",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/1.5 - Control.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2161,
+        "text": "[[Lecture 3 - August 30, 2026]]\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-014",
+      "query": "What does short circuit evaluation mean?",
+      "category": "concept",
+      "family": "cs61a/Reading Notes/1.5 - Control.md",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/1.5 - Control.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2161,
+        "text": "[[Lecture 3 - August 30, 2026]]\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-015",
+      "query": "How do list comprehensions filter a sequence?",
+      "category": "concept",
+      "family": "cs61a/Reading Notes/2.2 - Sequences.md",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/2.2 - Sequences.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2187,
+        "text": " A *sequence* is an ordered collection of values. A sequence is not an instance of a particular built-in type in Python, but instead an abstraction: a collection of behaviors.\n\n**Length.** A sequence has a finite length. An empty sequence has length 0.\n\n**Item selection.** A sequence has an item corresponding to any non-negative integer index less than its length, starting at 0 for the first item.\n\nWhile sequences are collections of items, which are values, each sequence itself is also a value. "
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-016",
+      "query": "How does sequence unpacking assign values?",
+      "category": "concept",
+      "family": "cs61a/Reading Notes/2.2 - Sequences.md",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/2.2 - Sequences.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2187,
+        "text": " A *sequence* is an ordered collection of values. A sequence is not an instance of a particular built-in type in Python, but instead an abstraction: a collection of behaviors.\n\n**Length.** A sequence has a finite length. An empty sequence has length 0.\n\n**Item selection.** A sequence has an item corresponding to any non-negative integer index less than its length, starting at 0 for the first item.\n\nWhile sequences are collections of items, which are values, each sequence itself is also a value. "
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-017",
+      "query": "How do I slice a list?",
+      "category": "concept",
+      "family": "cs61a/Reading Notes/2.2 - Sequences.md",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/2.2 - Sequences.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2187,
+        "text": " A *sequence* is an ordered collection of values. A sequence is not an instance of a particular built-in type in Python, but instead an abstraction: a collection of behaviors.\n\n**Length.** A sequence has a finite length. An empty sequence has length 0.\n\n**Item selection.** A sequence has an item corresponding to any non-negative integer index less than its length, starting at 0 for the first item.\n\nWhile sequences are collections of items, which are values, each sequence itself is also a value. "
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-018",
+      "query": "How does a data abstraction hide its representation?",
+      "category": "concept",
+      "family": "cs61a/Reading Notes/2.3 Compound Data.md",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/2.3 Compound Data.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2200,
+        "text": "## The Object Metaphor\n\nThe central characteristic of object is that they represent information but also *behave* like the information that they represent. In Python, all values are objects. Data are objects that have types which endow those objects with behavior. While a program could use a list of integers (a year, month, and day) to represent a date, a `date` object bundles in a great deal of date-related functionality.\n\n```python\n>>> from datetime import date\n>>> date\n<class 'datetime.date'>"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-019",
+      "query": "How do append and extend change a mutable list?",
+      "category": "concept",
+      "family": "cs61a/Reading Notes/2.4 - Mutable Data.md",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/2.4 - Mutable Data.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2210,
+        "text": "One powerful technique for creating modular programs is to incorporate data that may change state over time. It is a central ingredient to the paradigm of object-oriented programming.\n\n"
+      },
+      "source": "source-grounded template",
+      "audit": "Replaced unsupported mutable-default-argument prompt during tuning."
+    },
+    {
+      "id": "cs61a-020",
+      "query": "How do two variables share the same list?",
+      "category": "concept",
+      "family": "cs61a/Reading Notes/2.4 - Mutable Data.md",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/2.4 - Mutable Data.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2210,
+        "text": "One powerful technique for creating modular programs is to incorporate data that may change state over time. It is a central ingredient to the paradigm of object-oriented programming.\n\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-021",
+      "query": "What is the difference between a class and an instance?",
+      "category": "concept",
+      "family": "cs61a/Reading Notes/2.5 - Object Oriented Programming.md",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/2.5 - Object Oriented Programming.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2217,
+        "text": "Object-oriented programming (OOP) is a method for organizing programs that brings together many of the ideas introduced in this chapter: objects have types that determine their behavior ([[2.1 - Introduction]]), objects can contain other objects ([[2.2 - Sequences]]), class statements can introduce new types that bundle together data and behavior ([[2.3 Compound Data]]), and objects have local mutable state ([[2.4 - Mutable Data]]). Two final components of OOP remain: customizing object behavior"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-022",
+      "query": "How do inherited methods work?",
+      "category": "concept",
+      "family": "cs61a/Reading Notes/2.5 - Object Oriented Programming.md",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/2.5 - Object Oriented Programming.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2217,
+        "text": "Object-oriented programming (OOP) is a method for organizing programs that brings together many of the ideas introduced in this chapter: objects have types that determine their behavior ([[2.1 - Introduction]]), objects can contain other objects ([[2.2 - Sequences]]), class statements can introduce new types that bundle together data and behavior ([[2.3 Compound Data]]), and objects have local mutable state ([[2.4 - Mutable Data]]). Two final components of OOP remain: customizing object behavior"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-023",
+      "query": "What is lazy evaluation?",
+      "category": "concept",
+      "family": "cs61a/Reading Notes/2.8 - Lazy Evaluation.md",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/2.8 - Lazy Evaluation.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2229,
+        "text": "Python doesn't execute the body of a newly created function, but instead waits until that function is called. It creates the potential to compute results for any input, but the actual computation is delayed until requested. \n\nThis pattern of setting up potential computation, but only performing it upon request, can extend to other kind of objects beyond functions. Broadly, the term **lazy evaluation** describes setting up but then delaying computation until it is needed, which contrasts with **e"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-024",
+      "query": "Why do generators delay computation?",
+      "category": "concept",
+      "family": "cs61a/Reading Notes/2.8 - Lazy Evaluation.md",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/2.8 - Lazy Evaluation.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2229,
+        "text": "Python doesn't execute the body of a newly created function, but instead waits until that function is called. It creates the potential to compute results for any input, but the actual computation is delayed until requested. \n\nThis pattern of setting up potential computation, but only performing it upon request, can extend to other kind of objects beyond functions. Broadly, the term **lazy evaluation** describes setting up but then delaying computation until it is needed, which contrasts with **e"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-025",
+      "query": "How does memoization avoid repeated work?",
+      "category": "concept",
+      "family": "cs61a/Reading Notes/2.9 - Efficiency.md",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/2.9 - Efficiency.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2240,
+        "text": "**Efficiency** refers to the computational resources used by a representation or process, such as how much time and memory are required to compute the result of a function or represent an object. These amounts can vary widely depending on the details of an implementation.\n\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-026",
+      "query": "How do I compare algorithm running times?",
+      "category": "concept",
+      "family": "cs61a/Reading Notes/2.9 - Efficiency.md",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/2.9 - Efficiency.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2240,
+        "text": "**Efficiency** refers to the computational resources used by a representation or process, such as how much time and memory are required to compute the result of a function or represent an object. These amounts can vary widely depending on the details of an implementation.\n\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-027",
+      "query": "How do linked lists represent recursive data?",
+      "category": "concept",
+      "family": "cs61a/Reading Notes/2.3 Compound Data.md",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/2.3 Compound Data.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2200,
+        "text": "## The Object Metaphor\n\nThe central characteristic of object is that they represent information but also *behave* like the information that they represent. In Python, all values are objects. Data are objects that have types which endow those objects with behavior. While a program could use a list of integers (a year, month, and day) to represent a date, a `date` object bundles in a great deal of date-related functionality.\n\n```python\n>>> from datetime import date\n>>> date\n<class 'datetime.date'>"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-028",
+      "query": "How do I count the ways to make change?",
+      "category": "concept",
+      "family": "hw/hw03/hw03.py",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hw/hw03/hw03.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1136,
+        "text": "def num_eights(n):\n    \"\"\"Returns the number of times 8 appears as a digit of n.\n\n    >>> num_eights(3)\n    0\n    >>> num_eights(8)\n    1\n    >>> num_eights(88888888)\n    8\n    >>> num_eights(2638)\n    1\n    >>> num_eights(86380)\n    2\n    >>> num_eights(12345)\n    0\n    >>> num_eights(8782089)\n    3\n    >>> # This test checks that you used no assignment statements or loops.\n    >>> import inspect, ast\n    >>> banned = ['Assign', 'AnnAssign', 'AugAssign', 'NamedExpr', 'For', 'While']\n    >>> tre"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-029",
+      "query": "store digits in a linked list",
+      "category": "concept",
+      "family": "lab/lab04/lab04.py",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "lab/lab04/lab04.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2443,
+        "text": "def change[T](s: LinkedList[T], old: T, new: T) -> LinkedList[T]:\n    \"\"\"Returns a linked list matching s but with all instances of old (if any)\n    replaced by new.\n\n    >>> s = Link(1, Link(2, Link(3)))\n    >>> t = change(s, 3, 1)\n    >>> print(t)\n    (1 2 1)\n    >>> u = change(t, 1, 2)\n    >>> print(u)\n    (2 2 2)\n    >>> v = change(u, 5, 1)\n    >>> print(v)\n    (2 2 2)\n    >>> print(s)   # The original linked list s is unchanged.\n    (1 2 3)\n    \"\"\"\n    \"*** YOUR CODE HERE ***\"  # replace th"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-030",
+      "query": "How does accumulate combine a sequence?",
+      "category": "concept",
+      "family": "hw/hw02/hw02.py",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hw/hw02/hw02.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1110,
+        "text": "def product(n, term):\n    \"\"\"Return the product of the first n terms in a sequence.\n\n    n: a positive integer\n    term: a function that takes an index as input and produces a term\n\n    >>> product(3, identity)  # 1 * 2 * 3\n    6\n    >>> product(5, identity)  # 1 * 2 * 3 * 4 * 5\n    120\n    >>> product(3, square)    # 1^2 * 2^2 * 3^2\n    36\n    >>> product(5, square)    # 1^2 * 2^2 * 3^2 * 4^2 * 5^2\n    14400\n    >>> product(3, increment) # (1+1) * (2+1) * (3+1)\n    24\n    >>> product(3, triple)"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-031",
+      "query": "How does a TankAnt attack bees while protecting another ant?",
+      "category": "concept",
+      "family": "proj/ants/ants.py",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "proj/ants/ants.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2690,
+        "text": "class Place\nA Place holds insects and has an exit to another Place.\nblock is_hive\nmethod __init__\nmethod add_insect\nmethod remove_insect\nmethod __str__"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-032",
+      "query": "what was question 9 in the ants project",
+      "category": "concept",
+      "family": "proj/ants/ants.py",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "proj/ants/ants.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2690,
+        "text": "class Place\nA Place holds insects and has an exit to another Place.\nblock is_hive\nmethod __init__\nmethod add_insect\nmethod remove_insect\nmethod __str__"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-033",
+      "query": "Where is the code that a die that returns 1 to SIDES with equal chance?",
+      "category": "docstring paraphrase",
+      "family": "hog_contest/dice.py",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hog_contest/dice.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2311,
+        "text": "def make_fair_dice(sides):\n    \"\"\"Return a die that returns 1 to SIDES with equal chance.\"\"\"\n    assert type(sides) == int and sides >= 1, 'Illegal value for sides'\n    def dice():\n        return randint(1,sides)\n    return dice"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-034",
+      "query": "Where is the code that a die that cycles deterministically through OUTCOMES?",
+      "category": "docstring paraphrase",
+      "family": "hog_contest/dice.py",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hog_contest/dice.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2313,
+        "text": "def make_test_dice(*outcomes):\n    \"\"\"Return a die that cycles deterministically through OUTCOMES.\n\n    >>> dice = make_test_dice(1, 2, 3)\n    >>> dice()\n    1\n    >>> dice()\n    2\n    >>> dice()\n    3\n    >>> dice()\n    1\n    >>> dice()\n    2\n\n    This function uses Python syntax/techniques not yet covered in this course.\n    The best way to understand it is by reading the documentation and examples.\n    \"\"\"\n    assert len(outcomes) > 0, 'You must supply outcomes to make_test_dice'\n    for o in"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-035",
+      "query": "Where is the code that Call fn with command line arguments.  Used as a decorator?",
+      "category": "docstring paraphrase",
+      "family": "hog_contest/ucb.py",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hog_contest/ucb.py",
+          "page": null
+        },
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "proj/ants/ucb.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2331,
+        "text": "def main(fn):\n    \"\"\"Call fn with command line arguments.  Used as a decorator.\n\n    The main decorator marks the function that starts a program. For example,\n\n    @main\n    def my_run_function():\n        # function body\n\n    Use this instead of the typical __name__ == \"__main__\" predicate.\n    \"\"\"\n    if inspect.stack()[1][0].f_locals['__name__'] == '__main__':\n        args = sys.argv[1:] # Discard the script name from command line\n        fn(*args) # Call the main function\n    return fn"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-036",
+      "query": "Where is the code that A decorator that prints a function's name, its arguments, and its return\nvalues each time the function is called. For example,?",
+      "category": "docstring paraphrase",
+      "family": "hog_contest/ucb.py",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hog_contest/ucb.py",
+          "page": null
+        },
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "proj/ants/ucb.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2332,
+        "text": "def trace(fn):\n    \"\"\"A decorator that prints a function's name, its arguments, and its return\n    values each time the function is called. For example,\n\n    @trace\n    def compute_something(x, y):\n        # function body\n    \"\"\"\n    @functools.wraps(fn)\n    def wrapped(*args, **kwds):\n        global _PREFIX\n        reprs = [repr(e) for e in args]\n        reprs += [repr(k) + '=' + repr(v) for k, v in kwds.items()]\n        log('{0}({1})'.format(fn.__name__, ', '.join(reprs)) + ':')\n        _PREFI"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-037",
+      "query": "Where is the code that Print an indented message (used with trace)?",
+      "category": "docstring paraphrase",
+      "family": "hog_contest/ucb.py",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hog_contest/ucb.py",
+          "page": null
+        },
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "proj/ants/ucb.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2334,
+        "text": "def log(message):\n    \"\"\"Print an indented message (used with trace).\"\"\"\n    print(_PREFIX + re.sub('\\n', '\\n' + _PREFIX, str(message)))"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-038",
+      "query": "Where is the code that Print information about the current line of code?",
+      "category": "docstring paraphrase",
+      "family": "hog_contest/ucb.py",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hog_contest/ucb.py",
+          "page": null
+        },
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "proj/ants/ucb.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2335,
+        "text": "def log_current_line():\n    \"\"\"Print information about the current line of code.\"\"\"\n    frame = inspect.stack()[1]\n    log('Current line: File \"{f[1]}\", line {f[2]}, in {f[3]}'.format(f=frame))"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-039",
+      "query": "Where is the code that Start an interactive interpreter session in the current environment?",
+      "category": "docstring paraphrase",
+      "family": "hog_contest/ucb.py",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hog_contest/ucb.py",
+          "page": null
+        },
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "proj/ants/ucb.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2336,
+        "text": "def interact(msg=None):\n    \"\"\"Start an interactive interpreter session in the current environment.\n\n    On Unix:\n      <Control>-D exits the interactive session and returns to normal execution.\n    In Windows:\n      <Control>-Z <Enter> exits the interactive session and returns to normal\n      execution.\n    \"\"\"\n    # evaluate commands in current namespace\n    caller = inspect.currentframe()\n    assert caller is not None and caller.f_back is not None\n    frame = caller.f_back\n    namespace = fra"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-040",
+      "query": "Where is the code that a+abs(b), but without calling abs?",
+      "category": "docstring paraphrase",
+      "family": "hw/hw01/hw01.py",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hw/hw01/hw01.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1095,
+        "text": "def a_plus_abs_b(a, b):\n    \"\"\"Return a+abs(b), but without calling abs.\n\n    >>> a_plus_abs_b(2, 3)\n    5\n    >>> a_plus_abs_b(2, -3)\n    5\n    >>> a_plus_abs_b(-1, 4)\n    3\n    >>> a_plus_abs_b(-1, -4)\n    3\n    \"\"\"\n    if b < 0:\n        f = sub\n    else:\n        f = add\n    return f(a, b)"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-041",
+      "query": "Where is the code that m*m + n*n, where m and n are the two smallest members of the\npositive numbers i, j, and k?",
+      "category": "docstring paraphrase",
+      "family": "hw/hw01/hw01.py",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hw/hw01/hw01.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1096,
+        "text": "def two_of_three(i, j, k):\n    \"\"\"Return m*m + n*n, where m and n are the two smallest members of the\n    positive numbers i, j, and k.\n\n    >>> two_of_three(1, 2, 3)\n    5\n    >>> two_of_three(5, 3, 1)\n    10\n    >>> two_of_three(10, 2, 8)\n    68\n    >>> two_of_three(5, 5, 5)\n    50\n    \"\"\"\n    return min(i**2+j**2, i**2+k**2, j**2+k**2)"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-042",
+      "query": "Where is the code that the largest factor of n that is smaller than n?",
+      "category": "docstring paraphrase",
+      "family": "hw/hw01/hw01.py",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hw/hw01/hw01.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1097,
+        "text": "def largest_factor(n):\n    \"\"\"Return the largest factor of n that is smaller than n.\n\n    >>> largest_factor(15) # factors are 1, 3, 5\n    5\n    >>> largest_factor(80) # factors are 1, 2, 4, 5, 8, 10, 16, 20, 40\n    40\n    >>> largest_factor(13) # factors are 1, 13\n    1\n    \"\"\"\n    \"*** YOUR CODE HERE ***\"\n    factor = n - 1\n    while factor > 1:\n        if n%factor == 0:\n            return factor\n        factor = factor - 1\n    return 1"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-043",
+      "query": "Where is the code that Print the hailstone sequence starting at n and return its length?",
+      "category": "docstring paraphrase",
+      "family": "hw/hw01/hw01.py",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hw/hw01/hw01.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1098,
+        "text": "def hailstone(n):\n    \"\"\"Print the hailstone sequence starting at n and return its length.\n\n    >>> a = hailstone(10)\n    10\n    5\n    16\n    8\n    4\n    2\n    1\n    >>> a\n    7\n    >>> b = hailstone(1)\n    1\n    >>> b\n    1\n    \"\"\"\n    \"*** YOUR CODE HERE ***\"\n    \n    steps = 1\n    val = n\n    while val != 1:\n        print(val)\n        if (val%2==0):\n            val=val//2\n        else:\n            val=3*val+1\n        steps = steps+1\n    print(val)\n    return steps"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-044",
+      "query": "Where is the code that the product of the first n terms in a sequence?",
+      "category": "docstring paraphrase",
+      "family": "hw/hw02/hw02.py",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hw/hw02/hw02.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1110,
+        "text": "def product(n, term):\n    \"\"\"Return the product of the first n terms in a sequence.\n\n    n: a positive integer\n    term: a function that takes an index as input and produces a term\n\n    >>> product(3, identity)  # 1 * 2 * 3\n    6\n    >>> product(5, identity)  # 1 * 2 * 3 * 4 * 5\n    120\n    >>> product(3, square)    # 1^2 * 2^2 * 3^2\n    36\n    >>> product(5, square)    # 1^2 * 2^2 * 3^2 * 4^2 * 5^2\n    14400\n    >>> product(3, increment) # (1+1) * (2+1) * (3+1)\n    24\n    >>> product(3, triple)"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-045",
+      "query": "Where is the code that the result of fusing together the first n terms in a sequence\nand start.  The terms to be fused are term(1), term(2), ..., term(n).\nThe function fuse is a two-argument commutative & associative?",
+      "category": "docstring paraphrase",
+      "family": "hw/hw02/hw02.py",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hw/hw02/hw02.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1111,
+        "text": "def accumulate(fuse, start, n, term):\n    \"\"\"Return the result of fusing together the first n terms in a sequence\n    and start.  The terms to be fused are term(1), term(2), ..., term(n).\n    The function fuse is a two-argument commutative & associative function.\n\n    >>> accumulate(add, 0, 5, identity)  # 0 + 1 + 2 + 3 + 4 + 5\n    15\n    >>> accumulate(add, 11, 5, identity) # 11 + 1 + 2 + 3 + 4 + 5\n    26\n    >>> accumulate(add, 11, 0, identity) # 11 (fuse is never used)\n    11\n    >>> accumula"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-046",
+      "query": "Where is the code that the sum: term(1) + ... + term(n), using accumulate?",
+      "category": "docstring paraphrase",
+      "family": "hw/hw02/hw02.py",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hw/hw02/hw02.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1112,
+        "text": "def summation_using_accumulate(n, term):\n    \"\"\"Returns the sum: term(1) + ... + term(n), using accumulate.\n\n    >>> summation_using_accumulate(5, square) # square(1) + square(2) + ... + square(4) + square(5)\n    55\n    >>> summation_using_accumulate(5, triple) # triple(1) + triple(2) + ... + triple(4) + triple(5)\n    45\n    >>> # This test checks that the body of the function is just a return statement.\n    >>> import inspect, ast\n    >>> [type(x).__name__ for x in ast.parse(inspect.getsource(s"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-047",
+      "query": "Where is the code that the product: term(1) * ... * term(n), using accumulate?",
+      "category": "docstring paraphrase",
+      "family": "hw/hw02/hw02.py",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hw/hw02/hw02.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1113,
+        "text": "def product_using_accumulate(n, term):\n    \"\"\"Returns the product: term(1) * ... * term(n), using accumulate.\n\n    >>> product_using_accumulate(4, square) # square(1) * square(2) * square(3) * square(4)\n    576\n    >>> product_using_accumulate(6, triple) # triple(1) * triple(2) * ... * triple(5) * triple(6)\n    524880\n    >>> # This test checks that the body of the function is just a return statement.\n    >>> import inspect, ast\n    >>> [type(x).__name__ for x in ast.parse(inspect.getsource(prod"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-048",
+      "query": "Where is the code that the function that computes the nth application of f?",
+      "category": "docstring paraphrase",
+      "family": "hw/hw02/hw02.py",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hw/hw02/hw02.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1114,
+        "text": "def make_repeater(f, n):\n    \"\"\"Returns the function that computes the nth application of f.\n\n    >>> add_three = make_repeater(increment, 3)\n    >>> add_three(5)\n    8\n    >>> make_repeater(triple, 5)(1) # 3 * (3 * (3 * (3 * (3 * 1))))\n    243\n    >>> make_repeater(square, 2)(5) # square(square(5))\n    625\n    >>> make_repeater(square, 3)(5) # square(square(square(5)))\n    390625\n    \"\"\"\n    \"*** YOUR CODE HERE ***\"\n    def repeater(x):\n        res = f(x)\n        i = n\n        while i > 1:\n    "
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-049",
+      "query": "Where is the code that a function with one parameter x that returns True if f(g(x)) is\nequal to g(f(x)). You can assume the result of g(x) is a valid input for f\nand vice versa?",
+      "category": "docstring paraphrase",
+      "family": "hw/hw02/hw02.py",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hw/hw02/hw02.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1116,
+        "text": "def composite_identity(f, g):\n    \"\"\"Return a function with one parameter x that returns True if f(g(x)) is\n    equal to g(f(x)). You can assume the result of g(x) is a valid input for f\n    and vice versa.\n\n    >>> add_one = lambda x: x + 1        # adds one to x\n    >>> square = lambda x: x**2          # squares x [returns x^2]\n    >>> b1 = composite_identity(square, add_one)\n    >>> b1(0)                            # (0 + 1) ** 2 == 0 ** 2 + 1\n    True\n    >>> b1(4)                           "
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-050",
+      "query": "Where is the code that Church numeral 1: same as successor(zero)?",
+      "category": "docstring paraphrase",
+      "family": "hw/hw02/hw02.py",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hw/hw02/hw02.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1120,
+        "text": "def one(f):\n    \"\"\"Church numeral 1: same as successor(zero)\"\"\"\n    \"*** YOUR CODE HERE ***\"\n    return lambda g: lambda y: g(y)"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-051",
+      "query": "Where is the code that Church numeral 2: same as successor(successor(zero))?",
+      "category": "docstring paraphrase",
+      "family": "hw/hw02/hw02.py",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hw/hw02/hw02.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1121,
+        "text": "def two(f):\n    \"\"\"Church numeral 2: same as successor(successor(zero))\"\"\"\n    \"*** YOUR CODE HERE ***\"\n    return lambda h : lambda z: h(z)"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-052",
+      "query": "Where is the code that Convert the Church numeral n to a Python integer?",
+      "category": "docstring paraphrase",
+      "family": "hw/hw02/hw02.py",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hw/hw02/hw02.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1122,
+        "text": "def church_to_int(n):\n    \"\"\"Convert the Church numeral n to a Python integer.\n\n    >>> church_to_int(zero)\n    0\n    >>> church_to_int(one)\n    1\n    >>> church_to_int(two)\n    2\n    >>> church_to_int(three)\n    3\n    \"\"\"\n    \"*** YOUR CODE HERE ***\""
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-053",
+      "query": "Where is the code that the Church numeral for m + n, for Church numerals m and n?",
+      "category": "docstring paraphrase",
+      "family": "hw/hw02/hw02.py",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hw/hw02/hw02.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1123,
+        "text": "def add_church(m, n):\n    \"\"\"Return the Church numeral for m + n, for Church numerals m and n.\n\n    >>> church_to_int(add_church(two, three))\n    5\n    \"\"\"\n    \"*** YOUR CODE HERE ***\""
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-054",
+      "query": "Where is the code that the Church numeral for m * n, for Church numerals m and n?",
+      "category": "docstring paraphrase",
+      "family": "hw/hw02/hw02.py",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hw/hw02/hw02.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1124,
+        "text": "def mul_church(m, n):\n    \"\"\"Return the Church numeral for m * n, for Church numerals m and n.\n\n    >>> four = successor(three)\n    >>> church_to_int(mul_church(two, three))\n    6\n    >>> church_to_int(mul_church(three, four))\n    12\n    \"\"\"\n    \"*** YOUR CODE HERE ***\""
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-055",
+      "query": "Where is the code that the Church numeral m ** n, for Church numerals m and n?",
+      "category": "docstring paraphrase",
+      "family": "hw/hw02/hw02.py",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hw/hw02/hw02.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1125,
+        "text": "def pow_church(m, n):\n    \"\"\"Return the Church numeral m ** n, for Church numerals m and n.\n\n    >>> church_to_int(pow_church(two, three))\n    8\n    >>> church_to_int(pow_church(three, two))\n    9\n    \"\"\"\n    \"*** YOUR CODE HERE ***\""
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-056",
+      "query": "Where is the code that the number of times 8 appears as a digit of n?",
+      "category": "docstring paraphrase",
+      "family": "hw/hw03/hw03.py",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hw/hw03/hw03.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1136,
+        "text": "def num_eights(n):\n    \"\"\"Returns the number of times 8 appears as a digit of n.\n\n    >>> num_eights(3)\n    0\n    >>> num_eights(8)\n    1\n    >>> num_eights(88888888)\n    8\n    >>> num_eights(2638)\n    1\n    >>> num_eights(86380)\n    2\n    >>> num_eights(12345)\n    0\n    >>> num_eights(8782089)\n    3\n    >>> # This test checks that you used no assignment statements or loops.\n    >>> import inspect, ast\n    >>> banned = ['Assign', 'AnnAssign', 'AugAssign', 'NamedExpr', 'For', 'While']\n    >>> tre"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-057",
+      "query": "Where is the code that Determines the digit distance of n?",
+      "category": "docstring paraphrase",
+      "family": "hw/hw03/hw03.py",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hw/hw03/hw03.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1137,
+        "text": "def digit_distance(n):\n    \"\"\"Determines the digit distance of n.\n\n    >>> digit_distance(3)\n    0\n    >>> digit_distance(777) # 0 + 0\n    0\n    >>> digit_distance(314) # 2 + 3\n    5\n    >>> digit_distance(31415926535) # 2 + 3 + 3 + 4 + ... + 2\n    32\n    >>> digit_distance(3464660003)  # 1 + 2 + 2 + 2 + ... + 3\n    16\n    >>> # This test checks that you used no loops.\n    >>> import inspect, ast\n    >>> tree = ast.parse(inspect.getsource(digit_distance))\n    >>> [type(x).__name__ for x in ast.w"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-058",
+      "query": "Where is the code that Compute the sum f_odd(1) + f_even(2) + f_odd(3) + ..., up\nto n?",
+      "category": "docstring paraphrase",
+      "family": "hw/hw03/hw03.py",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hw/hw03/hw03.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1138,
+        "text": "def interleaved_sum(n, f_odd, f_even):\n    \"\"\"Compute the sum f_odd(1) + f_even(2) + f_odd(3) + ..., up\n    to n.\n\n    >>> identity = lambda x: x\n    >>> square = lambda x: x * x\n    >>> triple = lambda x: x * 3\n    >>> interleaved_sum(5, identity, square) # 1   + 2*2 + 3   + 4*4 + 5\n    29\n    >>> interleaved_sum(5, square, identity) # 1*1 + 2   + 3*3 + 4   + 5*5\n    41\n    >>> interleaved_sum(4, triple, square)   # 1*3 + 2*2 + 3*3 + 4*4\n    32\n    >>> interleaved_sum(4, square, triple)   # 1*1"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-059",
+      "query": "Where is the code that the next smaller coin in order?",
+      "category": "docstring paraphrase",
+      "family": "hw/hw03/hw03.py",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hw/hw03/hw03.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1141,
+        "text": "def next_smaller_coin(coin):\n    \"\"\"Returns the next smaller coin in order.\"\"\"\n    if coin == 25:\n        return 10\n    elif coin == 10:\n        return 5\n    elif coin == 5:\n        return 1"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-060",
+      "query": "Where is the code that the number of ways to make change?",
+      "category": "docstring paraphrase",
+      "family": "hw/hw03/hw03.py",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hw/hw03/hw03.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1142,
+        "text": "def count_coins(total):\n    \"\"\"Return the number of ways to make change.\n\n    >>> count_coins(15)  # 15 1-cent coins, 10 1-cent & 1 5-cent coins, ... 1 5-cent & 1 10-cent coins\n    6\n    >>> count_coins(10)  # 10 1-cent coins, 5 1-cent & 1 5-cent coins, 2 5-cent coins, 1 10-cent coin\n    4\n    >>> count_coins(20)  # 20 1-cent coins, 15 1-cent & 1 5-cent coins, ... 2 10-cent coins\n    9\n    >>> count_coins(45)  # How many ways to make change for 45 cents?\n    39\n    >>> count_coins(100) # How man"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-061",
+      "query": "Where is the code that the largest subsequence of at most t digits found in n?",
+      "category": "docstring paraphrase",
+      "family": "hw/hw03/hw03.py",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hw/hw03/hw03.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1144,
+        "text": "def max_subseq(n, t):\n    \"\"\"Return the largest subsequence of at most t digits found in n.\n\n    For example, for n = 2012 and t = 2 the subsequences are 2, 0, 1, 2, 20,\n    21, 22, 01, 02, and 12; the largest is 22.\n\n    >>> max_subseq(2012, 2)\n    22\n    >>> max_subseq(20125, 3)\n    225\n    >>> max_subseq(20125, 5)\n    20125\n    >>> max_subseq(20125, 6)  # note that 20125 == 020125\n    20125\n    >>> max_subseq(12345, 3)\n    345\n    >>> max_subseq(12345, 0)  # 0 is of length 0\n    0\n    >>> max"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-062",
+      "query": "Where is the code that Print the moves required to move n disks on the start pole to the end\npole without violating the rules of Towers of Hanoi?",
+      "category": "docstring paraphrase",
+      "family": "hw/hw03/hw03.py",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hw/hw03/hw03.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1146,
+        "text": "def move_stack(n, start, end):\n    \"\"\"Print the moves required to move n disks on the start pole to the end\n    pole without violating the rules of Towers of Hanoi.\n\n    n -- number of disks\n    start -- a pole position, either 1, 2, or 3\n    end -- a pole position, either 1, 2, or 3\n\n    There are exactly three poles, and start and end must be different. Assume\n    that the start pole has at least n disks of increasing size, and the end\n    pole is either empty or has a top disk larger than the"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-063",
+      "query": "Where is the code that the value of an expression that computes factorial?",
+      "category": "docstring paraphrase",
+      "family": "hw/hw03/hw03.py",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hw/hw03/hw03.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1147,
+        "text": "def make_anonymous_factorial():\n    \"\"\"Return the value of an expression that computes factorial.\n\n    >>> make_anonymous_factorial()(5)\n    120\n    >>> # This test checks that the body is just a return statement that\n    >>> # doesn't refer to make_anonymous_factorial.\n    >>> import inspect, ast\n    >>> body = ast.parse(inspect.getsource(make_anonymous_factorial)).body[0].body\n    >>> [type(x).__name__ for x in body]\n    ['Expr', 'Return']\n    >>> 'make_anonymous_factorial' in ast.dump(body[-1"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-064",
+      "query": "Where is the code that the total mass of m, a Planet or Mobile?",
+      "category": "docstring paraphrase",
+      "family": "hw/hw04/hw04.py",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hw/hw04/hw04.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1162,
+        "text": "def total_mass(m: Structure) -> int:\n    \"\"\"Return the total mass of m, a Planet or Mobile.\n\n    >>> total_mass(Planet(5))\n    5\n    >>> t, u, v = examples()\n    >>> total_mass(t)\n    3\n    >>> total_mass(u)\n    6\n    >>> total_mass(v)\n    9\n    \"\"\"\n    \"*** YOUR CODE HERE ***\"  # replace the code below\n    if isinstance(m, Planet):\n        return m.mass\n    return total_mass(m.left.end) + total_mass(m.right.end)"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-065",
+      "query": "Where is the code that Interleave linked lists s and t to produce a new linked list?",
+      "category": "docstring paraphrase",
+      "family": "hw/hw04/hw04.py",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hw/hw04/hw04.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1164,
+        "text": "def interleave[T](s: LinkedList[T], t: LinkedList[T]) -> LinkedList[T]:\n    \"\"\"Interleave linked lists s and t to produce a new linked list.\n\n    >>> evens = Link(2, Link(4, Link(6, Link(8))))\n    >>> odds = Link(1, Link(3))\n    >>> print(interleave(odds, evens))\n    (1 2 3 4 6 8)\n    >>> print(interleave(evens, odds))\n    (2 1 4 3 6 8)\n    >>> print(interleave(odds, odds))\n    (1 1 3 3)\n    >>> print(interleave((), odds))\n    (1 3)\n    >>> print(Link(evens, Link(odds)))  # should not change\n   "
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-066",
+      "query": "Where is the code that the total worth of the treasures in linked list s?",
+      "category": "docstring paraphrase",
+      "family": "hw/hw04/hw04.py",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hw/hw04/hw04.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1172,
+        "text": "def total_worth(s: LinkedList[Treasure]) -> int:\n    \"\"\"Return the total worth of the treasures in linked list s.\n\n    >>> total_worth(Link(trophy, Link(ring)))\n    8\n    >>> total_worth(())\n    0\n    \"\"\"\n    total = 0\n    while isinstance(s, Link):\n        total, s = total + s.first.worth, s.rest\n    return total"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-067",
+      "query": "Where is the code that a linked list of treasures with the largest total worth that do not\nexceed max_weight, in the same order as they appear in treasures?",
+      "category": "docstring paraphrase",
+      "family": "hw/hw04/hw04.py",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hw/hw04/hw04.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1173,
+        "text": "def knapsack(treasures: list[Treasure], max_weight: int) -> LinkedList[Treasure]:\n    \"\"\"Return a linked list of treasures with the largest total worth that do not\n    exceed max_weight, in the same order as they appear in treasures.\n\n    >>> print(knapsack([trophy, gem, ring], 6))\n    (trophy gem)\n    >>> print(knapsack([trophy, gem, ring], 7))\n    (trophy gem ring)\n    >>> print(knapsack([trophy, gem, ring, crown, vase], 8))\n    (trophy crown)\n    >>> print(knapsack([crown, orb, trophy, vase],"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-068",
+      "query": "Where is the code that True if t contains the label 'berry' and False otherwise?",
+      "category": "docstring paraphrase",
+      "family": "hw/hw04/hw04.py",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hw/hw04/hw04.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1174,
+        "text": "def berry_finder(t: Tree) -> bool:\n    \"\"\"Return True if t contains the label 'berry' and False otherwise.\n\n    >>> scrat = Tree('berry')\n    >>> berry_finder(scrat)\n    True\n    >>> sproul = Tree('roots', [Tree('branch1', [Tree('leaf'), Tree('berry')]), Tree('branch2')])\n    >>> berry_finder(sproul)\n    True\n    >>> numbers = Tree(1, [Tree(2), Tree(3, [Tree(4), Tree(5)]), Tree(6, [Tree(7)])])\n    >>> berry_finder(numbers)\n    False\n    >>> t = Tree(1, [Tree('berry', [Tree('not berry')])])\n    >"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-069",
+      "query": "Where is the code that the maximum sum of labels along any path that starts at the root?",
+      "category": "docstring paraphrase",
+      "family": "hw/hw04/hw04.py",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hw/hw04/hw04.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1175,
+        "text": "def max_path_sum(t: Tree[int]) -> int:\n    \"\"\"Return the maximum sum of labels along any path that starts at the root.\n\n    >>> t = Tree(1, [Tree(5, [Tree(-1), Tree(-3)]), Tree(4)])\n    >>> max_path_sum(t) # 1, 5\n    6\n    >>> u = Tree(5, [Tree(4, [Tree(1), Tree(3)]), Tree(-2, [Tree(10), Tree(-3)])])\n    >>> max_path_sum(u) # 5, -2, 10\n    13\n    >>> v = Tree(-3, [Tree(-1), Tree(-2, [Tree(8)])])\n    >>> max_path_sum(v) # -3, -2, 8\n    3\n    >>> w = Tree(-3, [Tree(-1), Tree(-2)])\n    >>> max_path"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-070",
+      "query": "Where is the code that a Link s formatted as items within parentheses?",
+      "category": "docstring paraphrase",
+      "family": "hw/hw04/link.py",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hw/hw04/link.py",
+          "page": null
+        },
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hw/hw05/link.py",
+          "page": null
+        },
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "lab/lab04/link.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1186,
+        "text": "def format_link(s: Link):\n    \"\"\"Return a Link s formatted as items within parentheses.\"\"\"\n    string = '(' + str(s.first)\n    remaining = s.rest\n    while isinstance(remaining, Link):\n        string += ' ' + str(remaining.first)\n        remaining = remaining.rest\n    assert remaining == (), f'{s!r} is not a LinkedList'\n    return string + ')'"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-071",
+      "query": "Where is the code that Format a tree with each branch indented below its label?",
+      "category": "docstring paraphrase",
+      "family": "hw/hw04/tree.py",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hw/hw04/tree.py",
+          "page": null
+        },
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "lab/lab05/tree.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1193,
+        "text": "def format_tree(t: Tree, indent='') -> str:\n    \"Format a tree with each branch indented below its label.\"\n    assert isinstance(t, Tree), f'{t!r} is not a Tree'\n    assert isinstance(t.branches, list), f'branches of {t!r} is not a list'\n    string = indent + str(t.label)\n    for b in t.branches:\n        string += '\\n' + format_tree(b, indent + '  ')\n    return string"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-072",
+      "query": "Where is the code that whether a Tree t is a leaf with no branches?",
+      "category": "docstring paraphrase",
+      "family": "hw/hw04/tree.py",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hw/hw04/tree.py",
+          "page": null
+        },
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "lab/lab05/tree.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1194,
+        "text": "def is_leaf(t: Tree) -> bool:\n    \"Return whether a Tree t is a leaf with no branches.\"\n    return not t.branches"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-073",
+      "query": "Where is the code that Replace all non-list elements x with f(x) in the nested list s?",
+      "category": "docstring paraphrase",
+      "family": "hw/hw05/hw05.py",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hw/hw05/hw05.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1199,
+        "text": "def deep_map(f, s: list) -> None:\n    \"\"\"Replace all non-list elements x with f(x) in the nested list s.\n\n    >>> six = [1, 2, [3, [4], 5], 6]\n    >>> deep_map(lambda x: x * x, six)\n    >>> six\n    [1, 4, [9, [16], 25], 36]\n    >>> # Check that you're not making new lists\n    >>> s = [3, [1, [4, [1]]]]\n    >>> s1 = s[1]\n    >>> s2 = s1[1]\n    >>> s3 = s2[1]\n    >>> deep_map(lambda x: x + 1, s)\n    >>> s\n    [4, [2, [5, [2]]]]\n    >>> s1 is s[1]\n    True\n    >>> s2 is s1[1]\n    True\n    >>> s3 is"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-074",
+      "query": "Where is the code that all odd sums of some of the items in s, in ascending order?",
+      "category": "docstring paraphrase",
+      "family": "hw/hw05/hw05.py",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hw/hw05/hw05.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1200,
+        "text": "def all_odd_sums(s: LinkedList[int]) -> list[int]:\n    \"\"\"Return all odd sums of some of the items in s, in ascending order.\n\n    >>> all_odd_sums(Link(1, Link(5, Link(3))))  # sums are 0, 1, 3, 4, 5, 6, 8, 9\n    [1, 3, 5, 9]\n    >>> all_odd_sums(Link(3, Link(5, Link(4))))  # sums are 0, 3, 4, 5, 7, 8, 9, 12\n    [3, 5, 7, 9]\n    >>> all_odd_sums(Link(2, Link(1, Link(3))))  # 3 appears only once\n    [1, 3, 5]\n    >>> all_odd_sums(Link(2, Link(4)))\n    []\n    \"\"\"\n    sums = []\n    def f(s: LinkedL"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-075",
+      "query": "Where is the code that Append to sums each unique odd total + (a sum of some items in s)?",
+      "category": "docstring paraphrase",
+      "family": "hw/hw05/hw05.py",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hw/hw05/hw05.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1201,
+        "text": "def f(s: LinkedList[int], total: int) -> None:\n        \"\"\"Append to sums each unique odd total + (a sum of some items in s).\"\"\"\n        \"*** YOUR CODE HERE ***\"\n        if total % 2 == 1 and total not in sums:\n            sums.append(total)\n        if isinstance(s, tuple):\n            return None\n        f(s.rest, s.first+total)\n        f(s.rest, total)"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-076",
+      "query": "Lecture 2 - August 28, 2026.md",
+      "category": "filename",
+      "family": "cs61a/Lecture Notes/Lecture 2 - August 28, 2026.md",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Lecture Notes/Lecture 2 - August 28, 2026.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2117,
+        "text": "file /Users/sst/Desktop/work/cs61a/cs61a/Lecture Notes/Lecture 2 - August 28, 2026.md\n\nsection Programming Review\nsection Assignment Statements\nsection Environment Diagrams"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-077",
+      "query": "Lecture 3 - August 30, 2026.md",
+      "category": "filename",
+      "family": "cs61a/Lecture Notes/Lecture 3 - August 30, 2026.md",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Lecture Notes/Lecture 3 - August 30, 2026.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2121,
+        "text": "file /Users/sst/Desktop/work/cs61a/cs61a/Lecture Notes/Lecture 3 - August 30, 2026.md\n\nsection Passage 1\nsection What is None?\nsection Conditional Statements\nsection While Statements"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-078",
+      "query": "Lecture 4 - September 2,  2026.md",
+      "category": "filename",
+      "family": "cs61a/Lecture Notes/Lecture 4 - September 2,  2026.md",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Lecture Notes/Lecture 4 - September 2,  2026.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2126,
+        "text": "file /Users/sst/Desktop/work/cs61a/cs61a/Lecture Notes/Lecture 4 - September 2,  2026.md\n\nsection Boolean Expressions\nsection Describing Functions\nsection Functions as Values\nsection Final Evaluation Procedure Cheat Sheet\nsection Program Design"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-079",
+      "query": "Lecture 5 - September 4, 2026.md",
+      "category": "filename",
+      "family": "cs61a/Lecture Notes/Lecture 5 - September 4, 2026.md",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Lecture Notes/Lecture 5 - September 4, 2026.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2132,
+        "text": "file /Users/sst/Desktop/work/cs61a/cs61a/Lecture Notes/Lecture 5 - September 4, 2026.md\n\nsection Environments for Higher-Order Functions"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-080",
+      "query": "Lecture 6 - September 9, 2026.md",
+      "category": "filename",
+      "family": "cs61a/Lecture Notes/Lecture 6 - September 9, 2026.md",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Lecture Notes/Lecture 6 - September 9, 2026.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2134,
+        "text": "file /Users/sst/Desktop/work/cs61a/cs61a/Lecture Notes/Lecture 6 - September 9, 2026.md\n\nsection Lambdas"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-081",
+      "query": "Lecture 8 - September 16, 2026.md",
+      "category": "filename",
+      "family": "cs61a/Lecture Notes/Lecture 8 - September 16, 2026.md",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Lecture Notes/Lecture 8 - September 16, 2026.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2136,
+        "text": "file /Users/sst/Desktop/work/cs61a/cs61a/Lecture Notes/Lecture 8 - September 16, 2026.md\n\nsection Passage 1"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-082",
+      "query": "Lecture 9 - September 18, 2026.md",
+      "category": "filename",
+      "family": "cs61a/Lecture Notes/Lecture 9 - September 18, 2026.md",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Lecture Notes/Lecture 9 - September 18, 2026.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2138,
+        "text": "file /Users/sst/Desktop/work/cs61a/cs61a/Lecture Notes/Lecture 9 - September 18, 2026.md\n\nsection Passage 1\nsection Tree Recursion"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-083",
+      "query": "Pasted image 20261021095557.png",
+      "category": "filename",
+      "family": "cs61a/Pasted image 20261021095557.png",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Pasted image 20261021095557.png",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2141,
+        "text": "file /Users/sst/Desktop/work/cs61a/cs61a/Pasted image 20261021095557.png\n\npage Page 1"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-084",
+      "query": "1.1 - Getting Started.md",
+      "category": "filename",
+      "family": "cs61a/Reading Notes/1.1 - Getting Started.md",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/1.1 - Getting Started.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2144,
+        "text": "file /Users/sst/Desktop/work/cs61a/cs61a/Reading Notes/1.1 - Getting Started.md\n\nsection Passage 1"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-085",
+      "query": "1.2 - Elements of Programming.md",
+      "category": "filename",
+      "family": "cs61a/Reading Notes/1.2 - Elements of Programming.md",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/1.2 - Elements of Programming.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2146,
+        "text": "file /Users/sst/Desktop/work/cs61a/cs61a/Reading Notes/1.2 - Elements of Programming.md\n\nsection Overview\nsection Call Expressions\nsection Importing Library Functions\nsection Evaluating Nested Expressions\nsection Example:"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-086",
+      "query": "1.3 - Defining New Functions.md",
+      "category": "filename",
+      "family": "cs61a/Reading Notes/1.3 - Defining New Functions.md",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/1.3 - Defining New Functions.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2152,
+        "text": "file /Users/sst/Desktop/work/cs61a/cs61a/Reading Notes/1.3 - Defining New Functions.md\n\nsection How to Define a Function\nsection Environments"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-087",
+      "query": "1.4 Designing Functions.md",
+      "category": "filename",
+      "family": "cs61a/Reading Notes/1.4 Designing Functions.md",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/1.4 Designing Functions.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2155,
+        "text": "file /Users/sst/Desktop/work/cs61a/cs61a/Reading Notes/1.4 Designing Functions.md\n\nsection Passage 1\nsection What makes a good function?\nsection Documentation\nsection Default argument values"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-088",
+      "query": "1.5 - Control.md",
+      "category": "filename",
+      "family": "cs61a/Reading Notes/1.5 - Control.md",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/1.5 - Control.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2160,
+        "text": "file /Users/sst/Desktop/work/cs61a/cs61a/Reading Notes/1.5 - Control.md\n\nsection Passage 1\nsection Statements\nsection Compound Statements\nsection Local Assignment\nsection Conditional Statements\nsection Iteration\nsection Testing\nsection Assertion Statements\nsection Doctests"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-089",
+      "query": "1.6 - Higher Order Functions.md",
+      "category": "filename",
+      "family": "cs61a/Reading Notes/1.6 - Higher Order Functions.md",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/1.6 - Higher Order Functions.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2170,
+        "text": "file /Users/sst/Desktop/work/cs61a/cs61a/Reading Notes/1.6 - Higher Order Functions.md\n\nsection Passage 1\nsection Functions as Arguments\nsection Nested Functions\nsection Functions as Returned Values\nsection Currying\nsection Lambda Expressions\nsection Function Decorators"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-090",
+      "query": "1.7 - Recursive Functions.md",
+      "category": "filename",
+      "family": "cs61a/Reading Notes/1.7 - Recursive Functions.md",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/1.7 - Recursive Functions.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2178,
+        "text": "file /Users/sst/Desktop/work/cs61a/cs61a/Reading Notes/1.7 - Recursive Functions.md\n\nsection Passage 1\nsection The Anatomy of Recursive Functions\nsection Mutual Recursion\nsection Tree Recursion"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-091",
+      "query": "2.1 - Introduction.md",
+      "category": "filename",
+      "family": "cs61a/Reading Notes/2.1 - Introduction.md",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/2.1 - Introduction.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2183,
+        "text": "file /Users/sst/Desktop/work/cs61a/cs61a/Reading Notes/2.1 - Introduction.md\n\nsection Native Data Types\nsection Working with Types"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-092",
+      "query": "2.2 - Sequences.md",
+      "category": "filename",
+      "family": "cs61a/Reading Notes/2.2 - Sequences.md",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/2.2 - Sequences.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2186,
+        "text": "file /Users/sst/Desktop/work/cs61a/cs61a/Reading Notes/2.2 - Sequences.md\n\nsection Passage 1\nsection Lists\nsection Lists\nsection Sequence Processing\nsection Sequence Abstraction\nsection Strings\nsection Strings\nsection Dictionaries\nsection Dot Notation\nsection Tuples"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-093",
+      "query": "2.3 Compound Data.md",
+      "category": "filename",
+      "family": "cs61a/Reading Notes/2.3 Compound Data.md",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/2.3 Compound Data.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2199,
+        "text": "file /Users/sst/Desktop/work/cs61a/cs61a/Reading Notes/2.3 Compound Data.md\n\nsection The Object Metaphor\nsection Data Classes\nsection Data Abstraction\nsection Linked Lists\nsection Linked Lists\nsection Trees\nsection The Tree Abstraction\nsection Tree-Recursive Functions"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-094",
+      "query": "2.4 - Mutable Data.md",
+      "category": "filename",
+      "family": "cs61a/Reading Notes/2.4 - Mutable Data.md",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/2.4 - Mutable Data.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2209,
+        "text": "file /Users/sst/Desktop/work/cs61a/cs61a/Reading Notes/2.4 - Mutable Data.md\n\nsection Passage 1\nsection Mutable Containers\nsection Mutable Containers\nsection Local States"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-095",
+      "query": "2.5 - Object Oriented Programming.md",
+      "category": "filename",
+      "family": "cs61a/Reading Notes/2.5 - Object Oriented Programming.md",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/2.5 - Object Oriented Programming.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2216,
+        "text": "file /Users/sst/Desktop/work/cs61a/cs61a/Reading Notes/2.5 - Object Oriented Programming.md\n\nsection Passage 1\nsection Objects and Classes\nsection Defining Classes\nsection Defining Classes\nsection Message Passing and Dot Expressions\nsection Message Passing and Dot Expressions\nsection Class Attributes\nsection Inheritance"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-096",
+      "query": "2.8 - Lazy Evaluation.md",
+      "category": "filename",
+      "family": "cs61a/Reading Notes/2.8 - Lazy Evaluation.md",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/2.8 - Lazy Evaluation.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2228,
+        "text": "file /Users/sst/Desktop/work/cs61a/cs61a/Reading Notes/2.8 - Lazy Evaluation.md\n\nsection Passage 1\nsection Iterators\nsection Iterables\nsection Built-in Iterators\nsection For Statements\nsection Generators and Yield Statements\nsection Generators and Yield Statements\nsection Recursive Generators"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-097",
+      "query": "2.9 - Efficiency.md",
+      "category": "filename",
+      "family": "cs61a/Reading Notes/2.9 - Efficiency.md",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/2.9 - Efficiency.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2239,
+        "text": "file /Users/sst/Desktop/work/cs61a/cs61a/Reading Notes/2.9 - Efficiency.md\n\nsection Passage 1\nsection Measuring Efficiency\nsection Measuring Efficiency\nsection Memoization"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-098",
+      "query": "3.1 - Introduction.md",
+      "category": "filename",
+      "family": "cs61a/Reading Notes/3.1 - Introduction.md",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/3.1 - Introduction.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2245,
+        "text": "file /Users/sst/Desktop/work/cs61a/cs61a/Reading Notes/3.1 - Introduction.md\n\nsection Passage 1"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-099",
+      "query": "3.2 - Functional Programming.md",
+      "category": "filename",
+      "family": "cs61a/Reading Notes/3.2 - Functional Programming.md",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/3.2 - Functional Programming.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2247,
+        "text": "file /Users/sst/Desktop/work/cs61a/cs61a/Reading Notes/3.2 - Functional Programming.md\n\nsection Passage 1\nsection Functions\nsection Strings and Output\nsection Higher-Order Functions\nsection Control"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "cs61a-100",
+      "query": "Chapter 1 - Functions.md",
+      "category": "filename",
+      "family": "cs61a/Reading Notes/Chapter 1 - Functions.md",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/Chapter 1 - Functions.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2254,
+        "text": "file /Users/sst/Desktop/work/cs61a/cs61a/Reading Notes/Chapter 1 - Functions.md\n\nsection Passage 1"
+      },
+      "source": "source-grounded template"
+    }
+  ]
+}

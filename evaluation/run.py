@@ -25,7 +25,7 @@ def run():
         Base.metadata.create_all(engine)
         try:
             records = {}
-            for name in ['main.py', 'database.py', 'semantic_search.py']:
+            for name in ['main.py', 'discovery.py', 'extraction.py', 'indexing.py', 'database.py', 'semantic_search.py', 'pipeline.py', 'structure.py', 'retrieval.py']:
                 print(f'Embedding {name}', flush=True)
                 extracted = main.process_file(str(root / 'src' / name))
                 records[name] = next(iter(extracted.values()))

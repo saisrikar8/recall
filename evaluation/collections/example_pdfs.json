@@ -1,0 +1,1925 @@
+{
+  "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+  "questions": [
+    {
+      "id": "example_pdfs-001",
+      "query": "Which lecture page explains Astrobiology Lecture 10: The Cambrian Explosion &?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture10_delivered.pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture10_delivered.pdf",
+          "page": 1
+        }
+      ],
+      "evidence": {
+        "chunk": 3,
+        "text": "Astrobiology\nLecture 10: The Cambrian Explosion & \nMass Extinctions\nSeptember 29, 2026\nProfessor Courtney Dressing (she/her)"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-002",
+      "query": "Which lecture page explains A Timeline of Snowball Earths On the timeline, the snowflake symbols mark?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture10_delivered.pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture10_delivered.pdf",
+          "page": 7
+        }
+      ],
+      "evidence": {
+        "chunk": 15,
+        "text": "A Timeline of Snowball Earths\n\u2022 On the timeline, the snowflake symbols mark \n\u201csnowball Earths\u201d (i.e., massive glaciations)\n\u2022 Ice-Albedo Feedback Loop\n\u2022 Earth is colder, so more ice forms\n\u2022 Increased ice coverage increases the albedo of Earth, \ncausing Earth to get still colder & building a positive \nfeedback cycle\n\u2022 Volcanoes keep erupting.\n\u2022 Eventually, the volcanoes outgas enough CO2 that the \ngreenhouse effect is able to heat the Earth enough to \nescape from a global ice age\n\u2022 Right after the"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-003",
+      "query": "Which lecture page explains Analyzing Earth\u2019s Atmospheric Carbon?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture10_delivered.pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture10_delivered.pdf",
+          "page": 10
+        }
+      ],
+      "evidence": {
+        "chunk": 21,
+        "text": "Analyzing Earth\u2019s \nAtmospheric Carbon \nDioxide Concentration \nOver Time\nCredit: NASA's Scientific \nVisualization Studio\nIndustrialization \nhas caused sky-\nrocketing CO2 \nlevels and \ndestructive \nclimate change.\nAtmospheric Carbon Dioxide Concentration\nrocketing CO,\nDioxide Concentration Antarctic Ice Cores\nVisualization Studio NOAAWDS Paleocimatoog NOAA'S Mauna Loa Observatory\nAntarctic Ice Core ised 800KYr \u201cC02 Data"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-004",
+      "query": "Which lecture page explains 1.8 \u2013 0.8 Billion Years Ago: The Boring Billion?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture10_delivered.pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture10_delivered.pdf",
+          "page": 13
+        }
+      ],
+      "evidence": {
+        "chunk": 27,
+        "text": "1.8 \u2013 0.8 Billion Years Ago:\nThe Boring Billion\n\u2022 Not much happened\n\u2022 Conditions stayed remarkably \nsimilar for a billion years\n\u2022 Atmosphere: 0.2 \u2013 2% O2\n\u2022 Shallow ocean: oxygenated\n\u2022 Deep ocean: anoxic (not \noxidized) and filled with \ndissolved iron and hydrogen \nsulfide\nhttps://uwaterloo.ca/wat-on-earth/news/earths-oxygen-revolution \n\u201cBoring\u201d \nBillion\nFirs\nOxygenic Complex\nPhotosynthesis \u201cBoring\u201d Animals\nEvolves ante Land\nGreat\nOxidation\n[O.] see +\n(% PAL)\n= : iplosion\nShallow\nocean\nDeep\n4000 "
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-005",
+      "query": "Which lecture page explains Sperling et al. (2022, The Biological Bulletin 2022 243:2, 184-206) GOE: great oxidation event?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture10_delivered.pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture10_delivered.pdf",
+          "page": 16
+        }
+      ],
+      "evidence": {
+        "chunk": 33,
+        "text": "Sperling et al. (2022, The Biological Bulletin 2022 243:2, 184-206)\nGOE: great oxidation event\nPAL: present atmospheric level\nLIP: large igneous province\nstage 1: stage 2: stage 3: stage 4:\nPre-GOE Proterozoic Early Paleozoic <420 Ma\nAnoxic oceans Very low O, Moderate O, Modern-like O,\nProkaryotic Depauperate eukaryotic ecosystems High extinction rates | De-oxygenation (and extinction) from LIPs\nrunawa wildfire + 1023(200% PAL)\n: 10? (100% PAL)\ndeep-water anoxia\ncharcoal\n10' (10% PAL)\n- 10\u00b0 (1% "
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-006",
+      "query": "Which lecture page explains Porifera (Sponges) Invertebrate mammals?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture10_delivered.pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture10_delivered.pdf",
+          "page": 19
+        }
+      ],
+      "evidence": {
+        "chunk": 39,
+        "text": "Porifera (Sponges)\n\u2022 Invertebrate mammals \n\u2022 Filter feeders: obtain nutrients by drawing in sea water through tiny pores\n\u2022 Sessile: Stationary unless moved by external forces like currents\nEncrusting freshwater sponge (Spongilla lacustris) \nCredit: Kirt L. Onthank, Wikimedia Commons\nVenus Flower Basket Glass Sponges\nCredit: NOAA [CC by 2.0]\nRed Beard Sponge (Clathria prolifera) \nCredit: Robert Bachand \nSpongeBob SquarePants\nCredit: Nickelodeon \nFossilized sponge (Gehling & Rigby, 1996)\nTo soak u"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-007",
+      "query": "Which lecture page explains Protostomia: \u201cFirst mouth\u201d Originally defined as animals whose mouths are believed to form first during embryological?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture10_delivered.pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture10_delivered.pdf",
+          "page": 22
+        }
+      ],
+      "evidence": {
+        "chunk": 45,
+        "text": "Protostomia: \u201cFirst mouth\u201d \n\u2022 Originally defined as animals whose mouths are believed to form first during embryological \ndevelopment but that is not actually true for all members\n\u2022 Includes\n\u2022 Lophotrochozoa (e.g., mollusks)\n\u2022 Ecdysozoa (e.g., arthropods, nematodes)\nCredit: Zachary Wilson via CK-12 Foundation (CC BY-NC 3.0)\nhttps://flexbooks.ck12.org/cbook/ck-12-biology-flexbook-2.0/section/11.3/primary/lesson/invertebrate-classification-bio/\nProtostomes\nAnus\nEight-cell stage Gastrulation - \u201c\nAr"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-008",
+      "query": "Which lecture page explains 541 Million Years Ago: The Cambrian Explosion?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture10_delivered.pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture10_delivered.pdf",
+          "page": 25
+        }
+      ],
+      "evidence": {
+        "chunk": 51,
+        "text": "541 Million Years Ago:\nThe Cambrian Explosion\n\u2022 Characterized by a burst of new animals\n\u2022 Interval of 10-40 million years that began 541 million years ago at the \nstart of the Cambrian Period\n\u2022 The Cambrian is the earliest period in the Phanerazoic (\u201cvisible \nanimal\u201d) Eon \n\u2022 Cambrian rocks contain fossils of a remarkable variety of animals\n\u2022 Representatives of most modern animal groups\n\u2022 Animals with hard skeletons\n\u2022 Ancestors of modern vertebrates \n\u2022 Pikaia: Swimming worms roughly a few centime"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-009",
+      "query": "Which lecture page explains Why did the Cambrian explosion occur when it did and why haven\u2019t similar events occurred at other times?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture10_delivered.pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture10_delivered.pdf",
+          "page": 28
+        }
+      ],
+      "evidence": {
+        "chunk": 57,
+        "text": "Why did the Cambrian explosion occur when it did and \nwhy haven\u2019t similar events occurred at other times?\nWe don\u2019t know, but let\u2019s speculate\u2026"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-010",
+      "query": "Which lecture page explains 400 Million Years Ago: Vascular Plants Covered Continents?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture10_delivered.pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture10_delivered.pdf",
+          "page": 31
+        }
+      ],
+      "evidence": {
+        "chunk": 63,
+        "text": "400 Million Years Ago:\nVascular Plants Covered Continents\n\u2022 Vascular: plants that have special cells that allow them to transport water \nand minerals from their roots to other regions\n\u2022 Most land plants are vascular\nmosses are non-vascular\n\u2022 Oxygen levels rose again\n\u2022 Ozone layer became more substantial & even more effective at shielding \norganisms on land from UV radiation\n\u2022 Since then, oxygen levels have remained high (10-30%)\n\u2022 Evidence for high oxygen levels:\n\u2022 Giant insects existed 300 mill"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-011",
+      "query": "Which lecture page explains Key Concepts Study Guide (1/3) Astrobiology: key questions, challenge of defining life?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture11_delivered (1).pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture11_delivered (1).pdf",
+          "page": 7
+        }
+      ],
+      "evidence": {
+        "chunk": 122,
+        "text": "Key Concepts Study Guide (1/3) \n\u2022 Astrobiology: key questions, challenge of defining life\n\u2022 Carbonate-Silicate Cycle: negative feedback, climate regulation, plate \ntectonics (just that subduction buries carbon)\n\u2022 Chemical reactions: oxidation (just the concept of oxygen \u201drusting\u201d iron)\n\u2022 CHNOPS/SPONCH: significance & origin of these elements\n\u2022 Classification of organisms: prokaryote, eukaryote, chemotroph, phototroph, \nautotroph, heterotroph, mixotroph\n\u2022 Cosmic context: age and formation of Moon"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-012",
+      "query": "Which lecture page explains Physical Constants Speed of light: c?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture11_delivered (1).pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture11_delivered (1).pdf",
+          "page": 10
+        }
+      ],
+      "evidence": {
+        "chunk": 128,
+        "text": "Physical Constants\n\u2022Speed of light: c\n\u2022Stefan-Boltzmann \nconstant\n\u2022Boltzmann constant\n\u2022Gravitational constant\n\u2022Symbol for Sun\n\u2022Symbol for Earth\n\u2022Atomic mass unit\nc= 3.00 x 10\u00b0 m/s\na0 = 5.67 x 10\u00b0 Wm? K+\nk = 1.38 x 10-* J/K\nG=6.67 x10\u00b0' mike ts?\n\u00a9 = 5un\n\u00ae = Earth\nMama = 1.67 x 107*\" kg"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-013",
+      "query": "Which lecture page explains Dates and Times These ages and time periods are?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture11_delivered (1).pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture11_delivered (1).pdf",
+          "page": 13
+        }
+      ],
+      "evidence": {
+        "chunk": 134,
+        "text": "Dates and Times\n\u2022 These ages and time periods are \nincluded so that you don\u2019t have to \nmemorize them\n\u2022 You should know how we know the \nage of the solar system\n\u2022 You should know the key features of \nthe Hadean Eon, Archaean Eon, and \nProterozoic Eon.\n\u2022 The Phanerozoic Eon will be tested \non Midterm 2 and is included for \nreference.\nAge of the universe: 13.7 x 10\u00b0 yr\nAge of the solar system: 4.5 x 10\u00b0 yr\nHadean Eon: 4.56 \u2014 4.0 Ga\nArchaean Eon: 4.0 \u2014 2.5 Ga\nProterozoic Eon: 2.5 \u2014 0.541 Ga\nPhaneroz"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-014",
+      "query": "Which lecture page explains Periastron & Apastron \ud835\udc5f\ud835\udc5d=  \ud835\udc4e(1 \u2212\ud835\udc52)?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture11_delivered (1).pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture11_delivered (1).pdf",
+          "page": 16
+        }
+      ],
+      "evidence": {
+        "chunk": 140,
+        "text": "Periastron & Apastron\n\ud835\udc5f\ud835\udc5d=  \ud835\udc4e(1 \u2212\ud835\udc52)\n\ud835\udc5f\ud835\udc4e=  \ud835\udc4e(1 + \ud835\udc52)\n\u2022 Variables included:\n\u2022 Semimajor axis: \ud835\udc4e\n\u2022 Eccentricity: \ud835\udc52 (0 for a circular orbit; 0 < e \u22641 for an elliptical orbit)\n\u2022 Periastron distance (shortest separation): \ud835\udc5f\ud835\udc5d\n\u2022 Apastron distance (widest separation): \ud835\udc5f\ud835\udc4e\n\u2022 Example problem: \n\u2022 Planet A has a semimajor axis \ud835\udc4eA = 4 AU and eccentricity eA = 0.25. Planet B has semimajor \naxis \ud835\udc4e\ud835\udc35= 6 AU and eccentricity \ud835\udc52\ud835\udc35= 0.8. Which planet is closer to the star at periastron?"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-015",
+      "query": "Which lecture page explains Potential Energy \ud835\udc48= \u2212\ud835\udc3a\ud835\udc40\ud835\udc5a?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture11_delivered (1).pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture11_delivered (1).pdf",
+          "page": 19
+        }
+      ],
+      "evidence": {
+        "chunk": 146,
+        "text": "Potential Energy\n\ud835\udc48= \u2212\ud835\udc3a\ud835\udc40\ud835\udc5a\n\ud835\udc5f\n\u2022 Variables included:\n\u2022 Potential energy: U\n\u2022 Gravitational constant: G\n\u2022 Mass of object 1: \ud835\udc401 (or M)\n\u2022 Mass of object 2: \ud835\udc5a2 (or m)\n\u2022 Separation between objects 1 & 2: \ud835\udc5f"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-016",
+      "query": "Which lecture page explains Thermal Velocity \ud835\udc63thermal =?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture11_delivered (1).pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture11_delivered (1).pdf",
+          "page": 22
+        }
+      ],
+      "evidence": {
+        "chunk": 152,
+        "text": "Thermal Velocity\n\ud835\udc63thermal =\n2\ud835\udc58\ud835\udc47/\ud835\udc5a\n\u2022 Variables included:\n\u2022 Boltzmann constant: \ud835\udc8c\n\u2022 Temperature: T\n\u2022 Particle mass: m\n\u2022 Example problem: \n\u2022 Two planets have identical atmospheric compositions but the atmosphere of one planet is 800 K \nwhile the atmosphere of the other planet is 200 K. In which planet\u2019s atmosphere do the \nparticles move faster and by how much? State your answer as the ratio \ud835\udc63faster/\ud835\udc63\ud835\udc60lower."
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-017",
+      "query": "Which lecture page explains Highlights from Lectures 1-4 The following slides are examples of topics you should know from earlier in the course. Other?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture11_delivered (1).pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture11_delivered (1).pdf",
+          "page": 25
+        }
+      ],
+      "evidence": {
+        "chunk": 158,
+        "text": "Highlights from Lectures 1-4\nThe following slides are examples of topics you should know from earlier in the course. Other \ntopics from lectures 1-9 and the review portion of Lecture 10 are also in scope for Midterm 1."
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-018",
+      "query": "Which lecture page explains Diagram by NASA Goddard Space Flight?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture11_delivered (1).pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture11_delivered (1).pdf",
+          "page": 28
+        }
+      ],
+      "evidence": {
+        "chunk": 164,
+        "text": "Diagram by NASA \nGoddard Space Flight \nCenter based on work by \nJ\nif\nJ h\n(OSU)\nORIGINS OF THE ELEMENTS\nO\nThe big bang Dying White dwarf Radioactive\nlow-mass stars supernovae decay\nZ ; A =\n_\nCosmic ray Dying Merging\ncollisions high-mass stars neutron stars"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-019",
+      "query": "Which lecture page explains Stellar Evolution The initial mass of a star?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture11_delivered (1).pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture11_delivered (1).pdf",
+          "page": 31
+        }
+      ],
+      "evidence": {
+        "chunk": 170,
+        "text": "Stellar Evolution\n\u2022 The initial mass of a star \ndetermines its main-sequence \nlifetime and its evolutionary \npath\n\u2022 Less massive stars have \nlonger main-sequence \nlifetimes\n\u2022 Sun-like stars end their lives \nas white dwarf stars\n\u2022 More massive stars explode \nas supernovae and leave \nbehind neutron stars or, for \nthe most massive stars, black \nholes\nCredit: NASA/Chandra"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-020",
+      "query": "Which lecture page explains Self-Gravity Causes the Cloud to Collapse The collapse causes the nebula to become smaller, denser, and flatter?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture11_delivered (1).pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture11_delivered (1).pdf",
+          "page": 34
+        }
+      ],
+      "evidence": {
+        "chunk": 176,
+        "text": "Self-Gravity Causes the Cloud to Collapse\n\u2022 The collapse causes the nebula to become smaller, denser, and flatter. \nFigure 21.8 from Astronomy\nbad\nae\nVi\n100 AU\n>\nat\nsae\ni\n5000 AU"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-021",
+      "query": "Which lecture page explains Goals for Today Discuss the variety of life on Earth?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture12_delivered.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture12_delivered.pdf",
+          "page": 4
+        }
+      ],
+      "evidence": {
+        "chunk": 229,
+        "text": "Goals for Today\n\u2022 Discuss the variety of life on Earth\n\u2022 Review how to classify organisms\n\u2022 Explore the history and evolution of Earth\u2019s biosphere"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-022",
+      "query": "Which lecture page explains Plants are a large fraction of the Earth\u2019s biomass?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture12_delivered.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture12_delivered.pdf",
+          "page": 7
+        }
+      ],
+      "evidence": {
+        "chunk": 235,
+        "text": "Plants are a large fraction of the \nEarth\u2019s biomass\nY.M. Bar-On, R. Phillips, & R. Milo, The biomass distribution on Earth, Proc. Natl. Acad. Sci. U.S.A. 115 (25) \n6506-6511, https://doi.org/10.1073/pnas.1711842115 (2018).\narchaea\nA 7GtC\nviruses\n0.2 GtC\nbacteria\n7OGtC\nae\nping animals\n12 GEC 2GtC"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-023",
+      "query": "Which lecture page explains Earth Has Multiple Biomes Biome: geographical region with a characteristic climate and set of organisms?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture12_delivered.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture12_delivered.pdf",
+          "page": 10
+        }
+      ],
+      "evidence": {
+        "chunk": 241,
+        "text": "Earth Has Multiple Biomes\n\u2022 Biome: geographical region with a characteristic climate and set of organisms\n\u2022 Different approaches disagree on the number of biomes on Earth. \n\u2022 One set of biomes, as categorized by UC Berkeley\u2019s Museum of Paleontology:\n\u2022 Freshwater: <1% salt concentration; includes ponds, lakes, streams, rivers, & wetlands\n\u2022 Marine: 75% of Earth\u2019s surface; includes oceans, coral reefs, & estuaries\n\u2022 Desert: can be hot or cold; 20% of Earth\u2019s surface; rainfall < 50 cm/yr \n\u2022 Forest: "
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-024",
+      "query": "Which lecture page explains Icebreaker Question If you could live in any type of Earth environment, what would you pick?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture12_delivered.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture12_delivered.pdf",
+          "page": 13
+        }
+      ],
+      "evidence": {
+        "chunk": 247,
+        "text": "Icebreaker Question\nIf you could live in any type of Earth environment, what would you pick?\nCredit: NASA"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-025",
+      "query": "Which lecture page explains Eukaryotes Likely Evolved from Prokaryotes Symbiosis: when two organisms benefit from each other?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture12_delivered.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture12_delivered.pdf",
+          "page": 16
+        }
+      ],
+      "evidence": {
+        "chunk": 253,
+        "text": "Eukaryotes Likely Evolved from Prokaryotes\n\u2022 Symbiosis: when two organisms benefit from each other\n\u2022 Endosymbiosis: when two organisms benefit from each \nother and one lives inside the other \n\u2022 Science fiction example: the trill (Dax) living in host \nJadzia on Star Trek Deep Space Nine (right)\n\u2022 Real world example: microbes in the human gut\n\u2022 Endosymbiosis is very important in the evolutionary history \nof eukaryotic cells\n\u2022 Mitochondria are believed to have descended from \nendosymbiotic bacteria"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-026",
+      "query": "Which lecture page explains The Three Domains of Life Each branching point represents a?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture12_delivered.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture12_delivered.pdf",
+          "page": 19
+        }
+      ],
+      "evidence": {
+        "chunk": 259,
+        "text": "The Three Domains of Life\n\u2022 Each branching point represents a \ndifference in the genetic structure of \ndifferent organisms.\n\u2022 Archaea are more closely related to eukarya \nthan bacteria.\n\u2022 Endosymbiosis is when two organisms \nbenefit from one living inside the other\n\u2022 Because of endosymbiosis, eukarya include \norganelles that were originally bacteria.\nImage adapted from work by Govindjee, Dmitriy Shevela \u2013 doi:10.3389/fpls.2011.00028, CC BY \n3.0, https://commons.wikimedia.org/w/index.php?curid=59"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-027",
+      "query": "Which lecture page explains Implications for Astrobiology Life on Earth is primarily microbial today and was exclusively microbial?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture12_delivered.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture12_delivered.pdf",
+          "page": 22
+        },
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture14_draft_for_notes.pdf",
+          "page": 34
+        }
+      ],
+      "evidence": {
+        "chunk": 265,
+        "text": "Implications for Astrobiology\n\u2022 Life on Earth is primarily microbial today and was exclusively microbial \nfor billions of years.\n\uf0d8Searches for life elsewhere should consider how microbes might \naffect their environments in detectable ways.\n\u2022 Microbes exist in a wide variety of environments.\n\uf0d8Consider a broader range of environments than those suitable for \nhumans\n\u2022 Microbes use a range of different metabolisms.\n\uf0d8Consider diverse energy systems"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-028",
+      "query": "Which lecture page explains What did we do today? Discussed the variety of life on Earth?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture12_delivered.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture12_delivered.pdf",
+          "page": 26
+        }
+      ],
+      "evidence": {
+        "chunk": 273,
+        "text": "What did we do today?\n\u2022 Discussed the variety of life on Earth\n\u2022 Reviewed how to classify organisms\n\u2022 Explored the history and evolution of Earth\u2019s biosphere"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-029",
+      "query": "Which lecture page explains Prokaryotic Cells Are Generally Smaller Than Eukaryotic Cells?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture12_delivered.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture12_delivered.pdf",
+          "page": 29
+        }
+      ],
+      "evidence": {
+        "chunk": 279,
+        "text": "Prokaryotic Cells Are Generally \nSmaller Than Eukaryotic Cells\n\u2022 Typical prokaryotic cell: \n0.1 \u2013 5 microns across \n\u2022 Typical eukaryotic cell: \n10 \u2013 100 microns across\n\u2022 Reminder: 1 micron = 10-6 meters\nhttps://openstax.org/books/biology-2e/pages/4-2-prokaryotic-cells\nFlu\nvirus\nf O\nChicken\ne '\nProtein 99\nLipids Ostrich Adult\nBacteria egg rts\n0.1 nm inm 10 nm 100 nm 1yum 10 um 100 um imm 10 mm 100 mm im\nNaked eye\nSSS\nLight microscope\nElectron microscope https://openstax.org/books/bi:"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-030",
+      "query": "Which lecture page explains What is the biosphere? Catling defines the biosphere as \u201cthe sum of all living and dead organisms.\u201d?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture12_delivered.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture12_delivered.pdf",
+          "page": 5
+        }
+      ],
+      "evidence": {
+        "chunk": 231,
+        "text": "What is the biosphere?\n\u2022 Catling defines the biosphere as \u201cthe sum of all living and dead organisms.\u201d\n\u2022 Some definitions also include the environments in which life is found.\n\u2022 How large is the biosphere of modern Earth?\n\u2022 On land: 2\u00d71015 kg of carbon (30-50% living)\n\u2022 In the oceans: 1\u00d71015 kg of carbon (0.1 \u2013 0.2% living) \n\u2022 In the subsurface (underground): not sure, but could be significant \n\u2022 Estimates suggest 1% - 30% of Earth\u2019s living biomass"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-031",
+      "query": "Which lecture page explains Astrobiology Lecture 13: The Chemistry of Life?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture13_draft_for_notes.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture13_draft_for_notes.pdf",
+          "page": 1
+        }
+      ],
+      "evidence": {
+        "chunk": 286,
+        "text": "Astrobiology\nLecture 13: The Chemistry of Life\nOctober 13, 2026\nProfessor Courtney Dressing (she/her)"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-032",
+      "query": "Which lecture page explains Goals for Today Explore chemical bonds?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture13_draft_for_notes.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture13_draft_for_notes.pdf",
+          "page": 4
+        }
+      ],
+      "evidence": {
+        "chunk": 292,
+        "text": "Goals for Today\n\u2022 Explore chemical bonds\n\u2022 Discuss the building blocks of Earth life\n\u2022 Learn about amino acids\n\u2022 Dispel myths about sugar and fat"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-033",
+      "query": "Which lecture page explains How many electrons fit in each shell? Each row of the periodic table is called a period?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture13_draft_for_notes.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture13_draft_for_notes.pdf",
+          "page": 8
+        }
+      ],
+      "evidence": {
+        "chunk": 300,
+        "text": "How many electrons fit in each shell?\n\u2022 Each row of the periodic table is called a period\n\u2022 For elements in period n, the outermost shell has space for 2n2 electrons\nPeriod \n(row)\nFormula\nSpaces Available in \nOutermost Shell\nElements in Period\n1\n2 1 2\n2\u00d71 = 2\nHydrogen (H) \u2192 Helium (He)\n2\n2 2 2\n2\u00d74 = 8\nLithium (Li) \u2192 Neon (Ne)\n3\n2 3 2\n2\u00d79 = 18\nSodium (Na) \u2192 Argon (Ar)\n4\n2 4 2\n2\u00d716 = 32\nPotassium (K) \u2192 Krypton (Kr)"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-034",
+      "query": "Which lecture page explains The periodic table is divided into blocks indicating which orbital is being filled?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture13_draft_for_notes.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture13_draft_for_notes.pdf",
+          "page": 11
+        }
+      ],
+      "evidence": {
+        "chunk": 306,
+        "text": "The periodic table is divided into blocks \nindicating which orbital is being filled\nhttps://pressbooks-dev.oer.hawaii.edu/chemistry/chapter/electronic-structure-of-atoms-electron-configurations/\nMain group elements: \nlast electron enters s or \np orbital\nTransition elements: last \nelectron enters d orbital\nInner transition \nelements: last electron \nenters f orbital\nPeriod\n1\u201d indicating which orbital is being filled\n\\He 1\n2 13.424 15... 16) \u2018a7\nB 1C 2N 30 4F 5\\Ne 6\n2 2s = 2p a\n[sai\nns\nie.)\n\u00a9\nn\nNa "
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-035",
+      "query": "Which lecture page explains Table Salt is Ionically Bonded Sodium (Na) gives an electron to chlorine (Cl)?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture13_draft_for_notes.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture13_draft_for_notes.pdf",
+          "page": 20
+        }
+      ],
+      "evidence": {
+        "chunk": 324,
+        "text": "Table Salt is Ionically Bonded\n\u2022 Sodium (Na) gives an electron to chlorine (Cl)\n\u2022 The sodium ion is positively charged and is a cation\n\u2022 The chlorine ion, now called chloride, is negatively charged and is an anion\nhttps://opened.cuny.edu/courseware/lesson/608/student/?section=15\nNote: \nonly valence electrons are shown\n(@)(e)=(@)(@)"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-036",
+      "query": "Which lecture page explains There are many ways to represent molecular structure?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture13_draft_for_notes.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture12_delivered.pdf",
+          "page": 24
+        },
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture13_draft_for_notes.pdf",
+          "page": 23
+        }
+      ],
+      "evidence": {
+        "chunk": 330,
+        "text": "There are many ways to \nrepresent molecular structure \nFigure 2.3.4 from https://chem.libretexts.org/Courses/Williams_School/Chemistry_I/02%3A_Atoms_Molecules_and_Ions/2.03%3A_Representing_Molecules\n=)\nOH H\n| om\nCH,O H\u2014C\u2014H | CH,OH\n| H aaa\nH H\n(a) (b) (c) (d) (e) (f)\nMolecular Structural Ball-and-stick Perspective Space filling Condensed structural\nformula formula model drawing model formula\nFigure 2.3.4 from https://chem.libretexts.org/Courses/Williams_School/Chemistry_1/02%3A_Atoms_Molecules_an"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-037",
+      "query": "Which lecture page explains Earth Life Has the Chops to Find & Use CHNOPS?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture13_draft_for_notes.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture13_draft_for_notes.pdf",
+          "page": 26
+        }
+      ],
+      "evidence": {
+        "chunk": 336,
+        "text": "Earth Life Has the Chops to \nFind & Use CHNOPS\n\u2022 Carbon\n\u2022 Heterotrophs use organic carbon\n\u2022 Autotrophs can use inorganic carbon from CO2, CaCO3, and other molecules without C-H bonds\n\u2022 Hydrogen\n\u2022 Very common & bonds easily. Found in organic compounds (e.g., CH4) and water (H2O).\n\u2022 Nitrogen\n\u2022 Found in many carbon-based ring structures & amino acids\n\u2022 Oxygen\n\u2022 Found in ring structures, in \u2013OH groups (e.g., sugars & alcohols, & other bonds\n\u2022 Phosphorus\n\u2022 Found in many proteins, molecules (e.g., ade"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-038",
+      "query": "Which lecture page explains These 20 Amino Acids Are Filled?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture13_draft_for_notes.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture13_draft_for_notes.pdf",
+          "page": 29
+        }
+      ],
+      "evidence": {
+        "chunk": 342,
+        "text": "These 20 Amino \nAcids Are Filled \nwith CHNOPS \n\u2022 Amino acids have full \nnames, 3-letter nicknames, \nand 1-letter names\n\u2022 Examples:\n\u2022 Glycine = Gly = G\n\u2022 Trypotophan = Trp = W\nhttps://old-ib.bioninja.com.au/standard-level/topic-2-\nmolecular-biology/24-proteins/amino-acids.html\ni\nHN C\u2014C\nH\n4\n\\o-\nGlycine\n(Gly/G)\nSN\nCH, CH,\nLeucine\n(Leu/L)\nSerine\n(Ser/S)\na\nHAN\" C\u2014 Co\ncH\naN\nCH; CH;\nAlanine Valine\n(Ala/A) (Val / V)\nHN\" CC\nIsoleucine Methionine\n(lle /1) (Met /M)\nThreonine Tyrosine\n(Thr /T) (Tyr)\nCystein"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-039",
+      "query": "Which lecture page explains Proteins Are Essential for Life Functions of proteins include?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture13_draft_for_notes.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture13_draft_for_notes.pdf",
+          "page": 32
+        }
+      ],
+      "evidence": {
+        "chunk": 348,
+        "text": "Proteins Are Essential for Life\n\u2022 Functions of proteins include\n\u2022 Catalyzing (accelerating) chemical reactions\n\u2022 In this role, proteins are called enzymes\n\u2022 Transporting materials\n\u2022 Building cell structure by adding support\n\u2022 Regulating (controlling) gene expression\n\u2022 Defending against pathogens\n\u2022 These proteins are antibodies\n\u2022 Binding and storing ions and small molecules\n\u2022 Signaling the organism to do something\n\u2022 These proteins are called peptide hormones or messenger proteins"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-040",
+      "query": "Which lecture page explains DNA uses four bases Adenine?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture13_draft_for_notes.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture13_draft_for_notes.pdf",
+          "page": 35
+        }
+      ],
+      "evidence": {
+        "chunk": 354,
+        "text": "DNA uses four bases\nAdenine\nGuanine\nCytosine\nThymine\nhttps://open.lib.umn.edu/evolutionbiology/chapter/nucleic-acids-2/"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-041",
+      "query": "Which lecture page explains Review from Tuesday: Sugar, Fat, Protein, & Chirality?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture14_draft_for_notes.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture14_draft_for_notes.pdf",
+          "page": 5
+        }
+      ],
+      "evidence": {
+        "chunk": 389,
+        "text": "Review from Tuesday: \nSugar, Fat, Protein, & Chirality\n\u2022 Protein, sugars, and fats all play \nessential roles in cells\n\u2022 Proteins are chains of amino acids\n\u2022 Over 500 amino acids are known\n\u2022 Life primarily uses only 20\n\u2022 Chirality is the arrangement of atoms \nin a molecule\n\u2022 Life uses left-handed (L-type) amino \nacids\n\u2022 Life uses right-handed (D-type) \nsugars\n\u2022 Homochirality = one-handedness\nCredit: NASA"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-042",
+      "query": "Which lecture page explains Goals for Today Learn more about amino acids & the genetic code?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture14_draft_for_notes.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture14_draft_for_notes.pdf",
+          "page": 9
+        }
+      ],
+      "evidence": {
+        "chunk": 397,
+        "text": "Goals for Today\n\u2022 Learn more about amino acids & the genetic code\n\u2022 Explore the tree of life\n\u2022 Discuss how organisms transfer genetic material"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-043",
+      "query": "Which lecture page explains Hemoglobin is a Protein Iron-rich molecule that carries?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture14_draft_for_notes.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture13_draft_for_notes.pdf",
+          "page": 45
+        },
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture14_draft_for_notes.pdf",
+          "page": 12
+        }
+      ],
+      "evidence": {
+        "chunk": 403,
+        "text": "Hemoglobin is a Protein\n\u2022 Iron-rich molecule that carries \noxygen & carbon dioxide in the \nbloodstream\n\u2022 Complicated structure formed \nfrom four peptide subunits\nhttps://bio.libretexts.org/Bookshelves/Cell_and_Molecular_Biology/Cells__Molecules_and_Mechanisms_(Wo\nng)/02%3A_Basic_Cell_Chemistry__Chemical_Compounds_and_their_Interactions/2.06%3A_Amino_Acids"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-044",
+      "query": "Which lecture page explains Vocabulary Evolution: gradual change in populations of living organisms?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture14_draft_for_notes.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture14_draft_for_notes.pdf",
+          "page": 15
+        }
+      ],
+      "evidence": {
+        "chunk": 409,
+        "text": "Vocabulary\n\u2022 Evolution: gradual change in populations of living organisms\n\u2022 Evolutionary adaptation: an inherited trait that enhances an organism\u2019s ability to survive and \nreproduce in a particular environment\n\u2022 Natural selection: primary mechanism by which evolution proceeds; process by which, over \ntime, advantageous genetic traits are more likely to be passed down to subsequent generations\n\u2022 Heredity: the passage of genetic information from one generation to the next; also called \ninheritance"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-045",
+      "query": "Which lecture page explains Mutations are a Molecular Clock As time passes, each generation?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture14_draft_for_notes.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture14_draft_for_notes.pdf",
+          "page": 18
+        }
+      ],
+      "evidence": {
+        "chunk": 415,
+        "text": "Mutations are a Molecular Clock\n\u2022 As time passes, each generation \nof organisms will accumulate \nmutations\n\u2022 The rate of mutation is \nreasonably stable, so the \nnumber of mutations can be \nused as a proxy for the time \nelapsed since two species \nshared a common ancestor\n\u2022 Most mutations don\u2019t affect \nfitness so they are easily passed \nalong to the next generation\n\u2022 The molecular clock can be \ncalibrated against the fossil \nrecord\nhttps://evolution.berkeley.edu/molecular-clocks/\n50 million years "
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-046",
+      "query": "Which lecture page explains How to Read a Phylogenetic Tree Time runs upward from the bottom?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture14_draft_for_notes.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture14_draft_for_notes.pdf",
+          "page": 22
+        }
+      ],
+      "evidence": {
+        "chunk": 423,
+        "text": "How to Read a Phylogenetic Tree\n\u2022 Time runs upward from the bottom\n\u2022 The tips at the top of the tree are currently \nliving species\n\u2022 The root of the tree is the common \nancestor of the species shown at the tips\n\u2022 Nodes (branching points) indicate splitting \nof an ancestral lineage into different \ndescendent lineages\n\u2022 The length of the branches indicates the \ngenetic difference between species.\n\u2022 More closely related organisms share a \nmore recent common ancestor\n\u2022 Distant relatives have common "
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-047",
+      "query": "Which lecture page explains Another View of the Tree of Life?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture14_draft_for_notes.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture14_draft_for_notes.pdf",
+          "page": 25
+        }
+      ],
+      "evidence": {
+        "chunk": 429,
+        "text": "Another View of \nthe Tree of Life\n\u2022 This tree is oriented differently but the \ncontent is the same\n\u2022 Time runs outward from the middle of \nthe tree\n\u2022 The last universal common ancestor is \nat the center\n\u2022 Modern organisms are at the tips of \n\u2022 Established relationships are shown \nwith solid lines\n\u2022 Less certain relationships are marked by \ndashed lines\n\u2022 The green and blue arrows mark \nendosymbiotic events\n\u2022 Cyanobacteria \u2192 chloroplasts in \nplants\n\u2022 Proteobacteria \u2192 mitochondria in \neukaryotes\nD"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-048",
+      "query": "Which lecture page explains Where do viruses belong? Viruses are tiny structures (50-450 nm across) that contain DNA or RNA?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture14_draft_for_notes.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture14_draft_for_notes.pdf",
+          "page": 28
+        }
+      ],
+      "evidence": {
+        "chunk": 435,
+        "text": "Where do viruses belong?\n\u2022 Viruses are tiny structures (50-450 nm across) that contain DNA or RNA \nand protein but they cannot reproduce on their own \n\u2022 Viruses that infect bacteria are called bacteriophages (phages for \nshort)\n\u2022 The origin of viruses is uncertain\n\u2022 Independent entities that co-evolved with other cells?\n\u2022 Ancient degenerate cells that lost many genes and became \ndependent on other cells\n\u2022 Evolved from the genes of larger organisms?"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-049",
+      "query": "Which lecture page explains Plasmids Small DNA molecule that is part of an organism\u2019s genome but is stored separately from?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture14_draft_for_notes.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture14_draft_for_notes.pdf",
+          "page": 32
+        }
+      ],
+      "evidence": {
+        "chunk": 443,
+        "text": "Plasmids\n\u2022 Small DNA molecule that is part of an organism\u2019s genome but is stored separately from \nchromosomal DNA \n\u2022 Can reproduce independently from chromosomal DNA\n\u2022 Plasmids are also called \u201creplicons\u201d because of this property\n\u2022 Most commonly found as small, circular, double-stranded DNA molecules\n\u2022 Plasmids have 1000 to > 1 million base pairs\n\u2022 Single cells can contain thousands of copies of each plasmid \n\u2022 Often include genes that increase survival of the organism such as \n\u2022 Antibiotic resi"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-050",
+      "query": "Which lecture page explains What did we do today? Learned more about amino acids & the genetic code?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture14_draft_for_notes.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture14_draft_for_notes.pdf",
+          "page": 35
+        }
+      ],
+      "evidence": {
+        "chunk": 449,
+        "text": "What did we do today?\n\u2022 Learned more about amino acids & the genetic code\n\u2022 Explored the tree of life\n\u2022 Discussed how organisms transfer genetic material"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-051",
+      "query": "Which lecture page explains Poll Everywhere Question In your opinion, should viruses be considered a form of life?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture15_delivered.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture15_delivered.pdf",
+          "page": 5
+        }
+      ],
+      "evidence": {
+        "chunk": 468,
+        "text": "Poll Everywhere Question\n\u2022 In your opinion, should viruses be considered a form of life?\n\u2022 For reference:\n\u2022 Viruses are tiny (50-450 nm across)\n\u2022 Viruses contain DNA or RNA and protein \n\u2022 Viruses cannot reproduce on their own \n\u2022 Viruses evolve and adapt\n\u2022 Viruses are not included on the tree of life"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-052",
+      "query": "Which lecture page explains Extremophiles = Lovers of the Extreme Extremophiles are organisms that exist in \u201cextreme\u201d conditions?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture15_delivered.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture15_delivered.pdf",
+          "page": 8
+        }
+      ],
+      "evidence": {
+        "chunk": 474,
+        "text": "Extremophiles = Lovers of the Extreme\n\u2022 Extremophiles are organisms that exist in \u201cextreme\u201d conditions\n\u2022 Some extremophiles can only exist in extreme environments\n\u2022 Other extremophiles can also exist in \u201cnormal\u201d environments\n\u2022 Most extremophiles are bacteria or archaea but some are eukaryotes\n\u2022 Many extremophiles are anaerobic (i.e., they do not require oxygen)"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-053",
+      "query": "Which lecture page explains Thermophiles Love Heat Mesophiles grow best at 15 \u2013 45\u2103?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture15_delivered.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture15_delivered.pdf",
+          "page": 11
+        }
+      ],
+      "evidence": {
+        "chunk": 480,
+        "text": "Thermophiles Love Heat\n\u2022 Mesophiles grow best at 15 \u2013 45\u2103\n\u2022 Thermophiles grow best at 45 \u2013 80\u2103\n\u2022 Hyperthermophiles grow best at temperatures hotter than 80\u2103\n\u2022 Deep in the ocean, black smoker hydrothermal vents are home to hyperthermophiles like\n\u2022 Methanopyrus kandleri: an archaeon that grows and reproduces at 122\u2103\n\u2022 Pyrolobus fumarii: an archaeon that grows and reproduces at 90 \u2013 113\u2103"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-054",
+      "query": "Which lecture page explains Thermophiles Have Many Applications Paper-making?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture15_delivered.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture15_delivered.pdf",
+          "page": 14
+        }
+      ],
+      "evidence": {
+        "chunk": 486,
+        "text": "Thermophiles Have Many Applications\n\u2022 Paper-making\n\u2022 Thermostable enzymes are used to break down cellulose\n\u2022 DNA replication via polymerase chain reaction (PCR) \n\u2022 DNA has to be heated to split the double-helix, but the process used to require adding enzymes \nat room temperature \n\u2022 PCR is easier and faster now because the process uses the thermostable enzyme Taq \npolymerase\n\u2022 The enzyme came from the thermophile bacterium Thermus aquaticus, which was isolated in a \nhot spring in Yellowstone Nati"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-055",
+      "query": "Which lecture page explains Bond Type Matters Example: phospholipid distearoylphosphatidylcholine?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture15_delivered.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture15_delivered.pdf",
+          "page": 17
+        }
+      ],
+      "evidence": {
+        "chunk": 492,
+        "text": "Bond Type Matters\n\u2022 Example: phospholipid distearoylphosphatidylcholine \n\u2022 Without double bonds: freezes at 55\u2103\n\u2022 With just one double bond in each fatty acid: freezes at -17\u2103\nThe lichen Xanthoria elegans can photosynthesize at -24\u2103\nBy Jason Hollinger (original photograph), Papa Lima Whiskey (derivative edit) - This image is \nImage Number 97571 at Mushroom Observer, a source for mycological images., CC BY-SA \n3.0, https://commons.wikimedia.org/w/index.php?curid=11148723"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-056",
+      "query": "Which lecture page explains Life Can Exist in Salty Pockets In Ice Sheets Due to the high salt content, these brines can be liquid down to temperatures of -15\u2103?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture15_delivered.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture15_delivered.pdf",
+          "page": 20
+        }
+      ],
+      "evidence": {
+        "chunk": 498,
+        "text": "Life Can Exist in Salty Pockets In Ice Sheets\n\u2022 Due to the high salt content, these brines can be liquid down to temperatures of -15\u2103\n\u2022 The brine pockets connect to form extensive cave structure of  interconnected salty cavities\n\u2022 The pockets are too small for large predators but the brines are rich in bacteriophages"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-057",
+      "query": "Which lecture page explains Survival in Salty Conditions The primary challenge of salty environments is dehydration?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture15_delivered.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture15_delivered.pdf",
+          "page": 23
+        }
+      ],
+      "evidence": {
+        "chunk": 504,
+        "text": "Survival in Salty Conditions\n\u2022 The primary challenge of salty environments is dehydration\n\u2022 Halophilic and halotolerant organisms cope using two different strategies\n\u2022 Salt-In: add salt to cells \n\u2022 These organisms pump in ions (e.g., K+) to match the high salt concentration outside the cell\n\u2022 Their proteins and cell machinery must be able to handle high salt concentrations\n\u2022 Their strategy includes adding more ionic bonds to proteins increases salt tolerance\n\u2022 This approach is usually used by tr"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-058",
+      "query": "Which lecture page explains Red Algae Cyanidium caldarium thrives in the acidic environment of Rio Tinto, Spain?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture15_delivered.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture15_delivered.pdf",
+          "page": 26
+        }
+      ],
+      "evidence": {
+        "chunk": 510,
+        "text": "Red Algae Cyanidium caldarium thrives in the \nacidic environment of Rio Tinto, Spain\nPhotograph by Juan Carlos Mu\u00f1oz/Science Source\nPhotograph by Juan Carlos Mufioz/Science Source"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-059",
+      "query": "Which lecture page explains Some bacteria have very high radiation tolerances?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture15_delivered.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture15_delivered.pdf",
+          "page": 29
+        }
+      ],
+      "evidence": {
+        "chunk": 516,
+        "text": "Some bacteria have very high \nradiation tolerances\nCox, M., Battista, J. Deinococcus radiodurans \u2014 the consummate survivor. \nNat Rev Microbiol 3, 882\u2013892 (2005). https://doi.org/10.1038/nrmicro1264\nOtt, E., Kawaguchi, Y., K\u00f6lbl, D. et al. Molecular repertoire of Deinococcus radiodurans after 1 \nyear of exposure outside the International Space Station within the Tanpopo mission. \nMicrobiome 8, 150 (2020). https://doi.org/10.1186/s40168-020-00927-5\nlonizing radiation\nDNA double-\nStrand breaks\nCopy"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-060",
+      "query": "Which lecture page explains Comparison of how different?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture15_delivered.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture15_delivered.pdf",
+          "page": 32
+        }
+      ],
+      "evidence": {
+        "chunk": 522,
+        "text": "Comparison of \nhow different \norganisms handle \nradiation\nTable 2\nInterspecies variations in core mechanistic strategies for radiation resistance.\nSpecies Core strategy Key mechanisms Unique molecules/structures Comparison to human cells\nDeinococcus Efficient repair & 1. Extremely efficient HR Mn?*-metabolite complexes, Far superior repair speed and fidelity; defenses\nradiodurans protein protection 2, Multiple genome copies as repair _ thick cell walll and capsule are constitutive.\ntemplates\n3. "
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-061",
+      "query": "Which lecture page explains Astrobiology Lecture 16: The Habitable Zone & Venus?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture16_delivered.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture16_delivered.pdf",
+          "page": 1
+        }
+      ],
+      "evidence": {
+        "chunk": 559,
+        "text": "Astrobiology\nLecture 16: The Habitable Zone & Venus\nOctober 22, 2026\nProfessor Courtney Dressing (she/her)"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-062",
+      "query": "Which lecture page explains Poll Everywhere Answer In 2023, the water in Ke\u0101lia Pond National Wildlife Refuge in Maui,?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture16_delivered.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture16_delivered.pdf",
+          "page": 4
+        }
+      ],
+      "evidence": {
+        "chunk": 565,
+        "text": "Poll Everywhere Answer\nIn 2023, the water in Ke\u0101lia Pond National Wildlife Refuge in Maui, \nHawaii turned bright pink and was extremely salty. \nWhat kind of organism might have been responsible for the pink color?  \nAnswer: Halophiles!\nFor more details, see https://www.hawaii.edu/news/2023/11/14/pink-maui-water-likely-caused-by-bacteria/\nCredit: Leslie Diamond/AP"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-063",
+      "query": "Which lecture page explains A Few Categories of Extremophiles Environment?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture16_delivered.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture16_delivered.pdf",
+          "page": 7
+        }
+      ],
+      "evidence": {
+        "chunk": 571,
+        "text": "A Few Categories of Extremophiles\nEnvironment\nExtremophile\nVery cold (< 15 C)\nCryophile/Psychrophile\nHot (45 \u2013 80 C)\nThermophile\nVery hot (>80C)\nHyperthermophile\nVery salty (> 8-15% salinity)\nHalophile\nVery acidic (pH < 3)\nAcidophile\nVery alkaline (pH > 9)\nAlkaliphile\nHigh pressure (400 \u2013 600 atm) Barophile/Piezophile\nVery high pressure (>600 atm)\nHyperbarophile/Hyperpiezophile\nVery dry\nXerophile\nHigh radiation (>500x typical)\nRadiophile\n2 or more extremes\nPolyextremophile\nNote: There are not \nu"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-064",
+      "query": "Which lecture page explains Vocabulary Habitable: place where life COULD exist?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture16_delivered.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture16_delivered.pdf",
+          "page": 10
+        }
+      ],
+      "evidence": {
+        "chunk": 577,
+        "text": "Vocabulary\n\u2022 Habitable: place where life COULD exist\n\u2022 Life could be present or absent\n\u2022 Uninhabitable: place where life COULD NOT exist\n\u2022 Life is not present\n\u2022 Inhabited: place where life DOES exist\n\u2022 Environment must be habitable by definition\n\u2022 Uninhabited: place where life DOES NOT exist\n\u2022 Environment could be habitable or uninhabitable\nKey Question\nAnswer = yes\nAnswer = no\nCould life exist?\nHabitable\nUninhabitable\nDoes life exist?\nInhabited\nUninhabited\n= Vocabulary"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-065",
+      "query": "Which lecture page explains Where in the Solar System Might Life Exist? \u201cPluto?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture16_delivered.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture16_delivered.pdf",
+          "page": 13
+        }
+      ],
+      "evidence": {
+        "chunk": 583,
+        "text": "Where in the Solar System Might Life Exist?\n\u201cPluto\n# Neptune\n# Uranus\n-\ny Mars =\nSere \u201c\u2014<\" Jupiter\nart\n%\nVenus\nMercury\nWhen poll is active PollEv.com\nrespond at /courtneydressing732\nSend courtneydressing732 to 22333"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-066",
+      "query": "Which lecture page explains The liquid water habitable zone will move outward when the Sun?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture16_delivered.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture16_delivered.pdf",
+          "page": 16
+        }
+      ],
+      "evidence": {
+        "chunk": 589,
+        "text": "The liquid water habitable zone \nwill move outward when the Sun \nbecomes a Red Giant\n\u2022 While the Sun is on the main sequence, the liquid \nwater habitable zone (LWHZ) is in the inner solar \nsystem\n\u2022 Venus is slightly inside the inner edge\n\u2022 Earth is inside the LWHZ near the inner edge\n\u2022 Mars is near the outer edge (just outside or just \ninside depending on assumptions)\n\u2022 When the Sun becomes a Red Giant the liquid water \nhabitable zone will be in the outer solar system\n\u2022 Mercury and Venus will be"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-067",
+      "query": "Which lecture page explains Venus: Earth\u2019s evil twin?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture16_delivered.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture16_delivered.pdf",
+          "page": 19
+        }
+      ],
+      "evidence": {
+        "chunk": 595,
+        "text": "Venus: \nEarth\u2019s evil twin?\n\u2022 Advantages for life\n\u2022 Terrestrial (rocky)\n\u2022 Early-like size & gravity (91% Earth)\n\u2022 Has an atmosphere\n\u2022 Disadvantages for life\n\u2022 Extremely hot (470\u2103)\n\u2022 Likely solvents for life would vaporize\n\u2022 Surface conditions are toxic to humans \n\u2022 Not sure if that matters! ;)\n\u2022 Assessment:\n\u2022 Unhabitable: does not seem suitable for life\n\u2022 Uninhabited: no evidence of life\nCredit: NASA/JPL-Caltech"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-068",
+      "query": "Which lecture page explains Equilibrium Temperature Equilibrium = in balance?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture16_delivered.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture16_delivered.pdf",
+          "page": 22
+        }
+      ],
+      "evidence": {
+        "chunk": 601,
+        "text": "Equilibrium Temperature\n\u2022 Equilibrium = in balance\n\u2022 Equilibrium temperature = the temperature a planet would have if it absorbed and emitted \nthe same amount of energy\n\u2022 Energy in = Ein = amount of solar energy absorbed by the planet\n\u2022 Energy out = Eout = thermal energy radiated by the planet"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-069",
+      "query": "Which lecture page explains What should the planet temperature be? Energy absorbed:?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture16_delivered.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture16_delivered.pdf",
+          "page": 25
+        }
+      ],
+      "evidence": {
+        "chunk": 607,
+        "text": "What should the planet temperature be?\n\u2022 Energy absorbed:\nEin  = L\n4\nrp\nd\n2\n(1 \u2212 albedo)\n\u2022 Energy emitted:\nEout = \u03c3Tplanet\n4\ud835\udf0brp2\n\u2022 If the planet absorbs \n\u2022 more radiation than it emits, the planet temperature will get hotter.\n\u2022 less radiation than it emits, the planet temperature will get colder.\n\u2022 the same amount of radiation as it emits, the temperature will stay constant because the planet \nwill be in equilibrium. "
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-070",
+      "query": "Which lecture page explains Reminder: Albedo Albedo indicates the fraction of light reflected by an object?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture16_delivered.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture16_delivered.pdf",
+          "page": 28
+        }
+      ],
+      "evidence": {
+        "chunk": 613,
+        "text": "Reminder: Albedo\n\u2022 Albedo indicates the fraction of light reflected by an object\n\u2022 Albedo ranges between albedo=0 (0% reflectivity; all light is absorbed) and \nalbedo=1 (100% reflectivity; all light is reflected)\n\u2022 Modern Earth has albedo=0.3 (30% of light is reflected)\nCredit: Derek Markham. \u201cNREL Builds First Solar Database For Bifacial Albedo\u201d ScienceTechnica. 2019.\nCloud Fresh snow\nfe\nfo\n0 20 40 60 80 100\n% reflectivity"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-071",
+      "query": "Which lecture page explains Mars Advantages for life?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture17_draft_for_notes.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture17_draft_for_notes.pdf",
+          "page": 2
+        }
+      ],
+      "evidence": {
+        "chunk": 704,
+        "text": "Mars\n\u2022 Advantages for life\n\u2022 Terrestrial (rocky)\n\u2022 Has an atmosphere\n\u2022 Evidence for past liquid water\n\u2022 Disadvantages for life\n\u2022 Surface can get very cold\n\u2022 Very hot during the day (120\u2103)\n\u2022 Frigid at night (-250\u2103)\n\u2022 No liquid water\n\u2022 Ice has been detected in permanently shadowed craters at the poles\n\u2022 No (or very little) ongoing volcanic or tectonic activity \n\u2022 Assessment:\n\u2022 Habitable in the past and possibly in the present, especially below the surface\n\u2022 Uninhabited: no evidence of life\n\u2022 Many "
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-072",
+      "query": "Which lecture page explains Goals for Today Discuss the history of Mars exploration?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture17_draft_for_notes.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture17_draft_for_notes.pdf",
+          "page": 6
+        }
+      ],
+      "evidence": {
+        "chunk": 712,
+        "text": "Goals for Today\n\u2022 Discuss the history of Mars exploration\n\u2022 Learn about conditions on Mars\n\u2022 Investigate the habitability of Mars\n\u2022 Search for signs of life on Mars "
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-073",
+      "query": "Which lecture page explains Mars through a 14\u201d Telescope CM: 115.9 Alt: 76\u00b0?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture17_draft_for_notes.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture17_draft_for_notes.pdf",
+          "page": 9
+        }
+      ],
+      "evidence": {
+        "chunk": 718,
+        "text": "Mars through a 14\u201d Telescope\nCM: 115.9 Alt: 76\u00b0\nC14 Edge + ASI 224 + PM 2X +L Filter\nPhotographer\nLocation of photo\nec, C\nby Avani Soares\nCe eee eerie Date/Time of photo\nJ 01:48 UT\nEquipment\nS| 224 + PM 2X +L filter"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-074",
+      "query": "Which lecture page explains The Rotation of Mars through an 8\u201d Telescope May 7 \u2013 June 6, 2016?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture17_draft_for_notes.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture17_draft_for_notes.pdf",
+          "page": 12
+        }
+      ],
+      "evidence": {
+        "chunk": 724,
+        "text": "The Rotation of Mars through an 8\u201d Telescope\nMay 7 \u2013 June 6, 2016\nMay 7\u2014June 6, 2016\n2 \u00a9 @ @.\n\u00a9 \u20ac\u00a2 \u20ac\u00a2 8."
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-075",
+      "query": "Which lecture page explains Mars is Cold MARS FACTS / TEMPERATURE?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture17_draft_for_notes.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture17_draft_for_notes.pdf",
+          "page": 15
+        }
+      ],
+      "evidence": {
+        "chunk": 730,
+        "text": "Mars is Cold\nMARS FACTS / TEMPERATURE\n14\u00b0C\n\u201c126\u00b0 F a 6\u00b0 F\nOREN ROR\n\u201c264 a & wee a ee. F\nBh # JOURNEYTOMARS\nmars.nasa.gov"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-076",
+      "query": "Which lecture page explains Let\u2019s Zoom In! Hubble Space Telescope photo of Mars taken when the planet was 50 million miles from Earth on May 12, 2016?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture17_draft_for_notes.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture17_draft_for_notes.pdf",
+          "page": 18
+        }
+      ],
+      "evidence": {
+        "chunk": 736,
+        "text": "Let\u2019s Zoom In!\nHubble Space Telescope photo of Mars taken when the planet was 50 million miles from Earth on May 12, 2016.\nCredits: NASA, ESA, the Hubble Heritage Team (STScI/AURA), J. Bell (ASU), and M. Wolff (Space Science Institute)\nMars Near Opposition \u00ab May 12, 2016\nHST WFC3/UVIS\nNorth\noe Clouds\nArabia\nCassini\nTerra\nCrater\nClouds Above\nSyrtis Major\nClouds\nSinus\nMeridiani\nSchiaparelli Sinus\nCrater South Sabaeus\nPolar Cap"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-077",
+      "query": "Which lecture page explains Mars has Interesting Topology No evidence of plate tectonics. Mars is a 1-plate planet?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture17_draft_for_notes.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture17_draft_for_notes.pdf",
+          "page": 21
+        }
+      ],
+      "evidence": {
+        "chunk": 742,
+        "text": "Mars has Interesting Topology\nNo evidence of plate tectonics. Mars is a 1-plate planet.\nColor-coded Elevations on Mars, MOLA Altimeter, MGS Mission\n180\u00b0W 150\u00b0 120\u00b0 90\u00b0W_ 60\u00b0 30\u00b0 OW 330\u00b0 300\u00b0 =270\u00b0W 240\u00b0 210\u00b0 180\u00b0W\nT\n300\u00b0 = 270\u00b0W 240\u00b0 210\u00b0 180\u00b0 W\n-4000 0 40 From NASA Goddard Spaceflight Center\nelevation meters"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-078",
+      "query": "Which lecture page explains Mars has Unequal Seasons Image Credit: Encyclopedia Britannica, Inc?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture17_draft_for_notes.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture17_draft_for_notes.pdf",
+          "page": 24
+        },
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture17_draft_for_notes.pdf",
+          "page": 25
+        }
+      ],
+      "evidence": {
+        "chunk": 748,
+        "text": "Mars has Unequal Seasons\nImage Credit: Encyclopedia Britannica, Inc.\nnorthern fall,\nsouthern spring\n24.9\u00b0\nrotational axis\nrotational\n_\naxis\nnorthern\nwinter,\nsouthern\nsummer\n\u2014\ndirection of northern summer,\nrevolution southern winter\nnorthern spring,\nsouthern fall"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-079",
+      "query": "Which lecture page explains Olympus Mons is Huge! Size Comparison: Hawaii versus Olympus Mons?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture17_draft_for_notes.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture17_draft_for_notes.pdf",
+          "page": 27
+        }
+      ],
+      "evidence": {
+        "chunk": 754,
+        "text": "Olympus Mons is Huge!\nSize Comparison: Hawaii versus Olympus Mons\nhttps://blogs.agu.org/martianchronicles/2009/05/23/olympus-mons-is-how-tall/\nhttps://blogs .agu.org/martianchronicles/2009/05/23/olympus-mons-is-how-tall/"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-080",
+      "query": "Which lecture page explains Mars is a Tough Place to Live Credit :NASA/Getty Images?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture17_draft_for_notes.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture17_draft_for_notes.pdf",
+          "page": 30
+        }
+      ],
+      "evidence": {
+        "chunk": 760,
+        "text": "Mars is a Tough Place to Live\nCredit :NASA/Getty Images\n\u2022 We can\u2019t breath the atmosphere (95% CO2)\n\u2022 Atmospheric pressure < 1% Earth\u2019s pressure\n\u2022 There\u2019s no ozone layer\n\u2022 Dangerous UV radiation can reach the surface\n\u2022 There are dust storms\n\u2022 Winds of up to 100 km/hr (62 mph)\n\u2022 Fine, red sand suspended in the air\nI IEEE\nJune 26, 2001 September 4, 2001\nCredit -NASA/Gattyv Imagac"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-081",
+      "query": "Which lecture page explains Goals for Today Discuss the history of missions to the outer solar system?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture18_draft.pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture18_draft.pdf",
+          "page": 4
+        }
+      ],
+      "evidence": {
+        "chunk": 862,
+        "text": "Goals for Today\n\u2022 Discuss the history of missions to the outer solar system\n\u2022 Learn about the moons of Jupiter & Saturn\n\u2022 Investigate the habitability of icy moons\n\u2022 Consider how to search for signs of life on Europa & Enceladus"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-082",
+      "query": "Which lecture page explains The Jupiter System Massive planet?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture18_draft.pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture18_draft.pdf",
+          "page": 7
+        }
+      ],
+      "evidence": {
+        "chunk": 868,
+        "text": "The Jupiter System\n\u2022 Massive planet\n\u2022 95 known moons \n\u2022 The four largest moons were discovered by Galileo in 1610\n\u2022 Moons have been detected as recently as 2022!\n\u2022 Faint ring\nCredit: NASA/HST\nhttps://science.nasa.gov/jupiter/jupiter-moons/all-jupiter-moons/"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-083",
+      "query": "Which lecture page explains Missions to Jupiter esa?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture18_draft.pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture18_draft.pdf",
+          "page": 12
+        }
+      ],
+      "evidence": {
+        "chunk": 878,
+        "text": "Missions to Jupiter\nesa\nJUPITER ORBITERS JUPITER FLYBYS\neae \u00a91973 \u00a9 Pioneer 10\neric \u00a91974 \u00a9) Pioneer 11\noe 21979 @ Voyager 1\n\u00a9 Voyager 2\n\u201c1992 @ \u00a9 Ulysses\n\u00a9 Galileo (1995-2003) \u00ab--------\nae \u00a9 2000 \u00a9 @ Cassini-Huygens\nsccanted \u00a9 2007 \u201c\u00a9 New Horizons\n\u00ae Juno (2016-present) \u00ab.....-.-\n\u00a9 Europa Clipper (2030-2035) #------\n@ ESA missions\nSMO Cl eae \u00a9 NASA missions"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-084",
+      "query": "Which lecture page explains Quick Summary of the Galilean Moons All roughly Moon-sized?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture18_draft.pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture18_draft.pdf",
+          "page": 16
+        }
+      ],
+      "evidence": {
+        "chunk": 886,
+        "text": "Quick Summary of the Galilean Moons\n\u2022All roughly Moon-sized\n\u2022Different compositions\n\u2022 Callisto & Ganymede : mixture of ice & rock\n\u2022 Europa & Io: mostly rock\n\u2022Activity increases with proximity to Jupiter\n\u2022 Callisto (farthest): dead world\n\u2022 Ganymede: intermittent geological activity\n\u2022 Europa: global liquid water ocean covered by surface ice\n\u2022 Io: intense volcanism"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-085",
+      "query": "Which lecture page explains Ganymede Largest moon in the solar system!?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture18_draft.pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture18_draft.pdf",
+          "page": 20
+        }
+      ],
+      "evidence": {
+        "chunk": 894,
+        "text": "Ganymede\n\u2022 Largest moon in the solar system!\n\u2022 Second farthest Galilean moon\n\u2022 1 million km from Jupiter\n\u2022 Orbital period: 7 days\n\u2022 Variable crater coverage\n\u2022 \u00bc covered (like Callisto)\n\u2022 \u00be sparsely covered w/ fresh craters (younger)\n\u2022 Differentiated\n\u2022 Moon-sized rocky core\n\u2022 Ice mantle & crust \n\u2022 Has a magnetic field!\n\u2022 Partially molten interior\n\u2022 Geologically active world\n\u2022 Internal geothermal heat source\n\u2022 Evidence of tectonic & volcanic forces\nCredit: NASA"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-086",
+      "query": "Which lecture page explains _-7Force difference i _ 2GMmR?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture18_draft.pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture18_draft.pdf",
+          "page": 23
+        }
+      ],
+      "evidence": {
+        "chunk": 900,
+        "text": "_-7Force difference\ni _ 2GMmR\nr3\nGMm\n(r- R)*\nHigh tide\nMoon (ful\nMoon\nSun & Moon have\nsimilar influence! relative\ndisplacement\nfo) Neap tice:"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-087",
+      "query": "Which lecture page explains Io\u2019s Surface Changes Rapidly Image credit: NASA/JPL/University of Arizona?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture18_draft.pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture18_draft.pdf",
+          "page": 27
+        }
+      ],
+      "evidence": {
+        "chunk": 908,
+        "text": "Io\u2019s Surface Changes Rapidly\nImage credit: NASA/JPL/University of Arizona\nSeries of Galileo images of Pillan Patera region of Io\nApril 1997\nSeptember 1997\nJuly 1999"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-088",
+      "query": "Which lecture page explains Europa\u2019s Icy Surface Has Few Craters & Many Cracks?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture18_draft.pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture18_draft.pdf",
+          "page": 33
+        }
+      ],
+      "evidence": {
+        "chunk": 920,
+        "text": "Europa\u2019s Icy Surface Has Few \nCraters & Many Cracks\nhttps://www.brown.edu/news/2016-04-14/europa\nNASA/JPL/University of Arizona\nNASA/JPL/University of Arizona https://www.brown.edu/news/2016-04-14/europa"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-089",
+      "query": "Which lecture page explains Europa\u2019s Surface Is \u201cWeird\u201d Spectroscopic observations are?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture18_draft.pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture18_draft.pdf",
+          "page": 36
+        }
+      ],
+      "evidence": {
+        "chunk": 926,
+        "text": "Europa\u2019s Surface Is \u201cWeird\u201d\n\u2022 Spectroscopic observations are \nconsistent with expectations for water \nice blasted by UV radiation or charged \nparticles trapped in Jupiter\u2019s magnetic \nfield\n\u2022 Oxygen\n\u2022 Ozone\n\u2022 Hydrogen peroxide (H2O2)\nhttps://www.jpl.nasa.gov/news/nasas-galileo-finds-bottle-blonde-chemical-on-europa/\n\u201cHydrogen peroxide is a really weird chemical that \nreacts strongly with almost everything,\" said Dr. \nRobert Carlson, principal investigator for Galileo's \nnear-infrared mapping spec"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-090",
+      "query": "Which lecture page explains Europa\u2019s Surface Is Pretty Flat And Has Intriguing Features?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture18_draft.pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture18_draft.pdf",
+          "page": 40
+        }
+      ],
+      "evidence": {
+        "chunk": 934,
+        "text": "Europa\u2019s Surface Is Pretty Flat \nAnd Has Intriguing Features\n\u2022 Vertical variations of only a few hundred meters\n\u2022 Consistent with a young surface\n\u2022 Notable surface features\n\u2022 Linae (lines)\n\u2022 Lenticulae (dark spots)\n\u2022 Chaos terrain (weird areas)"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-091",
+      "query": "Which lecture page explains Goals for Today Review why Europa & Enceladus are often considered habitable?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture19_draft_for_notes.pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture19_draft_for_notes.pdf",
+          "page": 6
+        }
+      ],
+      "evidence": {
+        "chunk": 1011,
+        "text": "Goals for Today\n\u2022 Review why Europa & Enceladus are often considered habitable\n\u2022 Investigate the habitability of Titan & Triton \n\u2022 Consider alternative chemistries for life\n\u2022 Discuss future missions to search for life in the outer solar system"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-092",
+      "query": "Which lecture page explains Artist\u2019s Rendition of Europa\u2019s Interior?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture19_draft_for_notes.pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture19_draft_for_notes.pdf",
+          "page": 9
+        }
+      ],
+      "evidence": {
+        "chunk": 1017,
+        "text": "Artist\u2019s Rendition of \nEuropa\u2019s Interior\n\u2022 Possible structure\n\u2022 Outer shell of ice through \nwhich plumes vent to the \nsurface\n\u2022 A deep, global layer of liquid \nwater\n\u2022 Possible hydrothermal vents \nat the at the base of the \nwater layer\n\u2022 Rocky interior \nCredit: NASA/JPL-Caltech\nCaution: artistic representation is not to scale!"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-093",
+      "query": "Which lecture page explains Does Alien Life Require Liquid Water? Liquid water is essential for Earth life?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture19_draft_for_notes.pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture19_draft_for_notes.pdf",
+          "page": 12
+        }
+      ],
+      "evidence": {
+        "chunk": 1023,
+        "text": "Does Alien Life Require Liquid Water?\n\u2022 Liquid water is essential for Earth life\n\u2022 Dissolves organic molecules so that they\u2019re available for chemical reactions in cells\n\u2022 Allows for the transport of chemicals into and out of cells\n\u2022 Involved in metabolic reactions\n\u2022 Why does Earth life use water?\n\u2022 It\u2019s common\n\u2022 It\u2019s liquid for a large temperature range \n\u2022 It\u2019s liquid at a relatively high temperature where chemical reactions can proceed more \nquickly\n\u2022 Water becomes less dense when frozen! (i.e."
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-094",
+      "query": "Which lecture page explains Other Possible Solvents Substance?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture19_draft_for_notes.pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture19_draft_for_notes.pdf",
+          "page": 15
+        }
+      ],
+      "evidence": {
+        "chunk": 1029,
+        "text": "Other Possible Solvents\nSubstance\nFreeze at (\u2103)\nBoils at (\u2103) Width of Liquid Range (\u2103)\nWater (H2O)\n0\n100\nAmmonia (NH3)\n-78\n-33\n45\nMethanol (CH3OH)\n-98\n65\n163\nMethane (CH4)\n-182\n-164\n18\nEthane (C2H6)\n-183\n-89\n94\nTable 7.1 of Life in the Universe by Bennett, Shostak, Schneider, & MacGregor\nFreezing and boiling temperatures calculated at 1 atmosphere of pressure (i.e., at Earth\u2019s surface pressure)."
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-095",
+      "query": "Which lecture page explains Titan First moon discovered after Galilean?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture19_draft_for_notes.pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture19_draft_for_notes.pdf",
+          "page": 18
+        }
+      ],
+      "evidence": {
+        "chunk": 1035,
+        "text": "Titan\n\u2022 First moon discovered after Galilean \nmoons\n\u2022 Similar to Callisto & Ganymede in terms of \nmass, radius, & density\n\u2022 Thick atmosphere\n\u2022 Atmospheric pressure = 1.6 bars\n\u2022 \u201cWater\u201d cycle \n\u2022 Too cold for liquid water (surface \ntemperature = 94K)\n\u2022 Lakes, rivers, & falling rain composed of \nethane, methane, & other hydrocarbons\nCredit: NASA/Cassini"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-096",
+      "query": "Which lecture page explains Question: The NASA Cassini orbiter was accompanied by a probe built by the European Space Agency?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture19_draft_for_notes.pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture19_draft_for_notes.pdf",
+          "page": 22
+        }
+      ],
+      "evidence": {
+        "chunk": 1043,
+        "text": "Question: The NASA Cassini orbiter was accompanied \nby a probe built by the European Space Agency. \nWhat was the name of the probe? \nPortrait of Huygens by von \nBernard Vaillant (1686)\nCredit: Hofwijck Museum, \nVoorburg/Public Domain\nArtist\u2019s impression of the probe\u2019s descent and landing sequence. Credit: ESA/C. Carreau"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-097",
+      "query": "Which lecture page explains False-Color Radar Image of Lakes on Titan Image credit: NASA/JPL-Caltech/ASI/USGS?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture19_draft_for_notes.pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture19_draft_for_notes.pdf",
+          "page": 27
+        }
+      ],
+      "evidence": {
+        "chunk": 1053,
+        "text": "False-Color Radar Image of Lakes on Titan \nImage credit: NASA/JPL-Caltech/ASI/USGS.\nFa\nEs\nIse- -Color F Radar Image of Lakes on Titan"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-098",
+      "query": "Which lecture page explains The Neptune System 14 known moons?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture19_draft_for_notes.pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture19_draft_for_notes.pdf",
+          "page": 32
+        }
+      ],
+      "evidence": {
+        "chunk": 1063,
+        "text": "The Neptune System\n\u2022 14 known moons\n\u2022 7 regular moons\n\u2022 Rings\n\u2022 Narrow, faint, & dark like those of Uranus\nImage by Voyager 2\nCredit: NASA/JPL\ne of Uranus"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-099",
+      "query": "Which lecture page explains Taken on August 24, 1989 when Voyager 2 was?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture19_draft_for_notes.pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture19_draft_for_notes.pdf",
+          "page": 35
+        }
+      ],
+      "evidence": {
+        "chunk": 1069,
+        "text": "\u2022 Taken on August 24, 1989 \nwhen Voyager 2 was \n333,000 miles away from \nTriton\n\u2022 Image resolution = 6.2 miles\nImage credit: NASA/JPL\nAnother Voyager 2 Image of Triton\nnage of Triton"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "example_pdfs-100",
+      "query": "Which lecture page explains Artist\u2019s Rendition of the Dragonfly Mission to Titan Credits: NASA/JHU-APL?",
+      "category": "page topic",
+      "family": "11_fall2026_lecture19_draft_for_notes.pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture19_draft_for_notes.pdf",
+          "page": 38
+        }
+      ],
+      "evidence": {
+        "chunk": 1075,
+        "text": "Artist\u2019s Rendition of the Dragonfly Mission to Titan \nCredits: NASA/JHU-APL\nLaunch: no earlier than 2028\nArrival: late 2034"
+      },
+      "source": "source-grounded template"
+    }
+  ]
+}

@@ -1,0 +1,1966 @@
+{
+  "collection": "/Users/sst/Downloads",
+  "questions": [
+    {
+      "id": "Downloads-001",
+      "query": "Where are my notes showing handwritten matrices P and C?",
+      "category": "single-image paraphrase",
+      "family": "one-handwritten-image",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Downloads",
+          "file": "IMG_6D1E896385AE-1.jpeg",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1091,
+        "text": "page IMG_6D1E896385AE-1.jpeg:page:1\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "Downloads-002",
+      "query": "Where are my notes showing two two-by-two matrices written on graph paper?",
+      "category": "single-image paraphrase",
+      "family": "one-handwritten-image",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Downloads",
+          "file": "IMG_6D1E896385AE-1.jpeg",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1091,
+        "text": "page IMG_6D1E896385AE-1.jpeg:page:1\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "Downloads-003",
+      "query": "Where are my notes showing a matrix P with 1 and minus 1 on its diagonal?",
+      "category": "single-image paraphrase",
+      "family": "one-handwritten-image",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Downloads",
+          "file": "IMG_6D1E896385AE-1.jpeg",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1091,
+        "text": "page IMG_6D1E896385AE-1.jpeg:page:1\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "Downloads-004",
+      "query": "Where are my notes showing a matrix C containing 1, minus 2, 2, and 1?",
+      "category": "single-image paraphrase",
+      "family": "one-handwritten-image",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Downloads",
+          "file": "IMG_6D1E896385AE-1.jpeg",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1091,
+        "text": "page IMG_6D1E896385AE-1.jpeg:page:1\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "Downloads-005",
+      "query": "Where are my notes showing black handwritten linear algebra on a pale squared background?",
+      "category": "single-image paraphrase",
+      "family": "one-handwritten-image",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Downloads",
+          "file": "IMG_6D1E896385AE-1.jpeg",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1091,
+        "text": "page IMG_6D1E896385AE-1.jpeg:page:1\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "Downloads-006",
+      "query": "Where are my notes showing a small handwritten linear algebra calculation?",
+      "category": "single-image paraphrase",
+      "family": "one-handwritten-image",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Downloads",
+          "file": "IMG_6D1E896385AE-1.jpeg",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1091,
+        "text": "page IMG_6D1E896385AE-1.jpeg:page:1\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "Downloads-007",
+      "query": "Where are my notes showing a diagonal matrix and a second square matrix?",
+      "category": "single-image paraphrase",
+      "family": "one-handwritten-image",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Downloads",
+          "file": "IMG_6D1E896385AE-1.jpeg",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1091,
+        "text": "page IMG_6D1E896385AE-1.jpeg:page:1\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "Downloads-008",
+      "query": "Where are my notes showing P equals one zero zero negative one?",
+      "category": "single-image paraphrase",
+      "family": "one-handwritten-image",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Downloads",
+          "file": "IMG_6D1E896385AE-1.jpeg",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1091,
+        "text": "page IMG_6D1E896385AE-1.jpeg:page:1\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "Downloads-009",
+      "query": "Where are my notes showing C equals one negative two two one?",
+      "category": "single-image paraphrase",
+      "family": "one-handwritten-image",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Downloads",
+          "file": "IMG_6D1E896385AE-1.jpeg",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1091,
+        "text": "page IMG_6D1E896385AE-1.jpeg:page:1\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "Downloads-010",
+      "query": "Where are my notes showing two matrices labeled P and C?",
+      "category": "single-image paraphrase",
+      "family": "one-handwritten-image",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Downloads",
+          "file": "IMG_6D1E896385AE-1.jpeg",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1091,
+        "text": "page IMG_6D1E896385AE-1.jpeg:page:1\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "Downloads-011",
+      "query": "Find the image of handwritten matrices P and C.",
+      "category": "single-image paraphrase",
+      "family": "one-handwritten-image",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Downloads",
+          "file": "IMG_6D1E896385AE-1.jpeg",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1091,
+        "text": "page IMG_6D1E896385AE-1.jpeg:page:1\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "Downloads-012",
+      "query": "Find the image of two two-by-two matrices written on graph paper.",
+      "category": "single-image paraphrase",
+      "family": "one-handwritten-image",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Downloads",
+          "file": "IMG_6D1E896385AE-1.jpeg",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1091,
+        "text": "page IMG_6D1E896385AE-1.jpeg:page:1\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "Downloads-013",
+      "query": "Find the image of a matrix P with 1 and minus 1 on its diagonal.",
+      "category": "single-image paraphrase",
+      "family": "one-handwritten-image",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Downloads",
+          "file": "IMG_6D1E896385AE-1.jpeg",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1091,
+        "text": "page IMG_6D1E896385AE-1.jpeg:page:1\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "Downloads-014",
+      "query": "Find the image of a matrix C containing 1, minus 2, 2, and 1.",
+      "category": "single-image paraphrase",
+      "family": "one-handwritten-image",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Downloads",
+          "file": "IMG_6D1E896385AE-1.jpeg",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1091,
+        "text": "page IMG_6D1E896385AE-1.jpeg:page:1\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "Downloads-015",
+      "query": "Find the image of black handwritten linear algebra on a pale squared background.",
+      "category": "single-image paraphrase",
+      "family": "one-handwritten-image",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Downloads",
+          "file": "IMG_6D1E896385AE-1.jpeg",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1091,
+        "text": "page IMG_6D1E896385AE-1.jpeg:page:1\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "Downloads-016",
+      "query": "Find the image of a small handwritten linear algebra calculation.",
+      "category": "single-image paraphrase",
+      "family": "one-handwritten-image",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Downloads",
+          "file": "IMG_6D1E896385AE-1.jpeg",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1091,
+        "text": "page IMG_6D1E896385AE-1.jpeg:page:1\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "Downloads-017",
+      "query": "Find the image of a diagonal matrix and a second square matrix.",
+      "category": "single-image paraphrase",
+      "family": "one-handwritten-image",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Downloads",
+          "file": "IMG_6D1E896385AE-1.jpeg",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1091,
+        "text": "page IMG_6D1E896385AE-1.jpeg:page:1\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "Downloads-018",
+      "query": "Find the image of P equals one zero zero negative one.",
+      "category": "single-image paraphrase",
+      "family": "one-handwritten-image",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Downloads",
+          "file": "IMG_6D1E896385AE-1.jpeg",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1091,
+        "text": "page IMG_6D1E896385AE-1.jpeg:page:1\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "Downloads-019",
+      "query": "Find the image of C equals one negative two two one.",
+      "category": "single-image paraphrase",
+      "family": "one-handwritten-image",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Downloads",
+          "file": "IMG_6D1E896385AE-1.jpeg",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1091,
+        "text": "page IMG_6D1E896385AE-1.jpeg:page:1\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "Downloads-020",
+      "query": "Find the image of two matrices labeled P and C.",
+      "category": "single-image paraphrase",
+      "family": "one-handwritten-image",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Downloads",
+          "file": "IMG_6D1E896385AE-1.jpeg",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1091,
+        "text": "page IMG_6D1E896385AE-1.jpeg:page:1\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "Downloads-021",
+      "query": "Show me handwritten matrices P and C.",
+      "category": "single-image paraphrase",
+      "family": "one-handwritten-image",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Downloads",
+          "file": "IMG_6D1E896385AE-1.jpeg",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1091,
+        "text": "page IMG_6D1E896385AE-1.jpeg:page:1\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "Downloads-022",
+      "query": "Show me two two-by-two matrices written on graph paper.",
+      "category": "single-image paraphrase",
+      "family": "one-handwritten-image",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Downloads",
+          "file": "IMG_6D1E896385AE-1.jpeg",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1091,
+        "text": "page IMG_6D1E896385AE-1.jpeg:page:1\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "Downloads-023",
+      "query": "Show me a matrix P with 1 and minus 1 on its diagonal.",
+      "category": "single-image paraphrase",
+      "family": "one-handwritten-image",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Downloads",
+          "file": "IMG_6D1E896385AE-1.jpeg",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1091,
+        "text": "page IMG_6D1E896385AE-1.jpeg:page:1\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "Downloads-024",
+      "query": "Show me a matrix C containing 1, minus 2, 2, and 1.",
+      "category": "single-image paraphrase",
+      "family": "one-handwritten-image",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Downloads",
+          "file": "IMG_6D1E896385AE-1.jpeg",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1091,
+        "text": "page IMG_6D1E896385AE-1.jpeg:page:1\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "Downloads-025",
+      "query": "Show me black handwritten linear algebra on a pale squared background.",
+      "category": "single-image paraphrase",
+      "family": "one-handwritten-image",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Downloads",
+          "file": "IMG_6D1E896385AE-1.jpeg",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1091,
+        "text": "page IMG_6D1E896385AE-1.jpeg:page:1\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "Downloads-026",
+      "query": "Show me a small handwritten linear algebra calculation.",
+      "category": "single-image paraphrase",
+      "family": "one-handwritten-image",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Downloads",
+          "file": "IMG_6D1E896385AE-1.jpeg",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1091,
+        "text": "page IMG_6D1E896385AE-1.jpeg:page:1\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "Downloads-027",
+      "query": "Show me a diagonal matrix and a second square matrix.",
+      "category": "single-image paraphrase",
+      "family": "one-handwritten-image",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Downloads",
+          "file": "IMG_6D1E896385AE-1.jpeg",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1091,
+        "text": "page IMG_6D1E896385AE-1.jpeg:page:1\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "Downloads-028",
+      "query": "Show me P equals one zero zero negative one.",
+      "category": "single-image paraphrase",
+      "family": "one-handwritten-image",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Downloads",
+          "file": "IMG_6D1E896385AE-1.jpeg",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1091,
+        "text": "page IMG_6D1E896385AE-1.jpeg:page:1\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "Downloads-029",
+      "query": "Show me C equals one negative two two one.",
+      "category": "single-image paraphrase",
+      "family": "one-handwritten-image",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Downloads",
+          "file": "IMG_6D1E896385AE-1.jpeg",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1091,
+        "text": "page IMG_6D1E896385AE-1.jpeg:page:1\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "Downloads-030",
+      "query": "Show me two matrices labeled P and C.",
+      "category": "single-image paraphrase",
+      "family": "one-handwritten-image",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Downloads",
+          "file": "IMG_6D1E896385AE-1.jpeg",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1091,
+        "text": "page IMG_6D1E896385AE-1.jpeg:page:1\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "Downloads-031",
+      "query": "I am looking for handwritten matrices P and C.",
+      "category": "single-image paraphrase",
+      "family": "one-handwritten-image",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Downloads",
+          "file": "IMG_6D1E896385AE-1.jpeg",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1091,
+        "text": "page IMG_6D1E896385AE-1.jpeg:page:1\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "Downloads-032",
+      "query": "I am looking for two two-by-two matrices written on graph paper.",
+      "category": "single-image paraphrase",
+      "family": "one-handwritten-image",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Downloads",
+          "file": "IMG_6D1E896385AE-1.jpeg",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1091,
+        "text": "page IMG_6D1E896385AE-1.jpeg:page:1\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "Downloads-033",
+      "query": "I am looking for a matrix P with 1 and minus 1 on its diagonal.",
+      "category": "single-image paraphrase",
+      "family": "one-handwritten-image",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Downloads",
+          "file": "IMG_6D1E896385AE-1.jpeg",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1091,
+        "text": "page IMG_6D1E896385AE-1.jpeg:page:1\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "Downloads-034",
+      "query": "I am looking for a matrix C containing 1, minus 2, 2, and 1.",
+      "category": "single-image paraphrase",
+      "family": "one-handwritten-image",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Downloads",
+          "file": "IMG_6D1E896385AE-1.jpeg",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1091,
+        "text": "page IMG_6D1E896385AE-1.jpeg:page:1\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "Downloads-035",
+      "query": "I am looking for black handwritten linear algebra on a pale squared background.",
+      "category": "single-image paraphrase",
+      "family": "one-handwritten-image",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Downloads",
+          "file": "IMG_6D1E896385AE-1.jpeg",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1091,
+        "text": "page IMG_6D1E896385AE-1.jpeg:page:1\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "Downloads-036",
+      "query": "I am looking for a small handwritten linear algebra calculation.",
+      "category": "single-image paraphrase",
+      "family": "one-handwritten-image",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Downloads",
+          "file": "IMG_6D1E896385AE-1.jpeg",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1091,
+        "text": "page IMG_6D1E896385AE-1.jpeg:page:1\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "Downloads-037",
+      "query": "I am looking for a diagonal matrix and a second square matrix.",
+      "category": "single-image paraphrase",
+      "family": "one-handwritten-image",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Downloads",
+          "file": "IMG_6D1E896385AE-1.jpeg",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1091,
+        "text": "page IMG_6D1E896385AE-1.jpeg:page:1\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "Downloads-038",
+      "query": "I am looking for P equals one zero zero negative one.",
+      "category": "single-image paraphrase",
+      "family": "one-handwritten-image",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Downloads",
+          "file": "IMG_6D1E896385AE-1.jpeg",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1091,
+        "text": "page IMG_6D1E896385AE-1.jpeg:page:1\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "Downloads-039",
+      "query": "I am looking for C equals one negative two two one.",
+      "category": "single-image paraphrase",
+      "family": "one-handwritten-image",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Downloads",
+          "file": "IMG_6D1E896385AE-1.jpeg",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1091,
+        "text": "page IMG_6D1E896385AE-1.jpeg:page:1\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "Downloads-040",
+      "query": "I am looking for two matrices labeled P and C.",
+      "category": "single-image paraphrase",
+      "family": "one-handwritten-image",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Downloads",
+          "file": "IMG_6D1E896385AE-1.jpeg",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1091,
+        "text": "page IMG_6D1E896385AE-1.jpeg:page:1\n"
+      },
+      "source": "source-grounded template"
+    },
+    {
+      "id": "Downloads-041",
+      "query": "append vs extend",
+      "category": "cross-collection distractor",
+      "family": "cs61a/Reading Notes/2.4 - Mutable Data.md",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/2.4 - Mutable Data.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2210,
+        "text": "One powerful technique for creating modular programs is to incorporate data that may change state over time. It is a central ingredient to the paradigm of object-oriented programming.\n\n"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-042",
+      "query": "How is mutation different from rebinding a name?",
+      "category": "cross-collection distractor",
+      "family": "cs61a/Reading Notes/2.4 - Mutable Data.md",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/2.4 - Mutable Data.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2210,
+        "text": "One powerful technique for creating modular programs is to incorporate data that may change state over time. It is a central ingredient to the paradigm of object-oriented programming.\n\n"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-043",
+      "query": "What are higher order functions?",
+      "category": "cross-collection distractor",
+      "family": "cs61a/Reading Notes/1.6 - Higher Order Functions.md",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/1.6 - Higher Order Functions.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2171,
+        "text": "- Powerful programming languages need to be able to provide methods of abstraction in which you can assign a name to a pattern of instructions\n- In abstraction, we will need to be able to construct functions that accept other functions as arguments or return functions as value. Functions that manipulate functions are called **higher-order functions**\n\n"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-044",
+      "query": "How do closures remember their enclosing environment?",
+      "category": "cross-collection distractor",
+      "family": "cs61a/Reading Notes/1.6 - Higher Order Functions.md",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/1.6 - Higher Order Functions.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2171,
+        "text": "- Powerful programming languages need to be able to provide methods of abstraction in which you can assign a name to a pattern of instructions\n- In abstraction, we will need to be able to construct functions that accept other functions as arguments or return functions as value. Functions that manipulate functions are called **higher-order functions**\n\n"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-045",
+      "query": "How does currying turn a two argument function into nested functions?",
+      "category": "cross-collection distractor",
+      "family": "cs61a/Reading Notes/1.6 - Higher Order Functions.md",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/1.6 - Higher Order Functions.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2171,
+        "text": "- Powerful programming languages need to be able to provide methods of abstraction in which you can assign a name to a pattern of instructions\n- In abstraction, we will need to be able to construct functions that accept other functions as arguments or return functions as value. Functions that manipulate functions are called **higher-order functions**\n\n"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-046",
+      "query": "How does a recursive function reach its base case?",
+      "category": "cross-collection distractor",
+      "family": "cs61a/Reading Notes/1.7 - Recursive Functions.md",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/1.7 - Recursive Functions.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2179,
+        "text": "A **recursive function** is one whose body calls the function itself, either directly or indirectly. This leads to the function applying itself repeatedly.\n\nHere's an example. Imagine you have a function that sums the digits of a natural number. The `%` and `//` operators can be used to separate a number into the last digit and all but the last digit. The sum of the digits of 18117 is `1+8+1+1+7=18`. Just like how we separate the number into its digits manually, we can separate this sum algorith"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-047",
+      "query": "How does tree recursion branch into smaller problems?",
+      "category": "cross-collection distractor",
+      "family": "cs61a/Reading Notes/1.7 - Recursive Functions.md",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/1.7 - Recursive Functions.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2179,
+        "text": "A **recursive function** is one whose body calls the function itself, either directly or indirectly. This leads to the function applying itself repeatedly.\n\nHere's an example. Imagine you have a function that sums the digits of a natural number. The `%` and `//` operators can be used to separate a number into the last digit and all but the last digit. The sum of the digits of 18117 is `1+8+1+1+7=18`. Just like how we separate the number into its digits manually, we can separate this sum algorith"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-048",
+      "query": "What is the difference between an expression and a statement?",
+      "category": "cross-collection distractor",
+      "family": "cs61a/Reading Notes/1.2 - Elements of Programming.md",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/1.2 - Elements of Programming.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2147,
+        "text": "## Overview\n\n- Programming Languages provide means to turn simple expressions into complex ones\n- Powerful programming languages have three such mechanisms:\n\t  - **primitive expressions and statements**: the simplest building blocks that the language provides\n\t  - **means of combination**: how compound elements are created from simpler ones\n\t  - **means of abstraction**: how compound elements can be named and manipulated as units\n- Programming primarily deals with\n\t- **Data**: information we wan"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-049",
+      "query": "How are function arguments evaluated?",
+      "category": "cross-collection distractor",
+      "family": "cs61a/Reading Notes/1.2 - Elements of Programming.md",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/1.2 - Elements of Programming.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2147,
+        "text": "## Overview\n\n- Programming Languages provide means to turn simple expressions into complex ones\n- Powerful programming languages have three such mechanisms:\n\t  - **primitive expressions and statements**: the simplest building blocks that the language provides\n\t  - **means of combination**: how compound elements are created from simpler ones\n\t  - **means of abstraction**: how compound elements can be named and manipulated as units\n- Programming primarily deals with\n\t- **Data**: information we wan"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-050",
+      "query": "How does a call expression work?",
+      "category": "cross-collection distractor",
+      "family": "cs61a/Reading Notes/1.2 - Elements of Programming.md",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/1.2 - Elements of Programming.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2147,
+        "text": "## Overview\n\n- Programming Languages provide means to turn simple expressions into complex ones\n- Powerful programming languages have three such mechanisms:\n\t  - **primitive expressions and statements**: the simplest building blocks that the language provides\n\t  - **means of combination**: how compound elements are created from simpler ones\n\t  - **means of abstraction**: how compound elements can be named and manipulated as units\n- Programming primarily deals with\n\t- **Data**: information we wan"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-051",
+      "query": "What are local frames in an environment diagram?",
+      "category": "cross-collection distractor",
+      "family": "cs61a/Reading Notes/1.3 - Defining New Functions.md",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/1.3 - Defining New Functions.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2153,
+        "text": "## How to Define a Function\n- Use `def` and name the function followed by parenthesis.\n- Specify formal parameters inside the parenthesis as a comma-delimited list\n\n```python\n>>> def square(x):\n        return mul(x, x)\n```\n\nThe line inside the function MUST be indented.\n\nHaving defined the `square` function, we can use it in a call expression:\n\n```python\n>>> square(21)\n441\n>>> square(add(2, 5))\n49\n>>> square(square(3))\n81\n```\n\n\nAssignment statements and `def` statements assign bindings to names."
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-052",
+      "query": "How do I design a function with one clear purpose?",
+      "category": "cross-collection distractor",
+      "family": "cs61a/Reading Notes/1.4 Designing Functions.md",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/1.4 Designing Functions.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2156,
+        "text": "[[Lecture 3 - August 30, 2026]]\n"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-053",
+      "query": "How does a while statement repeat a computation?",
+      "category": "cross-collection distractor",
+      "family": "cs61a/Reading Notes/1.5 - Control.md",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/1.5 - Control.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2161,
+        "text": "[[Lecture 3 - August 30, 2026]]\n"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-054",
+      "query": "What does short circuit evaluation mean?",
+      "category": "cross-collection distractor",
+      "family": "cs61a/Reading Notes/1.5 - Control.md",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/1.5 - Control.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2161,
+        "text": "[[Lecture 3 - August 30, 2026]]\n"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-055",
+      "query": "How do list comprehensions filter a sequence?",
+      "category": "cross-collection distractor",
+      "family": "cs61a/Reading Notes/2.2 - Sequences.md",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/2.2 - Sequences.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2187,
+        "text": " A *sequence* is an ordered collection of values. A sequence is not an instance of a particular built-in type in Python, but instead an abstraction: a collection of behaviors.\n\n**Length.** A sequence has a finite length. An empty sequence has length 0.\n\n**Item selection.** A sequence has an item corresponding to any non-negative integer index less than its length, starting at 0 for the first item.\n\nWhile sequences are collections of items, which are values, each sequence itself is also a value. "
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-056",
+      "query": "How does sequence unpacking assign values?",
+      "category": "cross-collection distractor",
+      "family": "cs61a/Reading Notes/2.2 - Sequences.md",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/2.2 - Sequences.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2187,
+        "text": " A *sequence* is an ordered collection of values. A sequence is not an instance of a particular built-in type in Python, but instead an abstraction: a collection of behaviors.\n\n**Length.** A sequence has a finite length. An empty sequence has length 0.\n\n**Item selection.** A sequence has an item corresponding to any non-negative integer index less than its length, starting at 0 for the first item.\n\nWhile sequences are collections of items, which are values, each sequence itself is also a value. "
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-057",
+      "query": "How do I slice a list?",
+      "category": "cross-collection distractor",
+      "family": "cs61a/Reading Notes/2.2 - Sequences.md",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/2.2 - Sequences.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2187,
+        "text": " A *sequence* is an ordered collection of values. A sequence is not an instance of a particular built-in type in Python, but instead an abstraction: a collection of behaviors.\n\n**Length.** A sequence has a finite length. An empty sequence has length 0.\n\n**Item selection.** A sequence has an item corresponding to any non-negative integer index less than its length, starting at 0 for the first item.\n\nWhile sequences are collections of items, which are values, each sequence itself is also a value. "
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-058",
+      "query": "How does a data abstraction hide its representation?",
+      "category": "cross-collection distractor",
+      "family": "cs61a/Reading Notes/2.3 Compound Data.md",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/2.3 Compound Data.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2200,
+        "text": "## The Object Metaphor\n\nThe central characteristic of object is that they represent information but also *behave* like the information that they represent. In Python, all values are objects. Data are objects that have types which endow those objects with behavior. While a program could use a list of integers (a year, month, and day) to represent a date, a `date` object bundles in a great deal of date-related functionality.\n\n```python\n>>> from datetime import date\n>>> date\n<class 'datetime.date'>"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-059",
+      "query": "How do append and extend change a mutable list?",
+      "category": "cross-collection distractor",
+      "family": "cs61a/Reading Notes/2.4 - Mutable Data.md",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/2.4 - Mutable Data.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2210,
+        "text": "One powerful technique for creating modular programs is to incorporate data that may change state over time. It is a central ingredient to the paradigm of object-oriented programming.\n\n"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true,
+      "audit": "Unsupported prompt replaced with a source-supported comparison during tuning."
+    },
+    {
+      "id": "Downloads-060",
+      "query": "How do two variables share the same list?",
+      "category": "cross-collection distractor",
+      "family": "cs61a/Reading Notes/2.4 - Mutable Data.md",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/2.4 - Mutable Data.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2210,
+        "text": "One powerful technique for creating modular programs is to incorporate data that may change state over time. It is a central ingredient to the paradigm of object-oriented programming.\n\n"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-061",
+      "query": "What is the difference between a class and an instance?",
+      "category": "cross-collection distractor",
+      "family": "cs61a/Reading Notes/2.5 - Object Oriented Programming.md",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/2.5 - Object Oriented Programming.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2217,
+        "text": "Object-oriented programming (OOP) is a method for organizing programs that brings together many of the ideas introduced in this chapter: objects have types that determine their behavior ([[2.1 - Introduction]]), objects can contain other objects ([[2.2 - Sequences]]), class statements can introduce new types that bundle together data and behavior ([[2.3 Compound Data]]), and objects have local mutable state ([[2.4 - Mutable Data]]). Two final components of OOP remain: customizing object behavior"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-062",
+      "query": "How do inherited methods work?",
+      "category": "cross-collection distractor",
+      "family": "cs61a/Reading Notes/2.5 - Object Oriented Programming.md",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/2.5 - Object Oriented Programming.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2217,
+        "text": "Object-oriented programming (OOP) is a method for organizing programs that brings together many of the ideas introduced in this chapter: objects have types that determine their behavior ([[2.1 - Introduction]]), objects can contain other objects ([[2.2 - Sequences]]), class statements can introduce new types that bundle together data and behavior ([[2.3 Compound Data]]), and objects have local mutable state ([[2.4 - Mutable Data]]). Two final components of OOP remain: customizing object behavior"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-063",
+      "query": "What is lazy evaluation?",
+      "category": "cross-collection distractor",
+      "family": "cs61a/Reading Notes/2.8 - Lazy Evaluation.md",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/2.8 - Lazy Evaluation.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2229,
+        "text": "Python doesn't execute the body of a newly created function, but instead waits until that function is called. It creates the potential to compute results for any input, but the actual computation is delayed until requested. \n\nThis pattern of setting up potential computation, but only performing it upon request, can extend to other kind of objects beyond functions. Broadly, the term **lazy evaluation** describes setting up but then delaying computation until it is needed, which contrasts with **e"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-064",
+      "query": "Why do generators delay computation?",
+      "category": "cross-collection distractor",
+      "family": "cs61a/Reading Notes/2.8 - Lazy Evaluation.md",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/2.8 - Lazy Evaluation.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2229,
+        "text": "Python doesn't execute the body of a newly created function, but instead waits until that function is called. It creates the potential to compute results for any input, but the actual computation is delayed until requested. \n\nThis pattern of setting up potential computation, but only performing it upon request, can extend to other kind of objects beyond functions. Broadly, the term **lazy evaluation** describes setting up but then delaying computation until it is needed, which contrasts with **e"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-065",
+      "query": "How does memoization avoid repeated work?",
+      "category": "cross-collection distractor",
+      "family": "cs61a/Reading Notes/2.9 - Efficiency.md",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/2.9 - Efficiency.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2240,
+        "text": "**Efficiency** refers to the computational resources used by a representation or process, such as how much time and memory are required to compute the result of a function or represent an object. These amounts can vary widely depending on the details of an implementation.\n\n"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-066",
+      "query": "How do I compare algorithm running times?",
+      "category": "cross-collection distractor",
+      "family": "cs61a/Reading Notes/2.9 - Efficiency.md",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/2.9 - Efficiency.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2240,
+        "text": "**Efficiency** refers to the computational resources used by a representation or process, such as how much time and memory are required to compute the result of a function or represent an object. These amounts can vary widely depending on the details of an implementation.\n\n"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-067",
+      "query": "How do linked lists represent recursive data?",
+      "category": "cross-collection distractor",
+      "family": "cs61a/Reading Notes/2.3 Compound Data.md",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "cs61a/Reading Notes/2.3 Compound Data.md",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2200,
+        "text": "## The Object Metaphor\n\nThe central characteristic of object is that they represent information but also *behave* like the information that they represent. In Python, all values are objects. Data are objects that have types which endow those objects with behavior. While a program could use a list of integers (a year, month, and day) to represent a date, a `date` object bundles in a great deal of date-related functionality.\n\n```python\n>>> from datetime import date\n>>> date\n<class 'datetime.date'>"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-068",
+      "query": "How do I count the ways to make change?",
+      "category": "cross-collection distractor",
+      "family": "hw/hw03/hw03.py",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hw/hw03/hw03.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1136,
+        "text": "def num_eights(n):\n    \"\"\"Returns the number of times 8 appears as a digit of n.\n\n    >>> num_eights(3)\n    0\n    >>> num_eights(8)\n    1\n    >>> num_eights(88888888)\n    8\n    >>> num_eights(2638)\n    1\n    >>> num_eights(86380)\n    2\n    >>> num_eights(12345)\n    0\n    >>> num_eights(8782089)\n    3\n    >>> # This test checks that you used no assignment statements or loops.\n    >>> import inspect, ast\n    >>> banned = ['Assign', 'AnnAssign', 'AugAssign', 'NamedExpr', 'For', 'While']\n    >>> tre"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-069",
+      "query": "store digits in a linked list",
+      "category": "cross-collection distractor",
+      "family": "lab/lab04/lab04.py",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "lab/lab04/lab04.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 2443,
+        "text": "def change[T](s: LinkedList[T], old: T, new: T) -> LinkedList[T]:\n    \"\"\"Returns a linked list matching s but with all instances of old (if any)\n    replaced by new.\n\n    >>> s = Link(1, Link(2, Link(3)))\n    >>> t = change(s, 3, 1)\n    >>> print(t)\n    (1 2 1)\n    >>> u = change(t, 1, 2)\n    >>> print(u)\n    (2 2 2)\n    >>> v = change(u, 5, 1)\n    >>> print(v)\n    (2 2 2)\n    >>> print(s)   # The original linked list s is unchanged.\n    (1 2 3)\n    \"\"\"\n    \"*** YOUR CODE HERE ***\"  # replace th"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-070",
+      "query": "How does accumulate combine a sequence?",
+      "category": "cross-collection distractor",
+      "family": "hw/hw02/hw02.py",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/cs61a",
+          "file": "hw/hw02/hw02.py",
+          "page": null
+        }
+      ],
+      "evidence": {
+        "chunk": 1110,
+        "text": "def product(n, term):\n    \"\"\"Return the product of the first n terms in a sequence.\n\n    n: a positive integer\n    term: a function that takes an index as input and produces a term\n\n    >>> product(3, identity)  # 1 * 2 * 3\n    6\n    >>> product(5, identity)  # 1 * 2 * 3 * 4 * 5\n    120\n    >>> product(3, square)    # 1^2 * 2^2 * 3^2\n    36\n    >>> product(5, square)    # 1^2 * 2^2 * 3^2 * 4^2 * 5^2\n    14400\n    >>> product(3, increment) # (1+1) * (2+1) * (3+1)\n    24\n    >>> product(3, triple)"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-071",
+      "query": "Which lecture page explains Astrobiology Lecture 10: The Cambrian Explosion &?",
+      "category": "cross-collection distractor",
+      "family": "11_fall2026_lecture10_delivered.pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture10_delivered.pdf",
+          "page": 1
+        }
+      ],
+      "evidence": {
+        "chunk": 3,
+        "text": "Astrobiology\nLecture 10: The Cambrian Explosion & \nMass Extinctions\nSeptember 29, 2026\nProfessor Courtney Dressing (she/her)"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-072",
+      "query": "Which lecture page explains A Timeline of Snowball Earths On the timeline, the snowflake symbols mark?",
+      "category": "cross-collection distractor",
+      "family": "11_fall2026_lecture10_delivered.pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture10_delivered.pdf",
+          "page": 7
+        }
+      ],
+      "evidence": {
+        "chunk": 15,
+        "text": "A Timeline of Snowball Earths\n\u2022 On the timeline, the snowflake symbols mark \n\u201csnowball Earths\u201d (i.e., massive glaciations)\n\u2022 Ice-Albedo Feedback Loop\n\u2022 Earth is colder, so more ice forms\n\u2022 Increased ice coverage increases the albedo of Earth, \ncausing Earth to get still colder & building a positive \nfeedback cycle\n\u2022 Volcanoes keep erupting.\n\u2022 Eventually, the volcanoes outgas enough CO2 that the \ngreenhouse effect is able to heat the Earth enough to \nescape from a global ice age\n\u2022 Right after the"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-073",
+      "query": "Which lecture page explains Analyzing Earth\u2019s Atmospheric Carbon?",
+      "category": "cross-collection distractor",
+      "family": "11_fall2026_lecture10_delivered.pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture10_delivered.pdf",
+          "page": 10
+        }
+      ],
+      "evidence": {
+        "chunk": 21,
+        "text": "Analyzing Earth\u2019s \nAtmospheric Carbon \nDioxide Concentration \nOver Time\nCredit: NASA's Scientific \nVisualization Studio\nIndustrialization \nhas caused sky-\nrocketing CO2 \nlevels and \ndestructive \nclimate change.\nAtmospheric Carbon Dioxide Concentration\nrocketing CO,\nDioxide Concentration Antarctic Ice Cores\nVisualization Studio NOAAWDS Paleocimatoog NOAA'S Mauna Loa Observatory\nAntarctic Ice Core ised 800KYr \u201cC02 Data"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-074",
+      "query": "Which lecture page explains 1.8 \u2013 0.8 Billion Years Ago: The Boring Billion?",
+      "category": "cross-collection distractor",
+      "family": "11_fall2026_lecture10_delivered.pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture10_delivered.pdf",
+          "page": 13
+        }
+      ],
+      "evidence": {
+        "chunk": 27,
+        "text": "1.8 \u2013 0.8 Billion Years Ago:\nThe Boring Billion\n\u2022 Not much happened\n\u2022 Conditions stayed remarkably \nsimilar for a billion years\n\u2022 Atmosphere: 0.2 \u2013 2% O2\n\u2022 Shallow ocean: oxygenated\n\u2022 Deep ocean: anoxic (not \noxidized) and filled with \ndissolved iron and hydrogen \nsulfide\nhttps://uwaterloo.ca/wat-on-earth/news/earths-oxygen-revolution \n\u201cBoring\u201d \nBillion\nFirs\nOxygenic Complex\nPhotosynthesis \u201cBoring\u201d Animals\nEvolves ante Land\nGreat\nOxidation\n[O.] see +\n(% PAL)\n= : iplosion\nShallow\nocean\nDeep\n4000 "
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-075",
+      "query": "Which lecture page explains Sperling et al. (2022, The Biological Bulletin 2022 243:2, 184-206) GOE: great oxidation event?",
+      "category": "cross-collection distractor",
+      "family": "11_fall2026_lecture10_delivered.pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture10_delivered.pdf",
+          "page": 16
+        }
+      ],
+      "evidence": {
+        "chunk": 33,
+        "text": "Sperling et al. (2022, The Biological Bulletin 2022 243:2, 184-206)\nGOE: great oxidation event\nPAL: present atmospheric level\nLIP: large igneous province\nstage 1: stage 2: stage 3: stage 4:\nPre-GOE Proterozoic Early Paleozoic <420 Ma\nAnoxic oceans Very low O, Moderate O, Modern-like O,\nProkaryotic Depauperate eukaryotic ecosystems High extinction rates | De-oxygenation (and extinction) from LIPs\nrunawa wildfire + 1023(200% PAL)\n: 10? (100% PAL)\ndeep-water anoxia\ncharcoal\n10' (10% PAL)\n- 10\u00b0 (1% "
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-076",
+      "query": "Which lecture page explains Porifera (Sponges) Invertebrate mammals?",
+      "category": "cross-collection distractor",
+      "family": "11_fall2026_lecture10_delivered.pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture10_delivered.pdf",
+          "page": 19
+        }
+      ],
+      "evidence": {
+        "chunk": 39,
+        "text": "Porifera (Sponges)\n\u2022 Invertebrate mammals \n\u2022 Filter feeders: obtain nutrients by drawing in sea water through tiny pores\n\u2022 Sessile: Stationary unless moved by external forces like currents\nEncrusting freshwater sponge (Spongilla lacustris) \nCredit: Kirt L. Onthank, Wikimedia Commons\nVenus Flower Basket Glass Sponges\nCredit: NOAA [CC by 2.0]\nRed Beard Sponge (Clathria prolifera) \nCredit: Robert Bachand \nSpongeBob SquarePants\nCredit: Nickelodeon \nFossilized sponge (Gehling & Rigby, 1996)\nTo soak u"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-077",
+      "query": "Which lecture page explains Protostomia: \u201cFirst mouth\u201d Originally defined as animals whose mouths are believed to form first during embryological?",
+      "category": "cross-collection distractor",
+      "family": "11_fall2026_lecture10_delivered.pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture10_delivered.pdf",
+          "page": 22
+        }
+      ],
+      "evidence": {
+        "chunk": 45,
+        "text": "Protostomia: \u201cFirst mouth\u201d \n\u2022 Originally defined as animals whose mouths are believed to form first during embryological \ndevelopment but that is not actually true for all members\n\u2022 Includes\n\u2022 Lophotrochozoa (e.g., mollusks)\n\u2022 Ecdysozoa (e.g., arthropods, nematodes)\nCredit: Zachary Wilson via CK-12 Foundation (CC BY-NC 3.0)\nhttps://flexbooks.ck12.org/cbook/ck-12-biology-flexbook-2.0/section/11.3/primary/lesson/invertebrate-classification-bio/\nProtostomes\nAnus\nEight-cell stage Gastrulation - \u201c\nAr"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-078",
+      "query": "Which lecture page explains 541 Million Years Ago: The Cambrian Explosion?",
+      "category": "cross-collection distractor",
+      "family": "11_fall2026_lecture10_delivered.pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture10_delivered.pdf",
+          "page": 25
+        }
+      ],
+      "evidence": {
+        "chunk": 51,
+        "text": "541 Million Years Ago:\nThe Cambrian Explosion\n\u2022 Characterized by a burst of new animals\n\u2022 Interval of 10-40 million years that began 541 million years ago at the \nstart of the Cambrian Period\n\u2022 The Cambrian is the earliest period in the Phanerazoic (\u201cvisible \nanimal\u201d) Eon \n\u2022 Cambrian rocks contain fossils of a remarkable variety of animals\n\u2022 Representatives of most modern animal groups\n\u2022 Animals with hard skeletons\n\u2022 Ancestors of modern vertebrates \n\u2022 Pikaia: Swimming worms roughly a few centime"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-079",
+      "query": "Which lecture page explains Why did the Cambrian explosion occur when it did and why haven\u2019t similar events occurred at other times?",
+      "category": "cross-collection distractor",
+      "family": "11_fall2026_lecture10_delivered.pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture10_delivered.pdf",
+          "page": 28
+        }
+      ],
+      "evidence": {
+        "chunk": 57,
+        "text": "Why did the Cambrian explosion occur when it did and \nwhy haven\u2019t similar events occurred at other times?\nWe don\u2019t know, but let\u2019s speculate\u2026"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-080",
+      "query": "Which lecture page explains 400 Million Years Ago: Vascular Plants Covered Continents?",
+      "category": "cross-collection distractor",
+      "family": "11_fall2026_lecture10_delivered.pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture10_delivered.pdf",
+          "page": 31
+        }
+      ],
+      "evidence": {
+        "chunk": 63,
+        "text": "400 Million Years Ago:\nVascular Plants Covered Continents\n\u2022 Vascular: plants that have special cells that allow them to transport water \nand minerals from their roots to other regions\n\u2022 Most land plants are vascular\nmosses are non-vascular\n\u2022 Oxygen levels rose again\n\u2022 Ozone layer became more substantial & even more effective at shielding \norganisms on land from UV radiation\n\u2022 Since then, oxygen levels have remained high (10-30%)\n\u2022 Evidence for high oxygen levels:\n\u2022 Giant insects existed 300 mill"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-081",
+      "query": "Which lecture page explains Key Concepts Study Guide (1/3) Astrobiology: key questions, challenge of defining life?",
+      "category": "cross-collection distractor",
+      "family": "11_fall2026_lecture11_delivered (1).pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture11_delivered (1).pdf",
+          "page": 7
+        }
+      ],
+      "evidence": {
+        "chunk": 122,
+        "text": "Key Concepts Study Guide (1/3) \n\u2022 Astrobiology: key questions, challenge of defining life\n\u2022 Carbonate-Silicate Cycle: negative feedback, climate regulation, plate \ntectonics (just that subduction buries carbon)\n\u2022 Chemical reactions: oxidation (just the concept of oxygen \u201drusting\u201d iron)\n\u2022 CHNOPS/SPONCH: significance & origin of these elements\n\u2022 Classification of organisms: prokaryote, eukaryote, chemotroph, phototroph, \nautotroph, heterotroph, mixotroph\n\u2022 Cosmic context: age and formation of Moon"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-082",
+      "query": "Which lecture page explains Physical Constants Speed of light: c?",
+      "category": "cross-collection distractor",
+      "family": "11_fall2026_lecture11_delivered (1).pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture11_delivered (1).pdf",
+          "page": 10
+        }
+      ],
+      "evidence": {
+        "chunk": 128,
+        "text": "Physical Constants\n\u2022Speed of light: c\n\u2022Stefan-Boltzmann \nconstant\n\u2022Boltzmann constant\n\u2022Gravitational constant\n\u2022Symbol for Sun\n\u2022Symbol for Earth\n\u2022Atomic mass unit\nc= 3.00 x 10\u00b0 m/s\na0 = 5.67 x 10\u00b0 Wm? K+\nk = 1.38 x 10-* J/K\nG=6.67 x10\u00b0' mike ts?\n\u00a9 = 5un\n\u00ae = Earth\nMama = 1.67 x 107*\" kg"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-083",
+      "query": "Which lecture page explains Dates and Times These ages and time periods are?",
+      "category": "cross-collection distractor",
+      "family": "11_fall2026_lecture11_delivered (1).pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture11_delivered (1).pdf",
+          "page": 13
+        }
+      ],
+      "evidence": {
+        "chunk": 134,
+        "text": "Dates and Times\n\u2022 These ages and time periods are \nincluded so that you don\u2019t have to \nmemorize them\n\u2022 You should know how we know the \nage of the solar system\n\u2022 You should know the key features of \nthe Hadean Eon, Archaean Eon, and \nProterozoic Eon.\n\u2022 The Phanerozoic Eon will be tested \non Midterm 2 and is included for \nreference.\nAge of the universe: 13.7 x 10\u00b0 yr\nAge of the solar system: 4.5 x 10\u00b0 yr\nHadean Eon: 4.56 \u2014 4.0 Ga\nArchaean Eon: 4.0 \u2014 2.5 Ga\nProterozoic Eon: 2.5 \u2014 0.541 Ga\nPhaneroz"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-084",
+      "query": "Which lecture page explains Periastron & Apastron \ud835\udc5f\ud835\udc5d=  \ud835\udc4e(1 \u2212\ud835\udc52)?",
+      "category": "cross-collection distractor",
+      "family": "11_fall2026_lecture11_delivered (1).pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture11_delivered (1).pdf",
+          "page": 16
+        }
+      ],
+      "evidence": {
+        "chunk": 140,
+        "text": "Periastron & Apastron\n\ud835\udc5f\ud835\udc5d=  \ud835\udc4e(1 \u2212\ud835\udc52)\n\ud835\udc5f\ud835\udc4e=  \ud835\udc4e(1 + \ud835\udc52)\n\u2022 Variables included:\n\u2022 Semimajor axis: \ud835\udc4e\n\u2022 Eccentricity: \ud835\udc52 (0 for a circular orbit; 0 < e \u22641 for an elliptical orbit)\n\u2022 Periastron distance (shortest separation): \ud835\udc5f\ud835\udc5d\n\u2022 Apastron distance (widest separation): \ud835\udc5f\ud835\udc4e\n\u2022 Example problem: \n\u2022 Planet A has a semimajor axis \ud835\udc4eA = 4 AU and eccentricity eA = 0.25. Planet B has semimajor \naxis \ud835\udc4e\ud835\udc35= 6 AU and eccentricity \ud835\udc52\ud835\udc35= 0.8. Which planet is closer to the star at periastron?"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-085",
+      "query": "Which lecture page explains Potential Energy \ud835\udc48= \u2212\ud835\udc3a\ud835\udc40\ud835\udc5a?",
+      "category": "cross-collection distractor",
+      "family": "11_fall2026_lecture11_delivered (1).pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture11_delivered (1).pdf",
+          "page": 19
+        }
+      ],
+      "evidence": {
+        "chunk": 146,
+        "text": "Potential Energy\n\ud835\udc48= \u2212\ud835\udc3a\ud835\udc40\ud835\udc5a\n\ud835\udc5f\n\u2022 Variables included:\n\u2022 Potential energy: U\n\u2022 Gravitational constant: G\n\u2022 Mass of object 1: \ud835\udc401 (or M)\n\u2022 Mass of object 2: \ud835\udc5a2 (or m)\n\u2022 Separation between objects 1 & 2: \ud835\udc5f"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-086",
+      "query": "Which lecture page explains Thermal Velocity \ud835\udc63thermal =?",
+      "category": "cross-collection distractor",
+      "family": "11_fall2026_lecture11_delivered (1).pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture11_delivered (1).pdf",
+          "page": 22
+        }
+      ],
+      "evidence": {
+        "chunk": 152,
+        "text": "Thermal Velocity\n\ud835\udc63thermal =\n2\ud835\udc58\ud835\udc47/\ud835\udc5a\n\u2022 Variables included:\n\u2022 Boltzmann constant: \ud835\udc8c\n\u2022 Temperature: T\n\u2022 Particle mass: m\n\u2022 Example problem: \n\u2022 Two planets have identical atmospheric compositions but the atmosphere of one planet is 800 K \nwhile the atmosphere of the other planet is 200 K. In which planet\u2019s atmosphere do the \nparticles move faster and by how much? State your answer as the ratio \ud835\udc63faster/\ud835\udc63\ud835\udc60lower."
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-087",
+      "query": "Which lecture page explains Highlights from Lectures 1-4 The following slides are examples of topics you should know from earlier in the course. Other?",
+      "category": "cross-collection distractor",
+      "family": "11_fall2026_lecture11_delivered (1).pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture11_delivered (1).pdf",
+          "page": 25
+        }
+      ],
+      "evidence": {
+        "chunk": 158,
+        "text": "Highlights from Lectures 1-4\nThe following slides are examples of topics you should know from earlier in the course. Other \ntopics from lectures 1-9 and the review portion of Lecture 10 are also in scope for Midterm 1."
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-088",
+      "query": "Which lecture page explains Diagram by NASA Goddard Space Flight?",
+      "category": "cross-collection distractor",
+      "family": "11_fall2026_lecture11_delivered (1).pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture11_delivered (1).pdf",
+          "page": 28
+        }
+      ],
+      "evidence": {
+        "chunk": 164,
+        "text": "Diagram by NASA \nGoddard Space Flight \nCenter based on work by \nJ\nif\nJ h\n(OSU)\nORIGINS OF THE ELEMENTS\nO\nThe big bang Dying White dwarf Radioactive\nlow-mass stars supernovae decay\nZ ; A =\n_\nCosmic ray Dying Merging\ncollisions high-mass stars neutron stars"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-089",
+      "query": "Which lecture page explains Stellar Evolution The initial mass of a star?",
+      "category": "cross-collection distractor",
+      "family": "11_fall2026_lecture11_delivered (1).pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture11_delivered (1).pdf",
+          "page": 31
+        }
+      ],
+      "evidence": {
+        "chunk": 170,
+        "text": "Stellar Evolution\n\u2022 The initial mass of a star \ndetermines its main-sequence \nlifetime and its evolutionary \npath\n\u2022 Less massive stars have \nlonger main-sequence \nlifetimes\n\u2022 Sun-like stars end their lives \nas white dwarf stars\n\u2022 More massive stars explode \nas supernovae and leave \nbehind neutron stars or, for \nthe most massive stars, black \nholes\nCredit: NASA/Chandra"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-090",
+      "query": "Which lecture page explains Self-Gravity Causes the Cloud to Collapse The collapse causes the nebula to become smaller, denser, and flatter?",
+      "category": "cross-collection distractor",
+      "family": "11_fall2026_lecture11_delivered (1).pdf",
+      "split": "evaluation",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture11_delivered (1).pdf",
+          "page": 34
+        }
+      ],
+      "evidence": {
+        "chunk": 176,
+        "text": "Self-Gravity Causes the Cloud to Collapse\n\u2022 The collapse causes the nebula to become smaller, denser, and flatter. \nFigure 21.8 from Astronomy\nbad\nae\nVi\n100 AU\n>\nat\nsae\ni\n5000 AU"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-091",
+      "query": "Which lecture page explains Goals for Today Discuss the variety of life on Earth?",
+      "category": "cross-collection distractor",
+      "family": "11_fall2026_lecture12_delivered.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture12_delivered.pdf",
+          "page": 4
+        }
+      ],
+      "evidence": {
+        "chunk": 229,
+        "text": "Goals for Today\n\u2022 Discuss the variety of life on Earth\n\u2022 Review how to classify organisms\n\u2022 Explore the history and evolution of Earth\u2019s biosphere"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-092",
+      "query": "Which lecture page explains Plants are a large fraction of the Earth\u2019s biomass?",
+      "category": "cross-collection distractor",
+      "family": "11_fall2026_lecture12_delivered.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture12_delivered.pdf",
+          "page": 7
+        }
+      ],
+      "evidence": {
+        "chunk": 235,
+        "text": "Plants are a large fraction of the \nEarth\u2019s biomass\nY.M. Bar-On, R. Phillips, & R. Milo, The biomass distribution on Earth, Proc. Natl. Acad. Sci. U.S.A. 115 (25) \n6506-6511, https://doi.org/10.1073/pnas.1711842115 (2018).\narchaea\nA 7GtC\nviruses\n0.2 GtC\nbacteria\n7OGtC\nae\nping animals\n12 GEC 2GtC"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-093",
+      "query": "Which lecture page explains Earth Has Multiple Biomes Biome: geographical region with a characteristic climate and set of organisms?",
+      "category": "cross-collection distractor",
+      "family": "11_fall2026_lecture12_delivered.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture12_delivered.pdf",
+          "page": 10
+        }
+      ],
+      "evidence": {
+        "chunk": 241,
+        "text": "Earth Has Multiple Biomes\n\u2022 Biome: geographical region with a characteristic climate and set of organisms\n\u2022 Different approaches disagree on the number of biomes on Earth. \n\u2022 One set of biomes, as categorized by UC Berkeley\u2019s Museum of Paleontology:\n\u2022 Freshwater: <1% salt concentration; includes ponds, lakes, streams, rivers, & wetlands\n\u2022 Marine: 75% of Earth\u2019s surface; includes oceans, coral reefs, & estuaries\n\u2022 Desert: can be hot or cold; 20% of Earth\u2019s surface; rainfall < 50 cm/yr \n\u2022 Forest: "
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-094",
+      "query": "Which lecture page explains Icebreaker Question If you could live in any type of Earth environment, what would you pick?",
+      "category": "cross-collection distractor",
+      "family": "11_fall2026_lecture12_delivered.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture12_delivered.pdf",
+          "page": 13
+        }
+      ],
+      "evidence": {
+        "chunk": 247,
+        "text": "Icebreaker Question\nIf you could live in any type of Earth environment, what would you pick?\nCredit: NASA"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-095",
+      "query": "Which lecture page explains Eukaryotes Likely Evolved from Prokaryotes Symbiosis: when two organisms benefit from each other?",
+      "category": "cross-collection distractor",
+      "family": "11_fall2026_lecture12_delivered.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture12_delivered.pdf",
+          "page": 16
+        }
+      ],
+      "evidence": {
+        "chunk": 253,
+        "text": "Eukaryotes Likely Evolved from Prokaryotes\n\u2022 Symbiosis: when two organisms benefit from each other\n\u2022 Endosymbiosis: when two organisms benefit from each \nother and one lives inside the other \n\u2022 Science fiction example: the trill (Dax) living in host \nJadzia on Star Trek Deep Space Nine (right)\n\u2022 Real world example: microbes in the human gut\n\u2022 Endosymbiosis is very important in the evolutionary history \nof eukaryotic cells\n\u2022 Mitochondria are believed to have descended from \nendosymbiotic bacteria"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-096",
+      "query": "Which lecture page explains The Three Domains of Life Each branching point represents a?",
+      "category": "cross-collection distractor",
+      "family": "11_fall2026_lecture12_delivered.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture12_delivered.pdf",
+          "page": 19
+        }
+      ],
+      "evidence": {
+        "chunk": 259,
+        "text": "The Three Domains of Life\n\u2022 Each branching point represents a \ndifference in the genetic structure of \ndifferent organisms.\n\u2022 Archaea are more closely related to eukarya \nthan bacteria.\n\u2022 Endosymbiosis is when two organisms \nbenefit from one living inside the other\n\u2022 Because of endosymbiosis, eukarya include \norganelles that were originally bacteria.\nImage adapted from work by Govindjee, Dmitriy Shevela \u2013 doi:10.3389/fpls.2011.00028, CC BY \n3.0, https://commons.wikimedia.org/w/index.php?curid=59"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-097",
+      "query": "Which lecture page explains Implications for Astrobiology Life on Earth is primarily microbial today and was exclusively microbial?",
+      "category": "cross-collection distractor",
+      "family": "11_fall2026_lecture12_delivered.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture12_delivered.pdf",
+          "page": 22
+        }
+      ],
+      "evidence": {
+        "chunk": 265,
+        "text": "Implications for Astrobiology\n\u2022 Life on Earth is primarily microbial today and was exclusively microbial \nfor billions of years.\n\uf0d8Searches for life elsewhere should consider how microbes might \naffect their environments in detectable ways.\n\u2022 Microbes exist in a wide variety of environments.\n\uf0d8Consider a broader range of environments than those suitable for \nhumans\n\u2022 Microbes use a range of different metabolisms.\n\uf0d8Consider diverse energy systems"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-098",
+      "query": "Which lecture page explains What did we do today? Discussed the variety of life on Earth?",
+      "category": "cross-collection distractor",
+      "family": "11_fall2026_lecture12_delivered.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture12_delivered.pdf",
+          "page": 26
+        }
+      ],
+      "evidence": {
+        "chunk": 273,
+        "text": "What did we do today?\n\u2022 Discussed the variety of life on Earth\n\u2022 Reviewed how to classify organisms\n\u2022 Explored the history and evolution of Earth\u2019s biosphere"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-099",
+      "query": "Which lecture page explains Prokaryotic Cells Are Generally Smaller Than Eukaryotic Cells?",
+      "category": "cross-collection distractor",
+      "family": "11_fall2026_lecture12_delivered.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture12_delivered.pdf",
+          "page": 29
+        }
+      ],
+      "evidence": {
+        "chunk": 279,
+        "text": "Prokaryotic Cells Are Generally \nSmaller Than Eukaryotic Cells\n\u2022 Typical prokaryotic cell: \n0.1 \u2013 5 microns across \n\u2022 Typical eukaryotic cell: \n10 \u2013 100 microns across\n\u2022 Reminder: 1 micron = 10-6 meters\nhttps://openstax.org/books/biology-2e/pages/4-2-prokaryotic-cells\nFlu\nvirus\nf O\nChicken\ne '\nProtein 99\nLipids Ostrich Adult\nBacteria egg rts\n0.1 nm inm 10 nm 100 nm 1yum 10 um 100 um imm 10 mm 100 mm im\nNaked eye\nSSS\nLight microscope\nElectron microscope https://openstax.org/books/bi:"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    },
+    {
+      "id": "Downloads-100",
+      "query": "Which lecture page explains What is the biosphere? Catling defines the biosphere as \u201cthe sum of all living and dead organisms.\u201d?",
+      "category": "cross-collection distractor",
+      "family": "11_fall2026_lecture12_delivered.pdf",
+      "split": "tune",
+      "expected": [
+        {
+          "collection": "/Users/sst/Desktop/work/recall/example_pdfs",
+          "file": "11_fall2026_lecture12_delivered.pdf",
+          "page": 5
+        }
+      ],
+      "evidence": {
+        "chunk": 231,
+        "text": "What is the biosphere?\n\u2022 Catling defines the biosphere as \u201cthe sum of all living and dead organisms.\u201d\n\u2022 Some definitions also include the environments in which life is found.\n\u2022 How large is the biosphere of modern Earth?\n\u2022 On land: 2\u00d71015 kg of carbon (30-50% living)\n\u2022 In the oceans: 1\u00d71015 kg of carbon (0.1 \u2013 0.2% living) \n\u2022 In the subsurface (underground): not sure, but could be significant \n\u2022 Estimates suggest 1% - 30% of Earth\u2019s living biomass"
+      },
+      "source": "source-grounded template",
+      "focus_negative": true
+    }
+  ]
+}
