@@ -1,10 +1,119 @@
 # Recall
 
-Recall is a local search engine for source code, text, Markdown, PDFs, and images. Index a file or project, then describe the behavior you are looking for in natural language. Recall returns matching files, classes, functions, and passages with similarity scores, source locations, and short previews.
+Recall helps you find local code, notes, PDFs, and images by describing what you
+remember. Search from the desktop library or open quick search from anywhere,
+then preview the original file and jump back into it.
 
-It uses language-aware parsers to extract functions and methods, `nomic-ai/CodeRankEmbed` to generate embeddings, and SQLite to store and rank the indexed code. No database server or hosted search API is required.
+Your files stay where they are. Indexing and search run on your device; no hosted
+search API or database server is required. Models download on first use.
 
-## Requirements
+![Recall's desktop library with demo files and a Markdown preview](docs/screenshots/library.png)
+
+[Desktop quick start](#desktop-quick-start) · [CLI and source installation](#cli-and-source-installation) · [Supported codebases](#supported-codebases) · [How indexing works](#how-indexing-works-layered-processing)
+
+## Desktop quick start
+
+### 1. Download and open Recall
+
+Get the desktop downloads from the [GitHub release](https://github.com/saisrikar8/recall/releases/tag/v0.2.0-alpha.1):
+
+| Platform | Download | Install |
+| --- | --- | --- |
+| macOS 14+, Apple Silicon (M1 and newer) | [Mac DMG](https://github.com/saisrikar8/recall/releases/download/v0.2.0-alpha.1/Recall-0.1.1-arm64.dmg) | Open the DMG, then drag Recall into **Applications**. |
+| Windows x64 | [Windows ZIP](https://github.com/saisrikar8/recall/releases/download/v0.2.0-alpha.1/Recall-Windows-x64.zip) | Extract the ZIP, then run the **Recall-Setup-…-x64.exe** installer inside. |
+
+You do **not** need to install Python, Node.js, or Tesseract to use these desktop
+builds. They bundle the runtime and OCR tools. The first use needs an internet
+connection to download search models and enough disk space for the app, models,
+and index.
+
+This is an alpha release. The Mac app is ad-hoc signed and not notarized; the
+Windows installer is unsigned. Your operating system may show a security warning.
+Intel Mac and native Windows ARM64 installers are not included.
+
+### 2. Add a folder or a few files
+
+On first launch, follow the setup flow to choose a folder or individual files,
+set your appearance and startup preferences, and start indexing. Begin with a
+small folder so you can try search while getting familiar with Recall.
+
+![Recall's first-launch setup screen](docs/screenshots/onboarding.png)
+
+Already in the app? Click **Add folder** or **Add files** in the library. Added
+folders appear as collections in the sidebar. Recall automatically excludes many
+known caches, dependency folders, and generated directories.
+
+The indexing card shows progress. Expand **Folder progress** to see nested-folder
+counts. Files appear in the library as they become searchable, so you can browse
+completed files while the rest finish. PDF and image indexing includes visual
+embeddings, with OCR selected where needed.
+
+You can skip setup and add files later. On Mac, reopen it with
+**Recall → Welcome to Recall…**.
+
+### 3. Search and preview
+
+Type into the library's search bar and press **Enter**. Try a filename, a code
+symbol, or a description of what you remember, such as:
+
+- `retrieval.py`
+- `where do we validate user input?`
+- `notes about eigenvalues and change of basis`
+- `a diagram showing connections between ideas`
+
+Select a collection in the sidebar to limit your search to that folder. Select
+**Overview** or **All files** to return to the whole library. Use the file-type
+filters to narrow the results further.
+
+![Searching for a demo code file, with the matching line highlighted in its preview](docs/screenshots/search.png)
+
+Click a result to preview it. Recall can show code, Markdown, text, PDFs, and
+images. Relevant text or source lines are highlighted where available; visual
+matches may identify a page without identifying an exact text region. Use the
+preview's controls to change PDF pages, open a larger preview window, or open
+the original in its default application.
+
+Search quality varies by query and file type. If a broad description misses what
+you need, try a distinctive phrase, symbol, filename, or a more specific question.
+Handwriting and visual search are experimental.
+
+### 4. Use quick search from anywhere
+
+| Action | macOS | Windows |
+| --- | --- | --- |
+| Open quick search | **⌘ Shift Space** | **Ctrl Shift Space** |
+| Move between results | **↑ / ↓** | **↑ / ↓** |
+| Open selected result in a preview window | **Enter** | **Enter** |
+| Dismiss quick search | **Esc** | **Esc** |
+
+![Recall's quick-search window in dark mode with a PDF preview](docs/screenshots/quick-search.png)
+
+Quick search shows recent files before you type. Search results have a preview
+beside them, and **Open library** returns to the dashboard. If another app owns
+the shortcut, use **Search → Quick Search** from Recall's menu.
+
+Closing the library window keeps Recall running in the menu bar or system tray.
+Quit Recall from its menu to stop the app and its background engine. Use
+**Settings** to change appearance or whether Recall starts at login.
+
+### Keep your library up to date
+
+- **Refresh a collection:** select it in the sidebar, then choose
+  **File → Reindex Selected Collection** after changing its files. Compatible
+  unchanged content reuses saved work.
+- **Remove a collection:** hover over its sidebar entry, click the trash icon,
+  and confirm. This removes its saved index entries; **your original files stay
+  on disk**. Adding the folder again indexes it again.
+- **Get another Windows build:** use **Actions → Build Windows → Run workflow**
+  in this repository. Successful runs provide a tested installer under
+  **Artifacts → Recall-Windows-x64** for seven days.
+
+*Screenshots show the macOS desktop app with illustrative demo files. They are
+interface examples, not search-quality benchmarks.*
+
+## CLI and source requirements
+
+These requirements apply to the CLI and source checkout, not the bundled desktop installers.
 
 - Python 3.10 or newer and pip. Recall can index other programming languages without installing their compilers.
 - Internet access for installing dependencies and downloading the embedding model on first use.
@@ -13,7 +122,7 @@ It uses language-aware parsers to extract functions and methods, `nomic-ai/CodeR
 
 The model loader uses `trust_remote_code=True`, allowing model-provided Python code to run. Review the model repository before using it in a sensitive environment.
 
-## Installation
+## CLI and source installation
 
 ### Install the v0.1.1 release
 
@@ -53,7 +162,7 @@ On Windows PowerShell, activate with `.venv\Scripts\Activate.ps1` instead. The `
 
 The distribution is named `recall-search`; the installed command is `recall`. Editable installation means changes to Python source take effect without reinstalling. Reinstall after changing dependencies or package metadata.
 
-## Local UI
+## Browser UI (optional)
 
 From your source checkout, start the barebones browser interface:
 
