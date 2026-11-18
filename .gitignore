@@ -10,3 +10,11 @@ index/
 *.db-wal
 *.db-shm
 .env
+*.db.lock
+
+.backups/
+
+# Electron development
+node_modules/
+desktop/test-results/
+desktop/playwright-report/
