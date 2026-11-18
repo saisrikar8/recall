@@ -7,7 +7,7 @@ export function createOnboarding({ api, icon, esc, appearanceControl, getState, 
   dialog.setAttribute('aria-labelledby','onboarding-title');
   document.body.append(dialog);
   let step=1,paths=[],ownIndex=false,lastJob=null,error='',shortcut=null,login=false,closing=false,token=0;
-  const normalize=path=>path.replaceAll('\\','/').replace(/\/$/,'');
+  const normalize=path=>{const value=path.replaceAll('\\','/').replace(/\/$/,'');return /^(?:[a-z]:|\/\/)/i.test(value)?value.toLowerCase():value;};
   const name=path=>normalize(path).split('/').pop();
   const files=()=>getState().files.filter(file=>!file.error && (!paths.length || paths.some(path=>normalize(file.path)===normalize(path) || normalize(file.path).startsWith(normalize(path)+'/'))));
   const working=()=>ownIndex || getState().indexing;

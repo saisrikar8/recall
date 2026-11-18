@@ -216,7 +216,7 @@ else {
     handle('open-original', (_, data) => backend('open', data));
     handle('pick', async (event, kind) => {
       const result = await dialog.showOpenDialog(BrowserWindow.fromWebContents(event.sender), { title: kind === 'folder' ? 'Add a folder to Recall' : 'Add files to Recall', properties: kind === 'folder' ? ['openDirectory'] : ['openFile', 'multiSelections'] });
-      return result.canceled ? [] : result.filePaths.map(file => fs.realpathSync(file));
+      return result.canceled ? [] : result.filePaths.map(file => fs.realpathSync.native(file));
     });
     handle('open-preview', async (_, data) => { await backend('validate', { path: data.path }); makeWindow('preview', data); if (launcher) launcher.hide(); });
     handle('dashboard', () => { showDashboard(); });

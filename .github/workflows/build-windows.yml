@@ -49,12 +49,20 @@ jobs:
         working-directory: desktop
         run: npm run dist:windows
       - name: Install and test the generated app
+        timeout-minutes: 20
         run: |
           $installer = Get-ChildItem dist/windows/Recall-Setup-*-x64.exe | Select-Object -First 1
           if (-not $installer) { throw 'Windows installer was not produced.' }
           $installed = Join-Path $env:RUNNER_TEMP 'Recall-CI-Install'
-          $process = Start-Process -FilePath $installer.FullName -ArgumentList '/S', "/D=$installed" -Wait -PassThru
+          Write-Host "Installing $($installer.Name) into $installed"
+          $process = Start-Process -FilePath $installer.FullName -ArgumentList '/S', "/D=$installed" -PassThru
+          if (-not $process.WaitForExit(300000)) {
+            Stop-Process -Id $process.Id -Force -ErrorAction SilentlyContinue
+            throw 'Installer did not exit within five minutes.'
+          }
+          $process.Refresh()
           if ($process.ExitCode -ne 0) { throw "Installer exited with $($process.ExitCode)" }
+          Write-Host "Installer finished. Starting installed-app checks."
           node desktop/scripts/smoke-windows.cjs $installed
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Generate download checksum
