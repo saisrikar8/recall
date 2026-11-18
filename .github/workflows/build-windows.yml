@@ -1,0 +1,83 @@
+name: Build Windows
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: windows-installer-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  windows:
+    name: Windows x64 installer
+    runs-on: windows-2022
+    timeout-minutes: 45
+    env:
+      CSC_IDENTITY_AUTO_DISCOVERY: 'false'
+      HF_HUB_DISABLE_TELEMETRY: '1'
+      RECALL_DISABLE_AUTOSTART: '1'
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: desktop/package-lock.json
+      - uses: astral-sh/setup-uv@v10.3.3
+        with:
+          version: '0.12.23'
+          enable-cache: false
+      - name: Install OCR build dependency
+        run: |
+          choco install tesseract --version=5.5.3.20260724 --yes --no-progress
+          if ($LASTEXITCODE -notin @(0, 3010)) { exit $LASTEXITCODE }
+          exit 0
+      - name: Install desktop build tools
+        run: npm ci --prefix desktop
+      - name: Check runtime paths and desktop source
+        run: |
+          npm --prefix desktop run check
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          npm --prefix desktop run test:runtime
+      - name: Build Windows installer with bundled Python and OCR
+        working-directory: desktop
+        run: npm run dist:windows
+      - name: Install and test the generated app
+        run: |
+          $installer = Get-ChildItem dist/windows/Recall-Setup-*-x64.exe | Select-Object -First 1
+          if (-not $installer) { throw 'Windows installer was not produced.' }
+          $installed = Join-Path $env:RUNNER_TEMP 'Recall-CI-Install'
+          $process = Start-Process -FilePath $installer.FullName -ArgumentList '/S', "/D=$installed" -Wait -PassThru
+          if ($process.ExitCode -ne 0) { throw "Installer exited with $($process.ExitCode)" }
+          node desktop/scripts/smoke-windows.cjs $installed
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Generate download checksum
+        run: |
+          Get-ChildItem dist/windows/Recall-Setup-*-x64.exe | ForEach-Object {
+            $hash = (Get-FileHash $_.FullName -Algorithm SHA256).Hash.ToLower()
+            "$hash  $($_.Name)" | Out-File -FilePath dist/windows/SHA256SUMS.txt -Encoding utf8
+          }
+      - name: Upload Windows download
+        uses: actions/upload-artifact@v6
+        with:
+          name: Recall-Windows-x64
+          path: |
+            dist/windows/Recall-Setup-*-x64.exe
+            dist/windows/SHA256SUMS.txt
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 7
+      - name: Upload failure screenshot
+        if: failure()
+        uses: actions/upload-artifact@v6
+        with:
+          name: Windows-build-diagnostics
+          path: dist/windows/smoke-failure.png
+          if-no-files-found: ignore
+          retention-days: 7
