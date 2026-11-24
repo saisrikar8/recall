@@ -19,7 +19,7 @@ Get the desktop downloads from the [GitHub release](https://github.com/saisrikar
 
 | Platform | Download | Install |
 | --- | --- | --- |
-| macOS 14+, Apple Silicon (M1 and newer) | [Mac DMG](https://github.com/saisrikar8/recall/releases/download/v0.2.0-alpha.1/Recall-0.1.1-arm64.dmg) | Open the DMG, then drag Recall into **Applications**. |
+| macOS 14+, Apple Silicon (M1 and newer) | [Mac DMG](https://github.com/saisrikar8/recall/releases/download/v0.2.0-alpha.1/Recall-0.2.0-alpha.2-arm64.dmg) | Open the DMG, then drag Recall into **Applications**. |
 | Windows x64 | [Windows ZIP](https://github.com/saisrikar8/recall/releases/download/v0.2.0-alpha.1/Recall-Windows-x64.zip) | Extract the ZIP, then run the **Recall-Setup-…-x64.exe** installer inside. |
 
 You do **not** need to install Python, Node.js, or Tesseract to use these desktop
@@ -87,6 +87,13 @@ Handwriting and visual search are experimental.
 | Dismiss quick search | **Esc** | **Esc** |
 
 ![Recall's quick-search window in dark mode with a PDF preview](docs/screenshots/quick-search.png)
+
+Quick search also finds installed applications. Type an app name such as
+`Calculator`, `Chrome`, or `Safari`; application results appear above matching
+files. Select an app and press **Enter** to launch it. App matching supports name
+prefixes, abbreviations, and small typos, and works without adding apps to your
+file index. Mac application folders and the Windows Start-menu catalog are
+supported. The dashboard continues to search indexed files.
 
 Quick search shows recent files before you type. Search results have a preview
 beside them, and **Open library** returns to the dashboard. If another app owns

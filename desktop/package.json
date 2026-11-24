@@ -1,13 +1,13 @@
 {
   "name": "recall-desktop",
-  "version": "0.1.1",
+  "version": "0.2.0-alpha.2",
   "private": true,
   "description": "Recall \u2014 a little less looking, a little more finding.",
   "main": "main.cjs",
   "scripts": {
     "start": "electron .",
-    "check": "node --check main.cjs && node --check preload.cjs && node --check renderer/app.js && node --check login.cjs && node --check renderer/theme.js && node --check menu.cjs && node --check renderer/onboarding.js && node --check runtime.cjs && node --check electron-builder.windows.cjs",
-    "test": "node --test tests/*.test.cjs",
+    "check": "node --check main.cjs && node --check preload.cjs && node --check renderer/app.js && node --check login.cjs && node --check renderer/theme.js && node --check menu.cjs && node --check renderer/onboarding.js && node --check runtime.cjs && node --check electron-builder.windows.cjs && node --check applications.cjs",
+    "test": "node --test --test-concurrency=1 tests/*.test.cjs",
     "background": "electron . --background",
     "prepare:mac": "python3 scripts/build-mac.py",
     "dist:mac": "npm run prepare:mac && electron-builder --mac dmg",
@@ -15,7 +15,7 @@
     "prepare:windows": "python scripts/build-windows.py",
     "dist:windows": "npm run prepare:windows && electron-builder --config electron-builder.windows.cjs --win nsis --x64 --publish never",
     "pack:windows": "npm run prepare:windows && electron-builder --config electron-builder.windows.cjs --win --x64 --dir --publish never",
-    "test:runtime": "node --test tests/runtime.test.cjs"
+    "test:runtime": "node --test tests/runtime.test.cjs tests/applications.test.cjs"
   },
   "devDependencies": {
     "@playwright/test": "^1.56.0",
@@ -38,7 +38,8 @@
       "icon.png",
       "tray.png",
       "package.json",
-      "runtime.cjs"
+      "runtime.cjs",
+      "applications.cjs"
     ],
     "extraResources": [
       {

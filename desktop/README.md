@@ -242,7 +242,7 @@ npm ci
 npm run dist:mac
 ```
 
-Upload `dist/mac/Recall-0.1.1-arm64.dmg` from the **repository root** to your GitHub
+Upload `dist/mac/Recall-0.2.0-alpha.2-arm64.dmg` from the **repository root** to your GitHub
 release. Recipients open the DMG, drag Recall into Applications, and open Recall.
 To also produce a ZIP, run `npx electron-builder --mac zip` after preparing the runtime.
 
@@ -301,3 +301,30 @@ npm run dist:windows
 `RECALL_TESSERACT_DIR` can override the default
 `C:\Program Files\Tesseract-OCR` build-time directory. The installed app uses its
 own bundled OCR and Python rather than these development paths.
+
+## Search installed applications
+
+Quick search also finds installed apps. Open it with **⌘ Shift Space** on Mac or
+**Ctrl Shift Space** on Windows and type an app name, such as `Safari`, `Chrome`,
+or `Calculator`. Names support prefixes, abbreviations such as `vscode`, and
+small typos. Matching applications appear above matching files, labeled
+**Application**. Select one and press **Enter**, double-click it, or click its
+**Open** button to launch it. Arrow keys navigate both app and file results.
+
+App lookup uses Mac application folders (including system apps and Finder) or
+the current user's Windows Start-menu app catalog. No folder import or model
+inference is required for app matches, and they remain available while file
+search or indexing is busy. Inventory is refreshed on demand after a two-minute
+cache expires. Results use a consistent application icon. Windows apps without a Start-menu registration are not discovered.
+
+Application results are currently part of **quick search**; the dashboard remains
+a browser and search interface for indexed files. Apps are launched by catalog ID,
+so the renderer cannot supply an arbitrary executable path or command.
+
+## Remove an individual file
+
+Select a file and click the trash icon in its preview header, then confirm
+**Remove from Recall**. This removes its indexed content and search results;
+the original file and the rest of its collection stay untouched. This also works
+in quick search and the separate preview window. Indexing the folder again adds
+the file back. Wait for active indexing or searching to finish before removing.
