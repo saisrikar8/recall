@@ -254,7 +254,7 @@ reuse the local model cache. Neither Python, Node nor Homebrew is required on th
 recipient's Mac. Rebuild after changing Python source or dependencies.
 
 The default build is **ad-hoc signed**, suitable for testing, and is not notarized.
-Downloaded copies can trigger macOS security warnings. For a public release,
+Downloaded copies can trigger macOS security warnings. For the illustrated first-launch steps, see [Opening Recall on macOS](../README.md#opening-recall-on-macos). For a public release,
 configure a Developer ID Application certificate, hardened-runtime entitlements,
 and Apple notarization before distributing. Do not describe this default build
 as notarized or as an Intel/universal Mac build.

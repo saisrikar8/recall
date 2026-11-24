@@ -15,12 +15,12 @@ search API or database server is required. Models download on first use.
 
 ### 1. Download and open Recall
 
-Get the desktop downloads from the [GitHub release](https://github.com/saisrikar8/recall/releases/tag/v0.2.0-alpha.1):
+Get the desktop downloads from the [GitHub release](https://github.com/saisrikar8/recall/releases/tag/v0.2.0-alpha.2):
 
 | Platform | Download | Install |
 | --- | --- | --- |
-| macOS 14+, Apple Silicon (M1 and newer) | [Mac DMG](https://github.com/saisrikar8/recall/releases/download/v0.2.0-alpha.1/Recall-0.2.0-alpha.2-arm64.dmg) | Open the DMG, then drag Recall into **Applications**. |
-| Windows x64 | [Windows ZIP](https://github.com/saisrikar8/recall/releases/download/v0.2.0-alpha.1/Recall-Windows-x64.zip) | Extract the ZIP, then run the **Recall-Setup-…-x64.exe** installer inside. |
+| macOS 14+, Apple Silicon (M1 and newer) | [Mac DMG](https://github.com/saisrikar8/recall/releases/download/v0.2.0-alpha.2/Recall-0.2.0-alpha.2-arm64.dmg) | Open the DMG, then drag Recall into **Applications**. |
+| Windows x64 | [Windows ZIP](https://github.com/saisrikar8/recall/releases/download/v0.2.0-alpha.2/Recall-Windows-x64.zip) | Extract the ZIP, then run the **Recall-Setup-…-x64.exe** installer inside. |
 
 You do **not** need to install Python, Node.js, or Tesseract to use these desktop
 builds. They bundle the runtime and OCR tools. The first use needs an internet
@@ -30,6 +30,30 @@ and index.
 This is an alpha release. The Mac app is ad-hoc signed and not notarized; the
 Windows installer is unsigned. Your operating system may show a security warning.
 Intel Mac and native Windows ARM64 installers are not included.
+
+### Opening Recall on macOS
+
+This alpha is not notarized by Apple. On first launch, macOS may show
+**“Recall” Not Opened** because Apple cannot verify the app. If you downloaded
+Recall from this repository's release and choose to open it:
+
+1. Open the DMG, drag **Recall** into **Applications**, and try opening Recall.
+2. When the warning appears, click **Done**.
+3. Open **System Settings → Privacy & Security**.
+
+![Select Privacy & Security in System Settings](docs/screenshots/mac-privacy-security.png)
+
+4. Scroll down to **Security**. Next to **“Recall” was blocked to protect your Mac**,
+   click **Open Anyway**.
+
+![Click Open Anyway beside the Recall warning](docs/screenshots/mac-open-anyway.png)
+
+5. Confirm **Open** in the next dialog and authenticate if macOS asks. Recall
+   should then launch; this approval is normally only needed on first launch.
+
+If **Open Anyway** is missing, try opening Recall from Applications again, then
+return to Privacy & Security. On a managed Mac, your administrator may restrict
+this option. See [Apple's instructions](https://support.apple.com/en-us/102445).
 
 ### 2. Add a folder or a few files
 
