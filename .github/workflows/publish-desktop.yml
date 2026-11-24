@@ -1,0 +1,103 @@
+name: Publish desktop installers
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: Existing draft release tag
+        required: true
+        default: v0.2.0-alpha.2
+      source_ref:
+        description: Exact source commit used for both installers
+        required: true
+        default: 1765a0aae2f2ab0bb7b289741dfd6a181a3fe304
+      windows_run_id:
+        description: Successful Build Windows run for that source commit
+        required: true
+        default: '45340521329'
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: release-installers-${{ inputs.release_tag }}
+  cancel-in-progress: false
+
+jobs:
+  mac:
+    name: Build and upload Apple Silicon installer
+    runs-on: macos-15
+    timeout-minutes: 40
+    env:
+      GH_TOKEN: ${{ github.token }}
+      RELEASE_TAG: ${{ inputs.release_tag }}
+      CSC_IDENTITY_AUTO_DISCOVERY: 'false'
+      RECALL_DISABLE_AUTOSTART: '1'
+      HF_HUB_DISABLE_TELEMETRY: '1'
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ inputs.source_ref }}
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: desktop/package-lock.json
+      - uses: astral-sh/setup-uv@v10.3.3
+        with:
+          version: '0.12.23'
+          enable-cache: false
+      - name: Validate release version and runner architecture
+        run: |
+          test "$(uname -m)" = arm64
+          node -e 'if (process.env.RELEASE_TAG !== "v" + require("./desktop/package.json").version) throw Error("Release version mismatch")'
+          gh release view "$RELEASE_TAG" --json isDraft --jq '.isDraft' | grep -x true
+      - name: Install OCR and desktop build tools
+        run: |
+          brew install tesseract
+          npm ci --prefix desktop
+      - name: Check source and catalog behavior
+        run: |
+          npm --prefix desktop run check
+          npm --prefix desktop run test:runtime
+      - name: Build Mac installer
+        run: npm --prefix desktop run dist:mac
+      - name: Verify packaged runtime and signature
+        run: |
+          codesign --verify --deep --strict dist/mac/mac-arm64/Recall.app
+          dist/mac/mac-arm64/Recall.app/Contents/Resources/runtime/python/bin/python3 -I -B -c 'import torch, torchvision, pymupdf; from src.desktop_bridge import remove_file; print("Bundled imports passed")'
+      - name: Upload Mac installer and checksum
+        working-directory: dist/mac
+        run: |
+          shasum -a 256 Recall-*-arm64.dmg > SHA256SUMS-mac.txt
+          gh release upload "$RELEASE_TAG" Recall-*-arm64.dmg SHA256SUMS-mac.txt --clobber --repo "$GITHUB_REPOSITORY"
+
+  windows:
+    name: Upload previously tested Windows installer
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+      RELEASE_TAG: ${{ inputs.release_tag }}
+      WINDOWS_RUN: ${{ inputs.windows_run_id }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ inputs.source_ref }}
+      - name: Verify Windows build source and result
+        run: |
+          test "$(gh run view "$WINDOWS_RUN" --json conclusion --jq .conclusion)" = success
+          test "$(gh run view "$WINDOWS_RUN" --json headSha --jq .headSha)" = "$(git rev-parse HEAD)"
+          node -e 'if (process.env.RELEASE_TAG !== "v" + require("./desktop/package.json").version) throw Error("Release version mismatch")'
+      - name: Download tested artifact and verify checksum
+        run: |
+          artifact_id=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$WINDOWS_RUN/artifacts" --jq '.artifacts[] | select(.name == "Recall-Windows-x64" and .expired == false) | .id')
+          test -n "$artifact_id"
+          gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$artifact_id/zip" > Recall-Windows-x64.zip
+          unzip -q Recall-Windows-x64.zip -d checked
+          cd checked
+          sed -i '1s/^\xEF\xBB\xBF//;s/\r$//' SHA256SUMS.txt
+          sha256sum -c SHA256SUMS.txt
+      - name: Upload Windows archive
+        run: gh release upload "$RELEASE_TAG" Recall-Windows-x64.zip --clobber
