@@ -96,19 +96,29 @@ def preview(data):
 
 
 def remove_collection(data):
+    return remove_saved_index(collection=data.get('collection'))
+
+
+def remove_file(data):
+    raw = data.get('path')
+    if not isinstance(raw, str) or not raw.strip() or not Path(raw).is_absolute():
+        raise ValueError('Select an indexed file.')
+    return remove_saved_index(file=raw)
+
+
+def remove_saved_index(collection=None, file=None):
     from contextlib import nullcontext
     from filelock import FileLock, Timeout
     from src.index_management import remove_index
-    root = data.get('collection')
-    if not isinstance(root, str) or not root.strip():
+    if file is None and (not isinstance(collection, str) or not collection.strip()):
         raise ValueError('Select a collection to remove.')
     database = db.engine.url.database
     lock = FileLock(database + '.lock', timeout=0) if database and database != ':memory:' else nullcontext()
     try:
         with lock:
-            return remove_index(collection=root)
+            return remove_index(collection=collection, file=file)
     except Timeout:
-        raise ValueError('An indexing run is active. Wait for it to finish before removing a collection.') from None
+        raise ValueError('An indexing run is active. Wait for it to finish before removing items.') from None
 
 
 def main():
@@ -135,6 +145,7 @@ def main():
             elif method == 'open': open_indexed_file(data.get('path')); value = True
             elif method == 'job': value = jobs.snapshot(data['id'])
             elif method == 'search': value = dict(id=jobs.submit(lambda report: search_operation(data)))
+            elif method == 'remove-file': value = dict(id=jobs.submit(lambda report: remove_file(data)))
             elif method == 'remove-collection': value = dict(id=jobs.submit(lambda report: remove_collection(data)))
             elif method == 'index': value = dict(id=jobs.submit(lambda report: index_operation(data, report)))
             else: raise ValueError('Unknown operation.')

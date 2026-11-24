@@ -62,8 +62,9 @@ test('desktop library, original previews, quick search, and window handoff', { t
     await page.locator('.pdf-page img').waitFor();
     await page.getByRole('button',{name:'Next page',exact:true}).click();
     await page.getByText('Page 2 of 2',{exact:true}).waitFor();
+    const previewPromise=desktop.waitForEvent('window');
     await page.getByRole('button',{name:'Open preview in a new window',exact:true}).click();
-    const preview=await desktop.waitForEvent('window');
+    const preview=await previewPromise;
     await preview.getByText('Page 2 of 2',{exact:true}).waitFor();
     assert.equal(await preview.locator('html').getAttribute('data-theme'),'dark');
     await preview.screenshot({path:'/tmp/recall-desktop-preview.png'});
@@ -74,8 +75,9 @@ test('desktop library, original previews, quick search, and window handoff', { t
     await desktop.evaluate(({BrowserWindow})=>BrowserWindow.getAllWindows().find(win=>win.webContents.getURL().includes('mode=dashboard')).close());
     await expect.poll(()=>desktop.evaluate(({BrowserWindow})=>BrowserWindow.getAllWindows().some(win=>win.isVisible()))).toBe(false);
     // The global shortcut handler must still be usable with the library closed.
+    const launcherPromise=desktop.waitForEvent('window');
     await page.evaluate(()=>window.recall.launcher());
-    const launcher=await desktop.waitForEvent('window');
+    const launcher=await launcherPromise;
     await launcher.locator('.file-row').first().waitFor();
     assert.equal(await launcher.locator('html').getAttribute('data-theme'),'dark');
     await launcher.locator('#preview[aria-busy="false"]').waitFor();

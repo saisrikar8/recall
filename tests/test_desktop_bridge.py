@@ -44,6 +44,28 @@ class DesktopBridgeTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             remove_collection({'collection':str(self.root)})
 
+    def test_file_removal_preserves_original_neighbors_and_collection(self):
+        from src.desktop_bridge import remove_file
+        original = self.file('remove.md', '# Keep original')
+        kept = self.file('keep.md', '# Still searchable')
+        remove_file({'path': str(original)})
+        self.assertEqual(original.read_text(), '# Keep original')
+        self.assertEqual([row['path'] for row in library()['files']], [str(kept)])
+        self.assertEqual(library()['collections'][0]['count'], 1)
+        with self.assertRaises(ValueError):
+            remove_file({'path': str(original)})
+
+    def test_file_removal_allows_missing_original_and_rejects_unindexed_paths(self):
+        from src.desktop_bridge import remove_file
+        missing = self.file('missing.md'); missing.unlink()
+        for raw in (None, '', 'relative.md', str(self.root / 'unindexed.md')):
+            with self.assertRaises(ValueError):
+                remove_file({'path': raw})
+        self.assertEqual(len(library()['files']), 1)
+        remove_file({'path': str(missing)})
+        self.assertEqual(library()['files'], [])
+        self.assertEqual(len(library()['collections']), 1)
+
     def test_rejects_unindexed_and_missing_files(self):
         path = self.root / 'secret.txt'; path.write_text('private')
         with self.assertRaises(ValueError): indexed_path(str(path))

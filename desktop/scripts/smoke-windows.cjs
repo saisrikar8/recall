@@ -47,6 +47,17 @@ const fs=require('node:fs'),os=require('node:os'),path=require('node:path');
   await expect(page.locator('.document')).toContainText('linear algebra');
   await page.locator('#search-input').fill('linear algebra');await page.locator('#search-input').press('Enter');
   await expect(page.locator('#result-count')).toContainText('1',{timeout:120000});
+  console.log('Checking installed app discovery and file removal…');
+  const apps=await page.evaluate(()=>window.recall.searchApps('notepad'));
+  if(!apps.some(app=>/notepad/i.test(app.name)))throw Error('Notepad was not discovered in the Start menu.');
+  await expect(page.locator('#list-heading')).toContainText('SEARCH RESULTS',{timeout:120000});
+  await desktop.evaluate(({dialog})=>{dialog.showMessageBox=async()=>({response:0});});
+  await page.getByRole('button',{name:'Remove file from Recall',exact:true}).click();
+  if((await page.evaluate(()=>window.recall.library())).files.length!==1)throw Error('Cancel removed the file.');
+  await desktop.evaluate(({dialog})=>{dialog.showMessageBox=async()=>({response:1});});
+  await page.getByRole('button',{name:'Remove file from Recall',exact:true}).click();
+  await expect.poll(()=>page.evaluate(async()=>(await window.recall.library()).files.length)).toBe(0);
+  if(!fs.existsSync(path.join(source,'remember.md')))throw Error('Original file was deleted.');
   if(errors.length)throw Error(errors.join('\n'));
   console.log('Installed Windows app: onboarding, indexing, preview and semantic search passed');
  }catch(error){

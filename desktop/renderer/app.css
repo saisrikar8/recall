@@ -197,3 +197,8 @@
 @keyframes ob-spin{to{transform:rotate(360deg)}}
 @media(max-width:760px){.ob-welcome{grid-template-columns:1fr}.ob-illustration{display:none}.ob-body{padding:24px;min-height:320px}.ob-body h1{font-size:36px}.ob-footer,.ob-header{padding:18px 24px}.ob-footer>.muted{max-width:160px}}
 @media(prefers-reduced-motion:reduce){.ob-progress-ring.pending,.ob-progress-ring.pending>span{animation:none}}
+.file-icon.application{background:var(--accent-soft);border-color:var(--line);color:var(--accent)}
+.file-icon.application img{width:32px;height:32px;object-fit:contain}
+.application-preview{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:40px 22px;text-align:center;min-height:300px}
+.application-preview>img,.application-glyph{width:80px;height:80px;object-fit:contain}.application-glyph{display:grid;place-items:center;color:var(--accent)}.application-glyph svg{width:60px;height:60px}
+.application-preview h2{font:normal 26px var(--serif);color:var(--ink);margin:6px 0 0;overflow-wrap:anywhere}.application-preview p{color:var(--muted);margin:0 0 8px}.application-preview>.muted{font-size:11px}

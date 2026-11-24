@@ -33,11 +33,11 @@ const icons = {
 };
 const icon = name => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">${icons[name] || icons.file}</svg>`;
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const state = { files: [], collections: [], results: null, selected: null, query: '', filter: 'all', view: 'home', collection: null, busy: false, indexing: false, revealIndexProgress: false, previewVersion: 0, searchVersion: 0, completedQuery: '', shortcut: null };
+const state = { files: [], collections: [], results: null, selected: null, query: '', filter: 'all', view: 'home', collection: null, busy: false, indexing: false, revealIndexProgress: false, previewVersion: 0, searchVersion: 0, completedQuery: '', appResults: [], appResultsQuery: '', appLookupVersion: 0, appLookupAt: 0, appLookupPending: '', launchingApp: false, shortcut: null };
 const imageTypes = new Set(['.png','.jpg','.jpeg','.webp','.tif','.tiff','.bmp','.gif']);
 const codeTypes = new Set(['.py','.js','.jsx','.mjs','.cjs','.ts','.tsx','.mts','.cts','.java','.go','.rs','.c','.h','.cpp','.cc','.cxx','.hpp','.cs','.rb','.php','.kt','.kts','.swift','.sh','.bash','.lua']);
-function kind(file) { const ext = file.extension || (file.path?.match(/\.[^./]+$/)?.[0] || '').toLowerCase(); return ext === '.pdf' ? 'pdf' : imageTypes.has(ext) ? 'image' : codeTypes.has(ext) ? 'code' : ['.md','.markdown'].includes(ext) ? 'markdown' : 'text'; }
-const fileIcon = file => `<span class="file-icon ${kind(file)}">${icon(kind(file) === 'code' ? 'code' : kind(file) === 'image' ? 'image' : 'file')}</span>`;
+function kind(file) { if(file.kind==='application')return 'application'; const ext = file.extension || (file.path?.match(/\.[^./]+$/)?.[0] || '').toLowerCase(); return ext === '.pdf' ? 'pdf' : imageTypes.has(ext) ? 'image' : codeTypes.has(ext) ? 'code' : ['.md','.markdown'].includes(ext) ? 'markdown' : 'text'; }
+const fileIcon = file => file.kind==='application' ? `<span class="file-icon application">${file.icon?`<img src="${esc(file.icon)}" alt="">`:icon('grid')}</span>` : `<span class="file-icon ${kind(file)}">${icon(kind(file) === 'code' ? 'code' : kind(file) === 'image' ? 'image' : 'file')}</span>`;
 const basename = path => path.split(/[\\/]/).pop();
 function toast(message) { const node = document.querySelector('#toast'); node.textContent = message; node.classList.add('visible'); clearTimeout(toast.timer); toast.timer = setTimeout(() => node.classList.remove('visible'), 5000); }
 function errorMessage(error) { return String(error?.message || error).replace(/^Error invoking remote method '[^']+': Error: /, ''); }
@@ -76,9 +76,9 @@ function shell() {
   }
   if (mode === 'launcher') {
     document.body.classList.add('launcher-mode');
-    app.innerHTML = `<main class="launcher"><form class="launcher-top" id="search-form"><span class="brand-symbol" aria-hidden="true"></span><label class="sr-only" for="search-input">Search your files</label><input id="search-input" placeholder="What are you looking for?" autocomplete="off" autofocus><button type="button" class="icon-btn" data-action="hide" aria-label="Close quick search"><span class="kbd">esc</span></button></form><section class="launcher-content"><div class="launcher-results"><div class="list-header" id="list-heading">YOUR LIBRARY, A THOUGHT AWAY</div><div id="rows"></div></div><section id="preview" class="preview"></section></section><footer class="launcher-foot"><span><span class="kbd">↑</span> <span class="kbd">↓</span> to navigate</span><span><span class="kbd">↵</span> open preview</span><button data-action="dashboard">Open library ${icon('arrow')}</button></footer></main>`;
-    api.onFocus(() => document.querySelector('#search-input').focus());
-    document.querySelector('#search-input').addEventListener('input', event => { state.query = event.target.value; clearTimeout(searchTimer); searchTimer = setTimeout(runSearch, 350); });
+    app.innerHTML = `<main class="launcher"><form class="launcher-top" id="search-form"><span class="brand-symbol" aria-hidden="true"></span><label class="sr-only" for="search-input">Search apps and files</label><input id="search-input" placeholder="What are you looking for?" autocomplete="off" autofocus><button type="button" class="icon-btn" data-action="hide" aria-label="Close quick search"><span class="kbd">esc</span></button></form><section class="launcher-content"><div class="launcher-results"><div class="list-header" id="list-heading">YOUR LIBRARY, A THOUGHT AWAY</div><div id="rows"></div></div><section id="preview" class="preview"></section></section><footer class="launcher-foot"><span><span class="kbd">↑</span> <span class="kbd">↓</span> to navigate</span><span><span class="kbd">↵</span> <span id="enter-hint">open preview</span></span><button data-action="dashboard">Open library ${icon('arrow')}</button></footer></main>`;
+    api.onFocus(() => {document.querySelector('#search-input').focus();lookupApplications();});
+    document.querySelector('#search-input').addEventListener('input', event => { state.query = event.target.value;lookupApplications(); clearTimeout(searchTimer); searchTimer = setTimeout(runSearch, 350); });
   } else {
     app.innerHTML = `<div class="shell"><aside class="sidebar"><div class="brand"><span class="brand-symbol" aria-hidden="true"></span><span class="brand-word">recall</span></div><nav class="nav" aria-label="Main navigation"><button class="nav-item active" data-view="home">${icon('grid')}<span>Overview</span></button><button class="nav-item" data-view="all">${icon('folder')}<span>All files</span><span class="count" id="file-count">0</span></button><button class="nav-item" data-action="focus-search">${icon('search')}<span>Search</span></button></nav><div class="side-label eyebrow">Collections</div><div id="collections" class="side-collections"></div><button class="nav-item" data-action="add-folder">${icon('plus')}<span>Add a folder</span></button><div class="sidebar-bottom">${appearanceControl()}</div></aside><main class="main"><header class="titlebar">Workspace ${icon('chevron')} <span id="breadcrumb">Overview</span><div class="right"><button class="icon-btn" data-action="launcher" aria-label="Open quick search">${icon('search')}</button></div></header><div class="content"><div class="page-head"><div><h1 id="page-title">Your things, found.</h1><p id="page-description">Notes, documents, and code.</p></div><div class="head-actions"><button class="btn" data-action="add-folder">${icon('folder')} Add folder</button><button class="btn primary" data-action="add-files">${icon('plus')} Add files</button></div></div><div id="regular-content"><form class="hero-search" id="search-form">${icon('search')}<label class="sr-only" for="search-input">Search your library</label><input id="search-input" placeholder="A thought, a phrase, that thing you remember…" autocomplete="off"><span class="kbd">↵</span></form><div class="search-note"><span style="margin-left:auto" id="shortcut-hint"></span></div><div id="error"></div><div id="indexing"></div><div id="stats" class="stats"></div><div class="section-head"><h2 id="section-title">Recently added</h2><span class="badge" id="result-count">0 files</span><button class="btn ghost right" data-view="all">View all files ${icon('arrow')}</button></div><div class="filter-bar" id="filters"><button class="filter active" data-filter="all">Everything</button><button class="filter" data-filter="pdf">PDFs</button><button class="filter" data-filter="code">Code</button><button class="filter" data-filter="markdown">Notes</button><button class="filter" data-filter="image">Images</button></div><section class="workspace"><div class="file-list"><div class="list-header" id="list-heading">FILE <span style="margin-left:auto">ADDED TO RECALL</span></div><div class="rows" id="rows"></div></div><section class="preview" id="preview"></section></section></div></div></main></div>`;
   }
@@ -124,7 +124,10 @@ function renderStats() {
   ].map(([glyph,label,value,note]) => `<div class="stat"><div class="stat-top">${glyph}${label}</div><div class="stat-bottom"><span class="stat-number">${value.toLocaleString()}</span><small>${note}</small></div></div>`).join('');
 }
 function currentRows() {
-  return (state.results ?? state.files).filter(file => (state.filter === 'all' || kind(file) === state.filter) && (!state.collection || (file.collection === state.collection)));
+  const files=(state.results ?? state.files).filter(file => (state.filter === 'all' || kind(file) === state.filter) && (!state.collection || (file.collection === state.collection)));
+  if(mode!=='launcher' || !state.query.trim())return files;
+  const query=state.query.trim();
+  return [...(state.appResultsQuery===query?state.appResults:[]),...(state.results!==null&&state.completedQuery===query?files:[])];
 }
 function renderRows() {
   let rows = currentRows();
@@ -135,16 +138,19 @@ function renderRows() {
     document.querySelector('#section-title').textContent = state.results ? 'Found in your library' : state.view === 'home' ? 'Recently added' : 'Your library';
     document.querySelector('#result-count').textContent = `${rows.length} ${state.results ? 'results' : 'files'}`;
   }
-  document.querySelector('#list-heading').innerHTML = state.results ? `SEARCH RESULTS <span style="margin-left:auto">${rows.length} matches</span>` : mode === 'launcher' ? 'PICK UP WHERE YOU LEFT OFF' : 'FILE <span style="margin-left:auto">ADDED TO RECALL</span>';
+  const hasQuery=mode==='launcher'?Boolean(state.query.trim()):Boolean(state.results);
+  const waitingForFiles=mode==='launcher' && hasQuery && !state.appResults.length && (state.completedQuery!==state.query.trim() || state.results===null);
+  document.querySelector('#list-heading').innerHTML = waitingForFiles ? 'SEARCHING YOUR LIBRARY…' : hasQuery ? `SEARCH RESULTS <span style="margin-left:auto">${rows.length} matches</span>` : mode === 'launcher' ? 'PICK UP WHERE YOU LEFT OFF' : 'FILE <span style="margin-left:auto">ADDED TO RECALL</span>';
   if (!rows.length) {
-    document.querySelector('#rows').innerHTML = empty(state.results ? 'Nothing quite yet.' : 'Make room for remembering.', state.results ? 'Try a different description, or check that the file has been added to your library.' : 'Add a few files or a folder. Your notes, code, and documents will be right here.', state.results ? 'search' : 'folder') + (!state.results ? '<div style="text-align:center;margin-bottom:28px"><button class="btn primary" data-action="add-files">Add your first files</button></div>' : '');
+    document.querySelector('#rows').innerHTML = empty(hasQuery ? 'Nothing quite yet.' : 'Make room for remembering.', hasQuery ? mode==='launcher'?'Try an app name, a filename, or a different description.':'Try a different description, or check that the file has been added to your library.' : 'Add a few files or a folder. Your notes, code, and documents will be right here.', hasQuery ? 'search' : 'folder') + (!hasQuery ? '<div style="text-align:center;margin-bottom:28px"><button class="btn primary" data-action="add-files">Add your first files</button></div>' : '');
     state.selected = null; renderPreviewEmpty(); return;
   }
   const selectedIndex = rows.findIndex(row => row.path === state.selected?.path && row.page === state.selected?.page);
   state.selectedIndex = selectedIndex < 0 ? 0 : selectedIndex;
   state.selected = rows[state.selectedIndex];
   const terms = termsFor(state.query);
-  document.querySelector('#rows').innerHTML = rows.map((file,i) => `<button class="file-row ${i === state.selectedIndex ? 'selected' : ''}" data-row="${i}" aria-pressed="${i === state.selectedIndex}" title="${esc(file.path)}">${fileIcon(file)}<div class="row-copy"><div class="row-title">${highlight(file.name && !state.results ? file.name : basename(file.path),terms)}</div>${file.relative_path && file.relative_path !== basename(file.path) ? `<div class="row-path">${esc(file.relative_path.slice(0, -basename(file.path).length).replace(/\/$/, ''))}</div>` : ''}${file.source ? `<div class="row-excerpt">${highlight(file.source.slice(0,260),terms)}</div>` : ''}<div class="row-tags"><span>${file.page ? `Page ${file.page}` : file['start-line'] ? `Line ${file.match_line || file['start-line']}` : niceDate(file.indexed_at)}</span>${file.error ? '<span class="badge">Needs reindexing</span>' : ''}</div></div>${icon('chevron')}</button>`).join('');
+  document.querySelector('#rows').innerHTML = rows.map((file,i) => `<button class="file-row ${i === state.selectedIndex ? 'selected' : ''}" data-row="${i}" aria-pressed="${i === state.selectedIndex}" title="${esc(file.path)}">${fileIcon(file)}<div class="row-copy"><div class="row-title">${highlight(file.kind==='application' || (file.name && !state.results) ? file.name : basename(file.path),terms)}</div>${file.relative_path && file.relative_path !== basename(file.path) ? `<div class="row-path">${esc(file.relative_path.slice(0, -basename(file.path).length).replace(/\/$/, ''))}</div>` : ''}${file.source ? `<div class="row-excerpt">${highlight(file.source.slice(0,260),terms)}</div>` : ''}<div class="row-tags"><span>${file.kind==='application' ? 'Application' : file.page ? `Page ${file.page}` : file['start-line'] ? `Line ${file.match_line || file['start-line']}` : niceDate(file.indexed_at)}</span>${file.error ? '<span class="badge">Needs reindexing</span>' : ''}</div></div>${icon('chevron')}</button>`).join('');
+  const hint=document.querySelector('#enter-hint');if(hint)hint.textContent=state.selected.kind==='application'?'launch app':'open preview';
   if(state.previewData?.path!==state.selected.path || state.previewQuery!==state.query || state.previewIndexedAt!==state.selected.indexed_at)showPreview(state.selected);
 }
 function renderPreviewEmpty() {
@@ -155,6 +161,14 @@ function previewRequest(file, page) { return {path:file.path, query:state.query,
 async function showPreview(file, page) {
   const version = ++state.previewVersion;
   const node = document.querySelector('#preview');
+  if(file.kind==='application'){
+    state.previewData={path:file.path,kind:'application'};state.previewQuery=state.query;state.previewIndexedAt=undefined;
+    node.setAttribute('aria-busy','false');
+    node.innerHTML=`<header class="preview-header">${icon('grid')}<strong>${esc(file.name)}</strong></header><div class="application-preview">${file.icon?`<img src="${esc(file.icon)}" alt="">`:`<span class="application-glyph">${icon('grid')}</span>`}<h2>${esc(file.name)}</h2><p>Installed application</p><button class="btn primary" data-action="launch-app">${icon('external')} Open ${esc(file.name)}</button><span class="muted">Press Enter to launch</span></div>`;
+    const hint=document.querySelector('#enter-hint');if(hint)hint.textContent='launch app';
+    return;
+  }
+  const hint=document.querySelector('#enter-hint');if(hint)hint.textContent='open preview';
   node.setAttribute('aria-busy','true');
   node.innerHTML = `<header class="preview-header">${icon('file')}<strong>${esc(basename(file.path))}</strong><span class="right"><button class="icon-btn" data-action="open-preview" aria-label="Open preview in a new window" title="Open in a new window">${icon('expand')}</button></span></header><div class="preview-body">${empty('A closer look…','Loading the original file.','file')}</div>`;
   try {
@@ -173,7 +187,7 @@ async function showPreview(file, page) {
     } else {
       body = `<div class="code-view">${data.text.split('\n').map((line,i) => {const n = data.first_line+i; return `<div class="code-line ${n === data.match_line ? 'matched' : ''}" ${n === data.match_line ? 'id="match-line"' : ''}><span class="line-number">${n}</span><code>${syntax(line,data.terms)}</code></div>`;}).join('')}</div>`;
     }
-    node.innerHTML = `<header class="preview-header">${icon(data.kind === 'code' ? 'code' : 'file')}<strong>${esc(data.name)}</strong><div class="right">${mode !== 'preview' ? `<button class="icon-btn" data-action="open-preview" title="Open in a new window" aria-label="Open preview in a new window">${icon('expand')}</button>` : ''}<button class="icon-btn" data-action="open-original" title="Open original file" aria-label="Open original file">${icon('external')}</button></div></header><div class="preview-body">${body}</div>${semantic || data.truncated ? `<footer class="preview-footer"><span>${data.truncated ? 'Showing an excerpt around this match' : file.match_type === 'visual' ? 'Visual match' : 'Related passage'}</span></footer>` : ''}`;
+    node.innerHTML = `<header class="preview-header">${icon(data.kind === 'code' ? 'code' : 'file')}<strong>${esc(data.name)}</strong><div class="right">${mode !== 'preview' ? `<button class="icon-btn" data-action="open-preview" title="Open in a new window" aria-label="Open preview in a new window">${icon('expand')}</button>` : ''}<button class="icon-btn" data-action="remove-file" title="Remove from Recall" aria-label="Remove file from Recall">${icon('trash')}</button><button class="icon-btn" data-action="open-original" title="Open original file" aria-label="Open original file">${icon('external')}</button></div></header><div class="preview-body">${body}</div>${semantic || data.truncated ? `<footer class="preview-footer"><span>${data.truncated ? 'Showing an excerpt around this match' : file.match_type === 'visual' ? 'Visual match' : 'Related passage'}</span></footer>` : ''}`;
     node.setAttribute('aria-busy','false');
     if (data.match_line) node.querySelector('#match-line')?.scrollIntoView({block:'center'});
   } catch(error) { if(version === state.previewVersion) { node.innerHTML = empty('Preview unavailable.',errorMessage(error),'file'); node.setAttribute('aria-busy','false'); } }
@@ -210,20 +224,44 @@ async function pollJob(id, onProgress) {
     await new Promise(resolve => setTimeout(resolve,400));
   }
 }
+async function lookupApplications(){
+  if(mode!=='launcher')return;
+  const query=document.querySelector('#search-input').value.trim();
+  if(query===state.appLookupPending || (query===state.appResultsQuery && query && Date.now()-state.appLookupAt<10000))return;
+  const version=++state.appLookupVersion;
+  state.appResults=[];state.appResultsQuery='';state.appLookupPending=query;renderRows();
+  if(!query)return;
+  try{
+    const matches=await api.searchApps(query);
+    if(version===state.appLookupVersion && query===document.querySelector('#search-input').value.trim()){
+      state.appResults=matches;state.appResultsQuery=query;state.appLookupAt=Date.now();renderRows();
+    }
+  }catch(error){if(version===state.appLookupVersion)toast('App search: '+errorMessage(error));}
+  finally{if(version===state.appLookupVersion)state.appLookupPending='';}
+}
+async function launchSelectedApp(){
+  const selected=state.selected;
+  if(selected?.kind!=='application'||state.launchingApp)return;
+  state.launchingApp=true;
+  try{await api.launchApp(selected.id);if(mode==='launcher')await api.hide();}
+  catch(error){toast(errorMessage(error));}
+  finally{state.launchingApp=false;}
+}
 let searchAgain = false;
 async function runSearch() {
   const query = document.querySelector('#search-input').value.trim(); state.query = query;
+  lookupApplications();
   if (state.busy) {searchAgain=true;return;}
   if(state.indexing) {toast('Indexing is in progress. Search will be ready when it finishes.');return;}
   if(!query){state.completedQuery='';state.results=null;renderRows();return;}
   state.busy=true;notifyNavigation();
   const version=++state.searchVersion;
-  document.querySelector('#list-heading').textContent = 'SEARCHING YOUR LIBRARY…';
+  if(!state.appResults.length)document.querySelector('#list-heading').textContent = 'SEARCHING YOUR LIBRARY…';
   try {
     const {id} = await api.search({query,limit:30,threshold:.3,collection:state.collection});
     const result = await pollJob(id);
     if(version === state.searchVersion && query === document.querySelector('#search-input').value.trim()) {state.completedQuery=query;state.results=result;renderRows();}
-  }catch(error){toast(errorMessage(error));document.querySelector('#list-heading').textContent='SEARCH COULD NOT FINISH';}
+  }catch(error){if(query===document.querySelector('#search-input').value.trim()){toast(errorMessage(error));if(!state.appResults.length)document.querySelector('#list-heading').textContent='SEARCH COULD NOT FINISH';}}
   finally {state.busy=false;notifyNavigation();if(searchAgain){searchAgain=false;runSearch();}}
 }
 export function renderIndexProgress(job, current, total, path) {
@@ -327,6 +365,21 @@ function setView(view, collection=null) {
   document.querySelector('#stats').hidden=view!=='home';
   renderRows();
 }
+async function removeSelectedFile() {
+  if(state.indexing || state.busy){toast('Let the current operation finish first.');return;}
+  const file=state.selected;
+  if(!file || file.kind==='application')return;
+  state.busy=true;notifyNavigation();
+  try{
+    const job=await api.removeFile(file.path);if(job.canceled)return;
+    await pollJob(job.id);
+    state.results=null;state.selected=null;state.previewVersion++;
+    if(mode==='preview')document.querySelector('#preview').innerHTML=empty('Removed from Recall.','The original file is still on your laptop.','file');
+    else await refreshLibrary();
+    await api.libraryChanged();toast(`Removed ${basename(file.path)} from Recall.`);
+  }catch(error){toast(errorMessage(error));}
+  finally{state.busy=false;notifyNavigation();}
+}
 async function removeCollection(collection,button) {
   if(state.indexing || state.busy){toast('Let the current operation finish first.');return;}
   if(!collection)return;
@@ -375,7 +428,9 @@ app.addEventListener('click',async event=>{
   const page=event.target.closest('[data-page]');if(page && !page.disabled){showPreview(state.selected,Number(page.dataset.page));return;}
   const action=event.target.closest('[data-action]')?.dataset.action;if(!action)return;
   try{
-    if(action==='add-files')await addSources('files');
+    if(action==='remove-file')await removeSelectedFile();
+    else if(action==='launch-app')await launchSelectedApp();
+    else if(action==='add-files')await addSources('files');
     else if(action==='add-folder')await addSources('folder');
     else if(action==='focus-search')document.querySelector('#search-input').focus();
     else if(action==='launcher')await api.launcher();
@@ -385,7 +440,7 @@ app.addEventListener('click',async event=>{
     else if(action==='open-original' && state.selected)await api.openOriginal({path:state.selected.path});
   }catch(error){toast(errorMessage(error));}
 });
-app.addEventListener('dblclick',event=>{if(event.target.closest('[data-row]') && state.selected)api.openPreview(previewRequest(state.selected)).catch(error=>toast(errorMessage(error)));});
+app.addEventListener('dblclick',event=>{if(event.target.closest('[data-row]') && state.selected){if(state.selected.kind==='application')launchSelectedApp();else api.openPreview(previewRequest(state.selected)).catch(error=>toast(errorMessage(error)));}});
 document.addEventListener('keydown',event=>{
   if(onboarding?.isOpen)return;
   if(event.key==='Escape'){
@@ -393,6 +448,7 @@ document.addEventListener('keydown',event=>{
     else if(state.results){state.results=null;state.query='';const input=document.querySelector('#search-input');if(input)input.value='';renderRows();}
   }
   if(mode==='launcher' && ['ArrowDown','ArrowUp'].includes(event.key) && state.visibleRows?.length){event.preventDefault();state.selectedIndex=Math.max(0,Math.min(state.visibleRows.length-1,state.selectedIndex+(event.key==='ArrowDown'?1:-1)));document.querySelector(`[data-row="${state.selectedIndex}"]`)?.click();document.querySelector(`[data-row="${state.selectedIndex}"]`)?.scrollIntoView({block:'nearest'});}
+  if(mode==='launcher' && event.key==='Enter' && state.selected?.kind==='application' && state.appResultsQuery===document.querySelector('#search-input').value.trim()){event.preventDefault();launchSelectedApp();return;}
   if(mode==='launcher' && event.key==='Enter' && state.selected && !state.busy && document.querySelector('#search-input').value.trim() === state.completedQuery){event.preventDefault();api.openPreview(previewRequest(state.selected)).catch(error=>toast(errorMessage(error)));}
 });
 shell();
@@ -403,12 +459,13 @@ api?.onLibraryChanged(()=>{
   if(mode==='preview'){
     if(state.selected)api.library().then(library=>{
       const entry=library.files.find(file=>file.path===state.selected.path);
-      if(!entry || (state.previewIndexedAt && entry.indexed_at!==state.previewIndexedAt))showPreview(state.selected);
+      if(!entry){state.previewVersion++;state.selected=null;document.querySelector('#preview').innerHTML=empty('File is no longer in Recall.','The original file has not been changed.','file');return;}
+      if((state.previewIndexedAt && entry.indexed_at!==state.previewIndexedAt))showPreview(state.selected);
       if(entry)state.previewIndexedAt=entry.indexed_at;
     }).catch(error=>toast(errorMessage(error)));
     return;
   }
-  state.results=null;state.previewVersion++;
+  state.results=null;state.previewVersion++;state.searchVersion++;
   refreshLibrary();
 });
 connectAppearance();

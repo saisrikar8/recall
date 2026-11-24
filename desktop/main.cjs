@@ -1,14 +1,16 @@
-const { app, BrowserWindow, ipcMain, dialog, globalShortcut, Menu, Tray, nativeImage, session } = require('electron');
+const { app, BrowserWindow, ipcMain, dialog, globalShortcut, Menu, Tray, nativeImage, session, shell } = require('electron');
 const { spawn } = require('node:child_process');
 const path = require('node:path');
 const fs = require('node:fs');
 const { menuTemplate } = require('./menu.cjs');
 const { engineLaunch } = require('./runtime.cjs');
+const { createApplicationCatalog } = require('./applications.cjs');
 const { setDevelopmentLogin } = require('./login.cjs');
 const readline = require('node:readline');
 const { pathToFileURL } = require('node:url');
 const root = path.resolve(__dirname, '..');
 const page = path.join(__dirname, 'renderer/index.html');
+const applications = createApplicationCatalog({openPath: target => shell.openPath(target)});
 app.setName('Recall');
 if (process.env.RECALL_DESKTOP_USER_DATA) {
   fs.mkdirSync(process.env.RECALL_DESKTOP_USER_DATA, { recursive: true });
@@ -192,11 +194,24 @@ else {
       navigation = { collection: typeof value?.collection === 'string' ? value.collection : null,
         busy: Boolean(value?.busy), indexing: Boolean(value?.indexing), onboarding: Boolean(value?.onboarding) }; updateMenus();
     });
+    handle('search-apps', (_, query) => applications.search(query));
+    handle('launch-app', (_, id) => applications.launch(id));
+    applications.refresh().catch(error => console.warn('Application catalog unavailable:',error.message));
     handle('engine-status', () => backend('engine-status'));
     handle('library', () => backend('library'));
     handle('search', (_, data) => backend('search', data));
     handle('job', (_, id) => backend('job', { id }));
     handle('preview', (_, data) => backend('preview', data));
+    handle('remove-file', async (event, file) => {
+      if (typeof file !== 'string' || !path.isAbsolute(file)) throw new Error('Select an indexed file.');
+      const confirmation = await dialog.showMessageBox(BrowserWindow.fromWebContents(event.sender), {
+        type: 'question', title: 'Remove file', message: `Remove “${path.basename(file)}” from Recall?`,
+        detail: `Its search index will be removed. The original file stays on disk.\n\n${file}\n\nIndexing its folder again will add it back.`,
+        buttons: ['Cancel', 'Remove from Recall'], defaultId: 0, cancelId: 0, noLink: true
+      });
+      if (confirmation.response !== 1) return { canceled: true };
+      return backend('remove-file', { path: file });
+    });
     handle('remove-collection', async (event, root) => {
       if (typeof root !== 'string' || !root.trim()) throw new Error('Select a collection.');
       const confirmation = await dialog.showMessageBox(BrowserWindow.fromWebContents(event.sender), {
