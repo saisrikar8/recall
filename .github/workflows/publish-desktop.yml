@@ -62,7 +62,9 @@ jobs:
           npm --prefix desktop run check
           npm --prefix desktop run test:runtime
       - name: Build Mac installer
-        run: env -u GH_TOKEN npm --prefix desktop run dist:mac -- --publish never
+        run: |
+          ulimit -n 65536
+          env -u GH_TOKEN npm --prefix desktop run dist:mac -- --publish never
       - name: Verify packaged runtime and signature
         run: |
           codesign --verify --deep --strict dist/mac/mac-arm64/Recall.app
